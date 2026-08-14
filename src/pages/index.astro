@@ -1,17 +1,1643 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { projects } from "../data/projects";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Tun Sopheak — Personal Developer Portfolio">
+  <!-- ============================================ -->
+  <!-- HERO SECTION                                 -->
+  <!-- ============================================ -->
+  <section id="hero" class="min-h-screen flex items-center py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- ===== LEFT COLUMN: TEXT ===== -->
+        <div>
+          <!-- Open to Work Badge -->
+          <div class="flex justify-start mb-4">
+            <span
+              class="inline-flex items-center gap-2 bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300 px-4 py-1.5 rounded-full text-sm font-medium border border-green-300 dark:border-green-700"
+            >
+              <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"
+              ></span>
+              Open to Work
+            </span>
+          </div>
+
+          <!-- Greeting -->
+          <p class="text-lg text-text-secondary mb-1">Hello, I'm</p>
+
+          <!-- Name -->
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary"
+          >
+            Tun Sopheak
+          </h1>
+
+          <!-- Typewriter Role -->
+          <div class="mt-2">
+            <span class="text-xl md:text-2xl font-medium text-primary">
+              <span id="typed-role"></span>
+              <span class="cursor-blink">|</span>
+            </span>
+          </div>
+
+          <!-- Tagline -->
+          <p
+            class="text-base md:text-lg text-text-secondary mt-4 max-w-xl leading-relaxed"
+          >
+            Turning ideas into functional web applications with clean code,
+            modern tools, and a focus on real-world impact.
+          </p>
+
+          <!-- Education / Location -->
+          <p class="text-sm text-text-secondary mt-3">
+            Computer Science Student at RUPP · Phnom Penh, Cambodia
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4 mt-7">
+            <a
+              href="#projects"
+              class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-hover transition"
+            >
+              View Projects
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+
+            <a
+              href="/assets/files/Tun_Sopheak - Curriculum_Vitae - Full_Stack_Developer.pdf"
+              download
+              class="inline-flex items-center gap-2 border-2 border-primary text-primary dark:text-primary dark:border-primary px-6 py-3 rounded-lg font-medium hover:bg-primary/10 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"></path>
+              </svg>
+              Download CV
+            </a>
+          </div>
+
+          <!-- Social Icons -->
+          <div class="flex items-center gap-6 mt-8">
+            <!-- GitHub -->
+            <a
+              href="https://github.com/TunSopheak"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-secondary hover:text-primary transition"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
+                    0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41
+                    -.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795
+                    .945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305
+                    3.495.99.105-.78.42-1.305.765-1.605
+                    -2.67-.3-5.46-1.335-5.46-5.925
+                    0-1.305.465-2.385 1.23-3.225
+                    -.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23
+                    .96-.27 1.98-.405 3-.405s2.04.135 3 .405
+                    c2.295-1.56 3.3-1.23 3.3-1.23
+                    .66 1.62.24 2.85.12 3.15
+                    .765.84 1.23 1.905 1.23 3.225
+                    0 4.605-2.805 5.625-5.475 5.925
+                    .435.375.81 1.095.81 2.22
+                    0 1.605-.015 2.895-.015 3.3
+                    0 .315.225.69.825.57
+                    A12.02 12.02 0 0024 12
+                    c0-6.63-5.37-12-12-12z"
+                ></path>
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/tun-sopheak"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-secondary hover:text-primary transition"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037
+                    -1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414
+                    v1.561h.046c.477-.9 1.637-1.85 3.37-1.85
+                    3.601 0 4.267 2.37 4.267 5.455v6.286z
+                    M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065
+                    0-1.138.92-2.063 2.063-2.063
+                    1.14 0 2.064.925 2.064 2.063
+                    0 1.139-.925 2.065-2.064 2.065z
+                    m1.782 13.019H3.555V9h3.564v11.452z
+                    M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542
+                    C0 23.227.792 24 1.771 24h20.451
+                    C23.2 24 24 23.227 24 22.271V1.729
+                    C24 .774 23.2 0 22.222 0h.003z"
+                ></path>
+              </svg>
+            </a>
+
+            <!-- Email -->
+            <a
+              href="mailto:sopheaktun.tsp@gmail.com"
+              class="text-text-secondary hover:text-primary transition"
+              aria-label="Email"
+              title="Email"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="M22 7l-10 7L2 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ===== RIGHT COLUMN: PROFILE PHOTO ===== -->
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative">
+            <!-- Profile Image -->
+            <img
+              src="/assets/images/tun-sopheak-profile.jpg"
+              alt="Tun Sopheak profile photo"
+              class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary shadow-xl hover:shadow-2xl transition-shadow duration-300"
+            />
+            <div
+              class="absolute -inset-1 rounded-full border-2 border-primary/20 -z-10"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ABOUT ME SECTION                             -->
+  <!-- ============================================ -->
+  <section id="about" class="py-20 bg-soft-bg transition-colors duration-300">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading (With Blue Underline) -->
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-text-primary inline-block"
+        >
+          About Me
+        </h2>
+        <div class="h-1.5 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <!-- Flex Wrapper: Card and Image side-by-side -->
+      <div class="flex flex-col md:flex-row gap-8 md:gap-12 mt-6 items-center">
+        <!-- Left Side: The "Card" (Text & Stats) -->
+        <div
+          class="flex-1 w-full bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 p-6 md:p-8 rounded-3xl shadow-2xl relative overflow-hidden"
+        >
+          <div
+            class="space-y-5 text-text-secondary text-base md:text-lg leading-relaxed"
+          >
+            <p>
+              I'm Sopheak, a fourth-year Computer Science student at RUPP,
+              originally from Siem Reap and now living in Phnom Penh for
+              university. I'm interested in full-stack web development and enjoy
+              learning how frontend, backend, and APIs come together to turn
+              ideas into working applications.
+            </p>
+
+            <p>
+              I've worked on projects ranging from e-commerce interfaces to an
+              AI-powered classroom monitoring system, while building my
+              foundations in web development, backend development, and
+              databases. I'm currently exploring Astro and continuing to grow
+              through new projects and hands-on learning.
+            </p>
+
+            <p>
+              I'm still learning, but that's exactly what keeps me excited about
+              development.
+            </p>
+          </div>
+
+          <!-- Stats Row (Refined & Smaller) -->
+          <div
+            class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-500/20 text-center pt-5 mt-5 border-t border-gray-500/20 w-full"
+          >
+            <div class="flex-1 py-2 md:py-1 px-3">
+              <p class="text-2xl md:text-3xl font-bold text-primary">
+                4th Year
+              </p>
+              <p
+                class="text-xs md:text-xs uppercase tracking-wider text-text-secondary/70 font-medium mt-0.5"
+              >
+                CS STUDENT
+              </p>
+            </div>
+            <div class="flex-1 py-2 md:py-1 px-3">
+              <p class="text-2xl md:text-3xl font-bold text-primary">
+                <span id="project-count">0</span>+
+              </p>
+              <p
+                class="text-xs md:text-xs uppercase tracking-wider text-text-secondary/70 font-medium mt-0.5"
+              >
+                PROJECTS
+              </p>
+            </div>
+            <div class="flex-1 py-2 md:py-1 px-3">
+              <p class="text-2xl md:text-3xl font-bold text-primary">Astro</p>
+              <p
+                class="text-xs md:text-xs uppercase tracking-wider text-text-secondary/70 font-medium mt-0.5"
+              >
+                CURRENT FOCUS
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Profile Photo -->
+        <div
+          class="w-full md:w-5/12 shrink-0 flex justify-center md:justify-end"
+        >
+          <div class="relative w-full max-w-sm md:max-w-full group">
+            <img
+              src="/assets/images/sopheak-dream-img.png"
+              alt="Tun Sopheak"
+              class="w-full h-auto rounded-2xl shadow-2xl object-cover object-top ring-2 ring-primary/20 transition-all duration-300 group-hover:ring-4 group-hover:ring-primary/40"
+            />
+
+            <!-- Mr. Sterling Badge -->
+            <div
+              class="absolute -bottom-4 right-4 bg-white dark:bg-gray-800 backdrop-blur-md px-4 py-2 rounded-full shadow-xl border border-white/30 dark:border-gray-700/50 flex items-center gap-2.5 transition-transform duration-300 hover:scale-105"
+            >
+              <span
+                class="text-sm font-semibold text-gray-800 dark:text-white tracking-wide"
+                >Mr. Sterling</span
+              >
+              <!-- Icon (Star/Sparkle) -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-yellow-500 dark:text-yellow-400 animate-pulse"
+              >
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SKILLS SECTION                               -->
+  <!-- ============================================ -->
+  <section id="skills" class="py-20 bg-soft-bg transition-colors duration-300">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading -->
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-text-primary inline-block"
+        >
+          My Skills
+        </h2>
+        <div class="h-1.5 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <!-- 6-Card Grid (2 rows of 3 on desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- ============================== -->
+        <!-- CARD 1: FRONTEND              -->
+        <!-- ============================== -->
+        <div
+          class="p-5 rounded-2xl border border-white/10 dark:border-gray-700/30 bg-white/5 dark:bg-black/30 backdrop-blur-sm shadow-xl"
+        >
+          <div
+            class="flex justify-between items-center mb-4 border-b border-white/10 dark:border-gray-700/30 pb-3"
+          >
+            <h3 class="text-lg font-semibold text-primary">Frontend</h3>
+            <span
+              class="text-xs font-bold text-primary/80 bg-primary/10 px-2 py-0.5 rounded-full"
+              >5</span
+            >
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <!-- HTML -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                alt="HTML"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium">HTML</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- CSS -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                alt="CSS"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium">CSS</span>
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- JavaScript -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                alt="JavaScript"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium">JS</span>
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- Tailwind -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                alt="Tailwind"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >Tailwind</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- Astro -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg"
+                alt="Astro"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >Astro</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CARD 2: BACKEND               -->
+        <!-- ============================== -->
+        <div
+          class="p-5 rounded-2xl border border-white/10 dark:border-gray-700/30 bg-white/5 dark:bg-black/30 backdrop-blur-sm shadow-xl"
+        >
+          <div
+            class="flex justify-between items-center mb-4 border-b border-white/10 dark:border-gray-700/30 pb-3"
+          >
+            <h3 class="text-lg font-semibold text-primary">Backend</h3>
+            <span
+              class="text-xs font-bold text-primary/80 bg-primary/10 px-2 py-0.5 rounded-full"
+              >5</span
+            >
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <!-- Java -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+                alt="Java"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium">Java</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- Python -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                alt="Python"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >Python</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+            <!-- FastAPI -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"
+                alt="FastAPI"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >FastAPI</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+            <!-- Node.js -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+                alt="Node.js"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >Node.js</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+            <!-- REST APIs -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <span
+                class="text-2xl mb-1.5 group-hover:scale-110 transition-transform duration-300"
+                >🔗</span
+              >
+              <span class="text-[11px] text-text-primary font-medium"
+                >REST APIs</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-sky-400/20 bg-sky-400/10 text-sky-400"
+                >Lrn-Int</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CARD 3: DATABASE              -->
+        <!-- ============================== -->
+        <div
+          class="p-5 rounded-2xl border border-white/10 dark:border-gray-700/30 bg-white/5 dark:bg-black/30 backdrop-blur-sm shadow-xl"
+        >
+          <div
+            class="flex justify-between items-center mb-4 border-b border-white/10 dark:border-gray-700/30 pb-3"
+          >
+            <h3 class="text-lg font-semibold text-primary">Database</h3>
+            <span
+              class="text-xs font-bold text-primary/80 bg-primary/10 px-2 py-0.5 rounded-full"
+              >2</span
+            >
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <!-- PostgreSQL -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                alt="PostgreSQL"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >PostgreSQL</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- SQL -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg"
+                alt="SQL"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium">SQL</span>
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CARD 4: MOBILE                -->
+        <!-- ============================== -->
+        <div
+          class="p-5 rounded-2xl border border-white/10 dark:border-gray-700/30 bg-white/5 dark:bg-black/30 backdrop-blur-sm shadow-xl"
+        >
+          <div
+            class="flex justify-between items-center mb-4 border-b border-white/10 dark:border-gray-700/30 pb-3"
+          >
+            <h3 class="text-lg font-semibold text-primary">Mobile</h3>
+            <span
+              class="text-xs font-bold text-primary/80 bg-primary/10 px-2 py-0.5 rounded-full"
+              >2</span
+            >
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <!-- Dart -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg"
+                alt="Dart"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium">Dart</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-sky-400/20 bg-sky-400/10 text-sky-400"
+                >Lrn-Int</span
+              >
+            </div>
+            <!-- Flutter -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"
+                alt="Flutter"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >Flutter</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CARD 5: TOOLS                 -->
+        <!-- ============================== -->
+        <div
+          class="p-5 rounded-2xl border border-white/10 dark:border-gray-700/30 bg-white/5 dark:bg-black/30 backdrop-blur-sm shadow-xl"
+        >
+          <div
+            class="flex justify-between items-center mb-4 border-b border-white/10 dark:border-gray-700/30 pb-3"
+          >
+            <h3 class="text-lg font-semibold text-primary">Tools</h3>
+            <span
+              class="text-xs font-bold text-primary/80 bg-primary/10 px-2 py-0.5 rounded-full"
+              >5</span
+            >
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <!-- Git -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                alt="Git"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium">Git</span>
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- GitHub -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                alt="GitHub"
+                class="w-7 h-7 mb-1.5 dark:invert group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >GitHub</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- Figma -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+                alt="Figma"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >Figma</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- VS Code -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+                alt="VS Code"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >VS Code</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-green-400/20 bg-green-400/10 text-green-400"
+                >Inter</span
+              >
+            </div>
+            <!-- Docker -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+                alt="Docker"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >Docker</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- CARD 6: CURRENTLY LEARNING    -->
+        <!-- ============================== -->
+        <div
+          class="p-5 rounded-2xl border border-white/10 dark:border-gray-700/30 bg-white/5 dark:bg-black/30 backdrop-blur-sm shadow-xl relative overflow-hidden"
+        >
+          <!-- Visual Accent for Learning -->
+          <div
+            class="absolute top-0 right-0 w-16 h-16 bg-yellow-500/10 rounded-bl-full pointer-events-none"
+          >
+          </div>
+
+          <div
+            class="flex justify-between items-center mb-4 border-b border-white/10 dark:border-gray-700/30 pb-3"
+          >
+            <h3
+              class="text-lg font-semibold text-yellow-400 dark:text-yellow-400"
+            >
+              Currently Learning
+            </h3>
+            <span
+              class="text-xs font-bold text-yellow-400/80 bg-yellow-400/10 px-2 py-0.5 rounded-full"
+              >3</span
+            >
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <!-- React -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                alt="React"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >React</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+            <!-- TypeScript -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                alt="TypeScript"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >TypeScript</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+            <!-- Node.js -->
+            <div
+              class="flex flex-col items-center justify-center p-3 rounded-xl bg-black/20 dark:bg-black/40 border border-white/5 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-default"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+                alt="Node.js"
+                class="w-7 h-7 mb-1.5 group-hover:scale-110 transition-transform duration-300"
+              />
+              <span class="text-[11px] text-text-primary font-medium"
+                >Node.js</span
+              >
+              <span
+                class="mt-1 text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-400"
+                >Learn</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PROJECTS SECTION (DATA-DRIVEN)               -->
+  <!-- ============================================ -->
+  <section id="projects" class="py-20 bg-soft-bg transition-colors duration-300">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading -->
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-text-primary inline-block"
+        >
+          Featured Projects
+        </h2>
+        <div class="h-1.5 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+        <p class="text-text-secondary text-base mt-4 max-w-2xl mx-auto">
+          A selection of my recent works, ranging from full-stack applications to specialized web interfaces.
+        </p>
+      </div>
+
+      <!-- Projects Grid (First 3 projects) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {projects.slice(0, 3).map((project) => (
+                    <div class="group bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 rounded-2xl p-4 md:p-5 shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:border-primary/40 transition-all duration-300 flex flex-col gap-4">
+            
+            <!-- Thumbnail Image -->
+            <div class="relative aspect-[16/10] bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl overflow-hidden shrink-0">
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              />
+              <div class="hidden absolute inset-0 flex items-center justify-center text-primary/40">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex flex-col flex-1 gap-3">
+              <div>
+                <h3 class="text-xl font-bold text-text-primary leading-tight">{project.title}</h3>
+                <p class="text-sm text-primary/80 font-medium mt-1">{project.year}</p>
+              </div>
+              
+              <p class="text-text-secondary text-sm leading-relaxed flex-1">
+                {project.description}
+              </p>
+
+              <!-- Tech Stack Badges -->
+              <div class="flex flex-wrap gap-2">
+                {project.tags.slice(0, 3).map((tag) => (
+                  <span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-medium text-primary ring-1 ring-inset ring-primary/20">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- View Details Button (Fixed single border) -->
+              <div class="flex items-center gap-4 mt-4 pt-4 border-t border-white/10 dark:border-gray-700/30">
+                <a href={`/projects/${project.id}`} class="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-white px-6 py-2.5 text-sm font-medium hover:bg-primary-hover shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 group">
+                  View Details
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+                {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-sm text-text-secondary/70 hover:text-primary transition">GitHub</a>}
+                {project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" class="text-sm text-text-secondary/70 hover:text-primary transition">Live Demo</a>}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- View All Projects Button -->
+      <div class="text-center mt-12">
+        <a href="/projects/" class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-medium hover:bg-primary-hover transition shadow-lg">
+          View All Projects
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- EDUCATION SECTION                            -->
+  <!-- ============================================ -->
+  <section
+    id="education"
+    class="py-20 bg-soft-bg transition-colors duration-300"
+  >
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading -->
+      <div class="text-center mb-14">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-text-primary inline-block"
+        >
+          My Education Journey
+        </h2>
+        <div class="h-1.5 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <!-- Left-Aligned Timeline Structure -->
+      <div class="relative mt-6 md:mt-8">
+        <!-- Center Vertical Line (Hidden on Mobile) -->
+        <div
+          class="absolute left-[21px] md:left-1/2 top-8 bottom-8 w-[2px] bg-gradient-to-b from-transparent via-primary/30 to-transparent -translate-x-1/2 hidden md:block z-0"
+        >
+        </div>
+
+        <div class="flex flex-col gap-14 md:gap-20">
+          <!-- ============================================ -->
+          <!-- STEP 1: B.S. COMPUTER SCIENCE (LEFT) - ACTIVE-->
+          <!-- ============================================ -->
+          <div class="relative flex w-full md:justify-start">
+            <!-- Desktop Dot (z-0 ensures it stays behind the sticky navbar) -->
+            <div
+              class="absolute left-[21px] md:left-1/2 top-2 -translate-x-1/2 z-0 hidden md:flex flex-col items-center"
+            >
+              <div
+                class="w-5 h-5 rounded-full border-2 border-primary bg-soft-bg shadow-[0_0_20px_rgba(99,102,241,0.5)] animate-pulse flex items-center justify-center"
+              >
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- The Card -->
+            <div class="w-full pl-14 md:pl-0 md:w-[48%] md:mr-auto">
+              <div
+                class="relative w-full bg-gradient-to-r from-primary/10 to-transparent border border-primary/40 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-start gap-4 overflow-hidden group"
+              >
+                <!-- Icon Box: Custom University Cap SVG -->
+                <div
+                  class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-blue-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1.5"
+                >
+                  <svg
+                    class="w-full h-full"
+                    viewBox="0 0 122.88 73.27"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M104.27,58.88l-0.54-19.99l-32.85,9.49c-2.96,0.65-5.88,0.96-8.74,0.97c-3.07,0.01-6.09-0.32-9.06-0.97 L21.7,38.79v20.27c0.9,10.53,31.11,13.75,40.38,14.19c7.43,0.36,36.78-3.52,40.64-9.57C103.55,62.36,104.07,60.76,104.27,58.88 L104.27,58.88z M117.58,24.5v24.43h0.77c0.53,0,0.96,0.43,0.96,0.96v6.57c0,0.52-0.43,0.96-0.96,0.96h-0.77v2.3 c0.98,0.18,1.73,1.05,1.73,2.08v0c0,1.16-0.96,2.12-2.12,2.12h-3.79c-1.16,0-2.12-0.95-2.12-2.12v0c0-1.03,0.75-1.9,1.73-2.08v-2.3 h-0.77c-0.52,0-0.96-0.43-0.96-0.96v-6.57c0-0.53,0.43-0.96,0.96-0.96h0.77v-23L73.03,38.35c-7.24,1.72-14.48,1.84-21.72,0 L7.18,25.18l-3.99-1.19c-4.97-2.03-3.73-6.8,0.9-7.9L54,1.19c5.15-1.47,10.29-1.7,15.44,0l49.01,14.72 c5.33,1.3,6.38,6.23,0.18,8.26L117.58,24.5L117.58,24.5z"
+                    ></path>
+                  </svg>
+                </div>
+
+                <!-- Header: Date + Active Badge -->
+                <div
+                  class="w-full flex flex-wrap items-center justify-between gap-2"
+                >
+                  <p class="text-sm font-semibold text-primary tracking-wide">
+                    2023 – 2027
+                  </p>
+                  <span
+                    class="inline-flex items-center gap-1.5 rounded-full bg-green-500/20 border border-green-500/30 px-3 py-1 text-[11px] font-bold text-green-400 shadow-[0_0_10px_rgba(74,222,128,0.2)]"
+                  >
+                    <span
+                      class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"
+                    ></span> Active
+                  </span>
+                </div>
+
+                <!-- Details -->
+                <div>
+                  <h3 class="text-xl font-bold text-text-primary">
+                    B.S. Computer Science
+                  </h3>
+                  <p class="text-text-secondary font-medium text-base mt-1">
+                    Royal University of Phnom Penh (RUPP)
+                  </p>
+                  <div
+                    class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-3.5 h-3.5 text-primary/80"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+                    >
+                    <span>Phnom Penh, Cambodia</span>
+                  </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-1">
+                  <span
+                    class="inline-flex items-center gap-1 rounded-full bg-green-400/10 px-3 py-1 text-[11px] font-medium text-green-400 ring-1 ring-inset ring-green-400/20"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-3 h-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path></svg
+                    >
+                    GPA: 3.70 / 4.00
+                  </span>
+                  <span
+                    class="inline-flex items-center gap-1 rounded-full bg-blue-400/10 px-3 py-1 text-[11px] font-medium text-blue-400 ring-1 ring-inset ring-blue-400/20"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-3 h-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg
+                    >
+                    Full Stack Track
+                  </span>
+                </div>
+
+                <!-- Description -->
+                <p
+                  class="text-sm text-text-secondary/80 leading-relaxed mt-1 border-t border-white/5 dark:border-gray-700/20 pt-3 w-full"
+                >
+                  Studied software development, web technologies, databases,
+                  networking, mobile apps, and system analysis.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- STEP 2: SECONDARY EDUCATION (RIGHT)          -->
+          <!-- ============================================ -->
+          <div class="relative flex w-full md:justify-end">
+            <!-- Desktop Dot (z-0) -->
+            <div
+              class="absolute left-[21px] md:left-1/2 top-2 -translate-x-1/2 z-0 hidden md:flex flex-col items-center"
+            >
+              <div
+                class="w-5 h-5 rounded-full border-2 border-primary/30 bg-soft-bg flex items-center justify-center"
+              >
+                <div class="w-2 h-2 bg-primary/40 rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- The Card -->
+            <div class="w-full pl-14 md:pl-0 md:w-[48%] md:ml-auto">
+              <div
+                class="w-full bg-white/5 dark:bg-black/30 border border-white/10 dark:border-gray-700/30 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 flex flex-col items-start gap-4 group"
+              >
+                <!-- Icon Box: Custom Complex School SVG -->
+                <div
+                  class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-500 shadow-lg shadow-purple-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1"
+                >
+                  <svg
+                    class="w-full h-full"
+                    viewBox="0 0 95.97 122.88"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs
+                      ><style>
+                        .cls-1 {
+                          fill-rule: evenodd;
+                        }
+                      </style></defs
+                    >
+                    <title>school</title>
+                    <path
+                      class="cls-1"
+                      d="M51.63,3.48c9.14-6.32,9.83,6.19,18.81-1.62V14.61C61.87,22.31,60,9.86,51.63,16.19V3.48ZM47.29,0h1.39a1.26,1.26,0,0,1,1.26,1.26V19.88a1.24,1.24,0,0,1,0,.27L73.44,33.64V45H88.11A7.87,7.87,0,0,1,96,52.84v68.24a1.8,1.8,0,0,1-1.8,1.8H1.8a1.81,1.81,0,0,1-1.8-1.8V52.84a7.82,7.82,0,0,1,2.31-5.55h0A7.85,7.85,0,0,1,7.86,45H22.54V33.64L46.06,20.15a1.12,1.12,0,0,1,0-.27V1.26A1.27,1.27,0,0,1,47.29,0ZM46.13,29.75a1.41,1.41,0,0,1,2.81,0v5.42h4A1.41,1.41,0,0,1,53,38H47.53a1.41,1.41,0,0,1-1.4-1.41V29.75ZM48,25.44A9.55,9.55,0,1,1,38.43,35,9.54,9.54,0,0,1,48,25.44ZM36.05,119.18v.09H59.93V89a13.4,13.4,0,0,0-3.47-9.23,11.75,11.75,0,0,0-16.93,0A13.4,13.4,0,0,0,36.05,89v30.19Zm-3.61.09V89a17,17,0,0,1,4.46-11.7,15.32,15.32,0,0,1,22.17,0A17,17,0,0,1,63.53,89v30.28H92.37V52.84a4.29,4.29,0,0,0-4.26-4.26H7.86a4.23,4.23,0,0,0-3,1.25h0a4.21,4.21,0,0,0-1.24,3v66.43ZM8.66,105.46h7.61v5.92H8.66v-5.92Zm0-12.24h7.61v5.92H8.66V93.22ZM8.66,81h7.61v5.92H8.66V81Zm11.78,24.49h7.62v5.92H20.44v-5.92Zm0-12.24h7.62v5.92H20.44V93.22Zm0-12.25h7.62v5.92H20.44V81Zm47.47,24.49h7.62v5.92H67.91v-5.92Zm0-12.24h7.62v5.92H67.91V93.22Zm0-12.25h7.62v5.92H67.91V81ZM79.7,105.46h7.62v5.92H79.7v-5.92Zm0-12.24h7.62v5.92H79.7V93.22ZM79.7,81h7.62v5.92H79.7V81ZM21.09,59.7c-1.81-.19-3.13-.29-3.95-.29a7.34,7.34,0,0,0-1.44.07.26.26,0,0,0-.2.28.35.35,0,0,0,.23.32,9.22,9.22,0,0,0,1.46.39c.81.18,1.48.36,2,.53a5,5,0,0,1,1.41.73,2.25,2.25,0,0,1,.83,1.16,6.9,6.9,0,0,1,.2,1.84,4.12,4.12,0,0,1-1.27,3.41,6.07,6.07,0,0,1-3.84,1A21.62,21.62,0,0,1,13.93,69c-.9-.12-1.6-.23-2.09-.35l-.75-.17.19-3.41a35.74,35.74,0,0,0,4.84.42c.67,0,1-.15,1-.44,0-.13-.08-.22-.23-.28a8.06,8.06,0,0,0-1.25-.24A7.38,7.38,0,0,1,12,63.2a3.84,3.84,0,0,1-1-2.94c0-1.74.42-2.93,1.25-3.57a6.34,6.34,0,0,1,3.86-1,30.38,30.38,0,0,1,4.3.36l.81.14-.12,3.47Zm11.77,8.94a17.14,17.14,0,0,1-4.18.5,7.11,7.11,0,0,1-3.29-.61,3.47,3.47,0,0,1-1.67-2,12.76,12.76,0,0,1-.51-4.1q0-3.84,1.18-5.26c.79-.94,2.3-1.41,4.52-1.41a17.2,17.2,0,0,1,3.28.38l.67.14-.11,3.45a24,24,0,0,0-2.92-.19c-.9,0-1.47.17-1.73.51a3.93,3.93,0,0,0-.38,2.11,9.1,9.1,0,0,0,.18,2.21,1.23,1.23,0,0,0,.59.82,3.06,3.06,0,0,0,1.31.2l3-.11,0,3.39Zm8.88.25V64.38H39.22v4.51H34.75V56h4.47v4.76h2.52V56h4.48V68.89Zm10.91-6.46A6.42,6.42,0,0,0,53,64.8a1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11Zm6.16,0a6.42,6.42,0,0,0,.32,2.37,1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11ZM85,68.89H76.31V56h4.47v9.27H85v3.64Z"
+                    ></path>
+                  </svg>
+                </div>
+
+                <!-- Header: Date -->
+                <p class="text-sm font-semibold text-primary tracking-wide">
+                  2017 – 2023
+                </p>
+
+                <!-- Details -->
+                <div>
+                  <h3 class="text-xl font-bold text-text-primary">
+                    Secondary Education
+                  </h3>
+                  <p class="text-text-secondary font-medium text-base mt-1">
+                    Svay Leu High School
+                  </p>
+                  <div
+                    class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-3.5 h-3.5 text-primary/80"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+                    >
+                    <span>Siem Reap, Cambodia</span>
+                  </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-1">
+                  <span
+                    class="inline-flex items-center rounded-full bg-indigo-400/10 px-3 py-1 text-[11px] font-medium text-indigo-400 ring-1 ring-inset ring-indigo-400/20"
+                    >Secondary Diploma</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ============================================ -->
+          <!-- STEP 3: PRIMARY EDUCATION (LEFT)             -->
+          <!-- ============================================ -->
+          <div class="relative flex w-full md:justify-start">
+            <!-- Desktop Dot (z-0) -->
+            <div
+              class="absolute left-[21px] md:left-1/2 top-2 -translate-x-1/2 z-0 hidden md:flex flex-col items-center"
+            >
+              <div
+                class="w-5 h-5 rounded-full border-2 border-primary/30 bg-soft-bg flex items-center justify-center"
+              >
+                <div class="w-2 h-2 bg-primary/40 rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- The Card -->
+            <div class="w-full pl-14 md:pl-0 md:w-[48%] md:mr-auto">
+              <div
+                class="w-full bg-white/5 dark:bg-black/30 border border-white/10 dark:border-gray-700/30 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 flex flex-col items-start gap-4 group"
+              >
+                <!-- Icon Box: Custom Primary School SVG -->
+                <div
+                  class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-orange-400 to-pink-500 shadow-lg shadow-orange-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1"
+                >
+                  <svg
+                    class="w-full h-full"
+                    viewBox="0 0 122.88 101.37"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.64,77.27l0.31-54.92h-6.2v69.88c8.52-2.2,17.07-3.6,25.68-3.66c7.95-0.05,15.9,1.06,23.87,3.76 c-4.95-4.01-10.47-6.96-16.36-8.88c-7.42-2.42-15.44-3.22-23.66-2.52c-1.86,0.15-3.48-1.23-3.64-3.08 C12.62,77.65,12.62,77.46,12.64,77.27L12.64,77.27z M103.62,19.48c-0.02-0.16-0.04-0.33-0.04-0.51c0-0.17,0.01-0.34,0.04-0.51V7.34 c-7.8-0.74-15.84,0.12-22.86,2.78c-6.56,2.49-12.22,6.58-15.9,12.44V85.9c5.72-3.82,11.57-6.96,17.58-9.1 c6.85-2.44,13.89-3.6,21.18-3.02V19.48L103.62,19.48z M110.37,15.6h9.14c1.86,0,3.37,1.51,3.37,3.37v77.66 c0,1.86-1.51,3.37-3.37,3.37c-0.38,0-0.75-0.06-1.09-0.18c-9.4-2.69-18.74-4.48-27.99-4.54c-9.02-0.06-18.03,1.53-27.08,5.52 c-0.56,0.37-1.23,0.57-1.92,0.56c-0.68,0.01-1.35-0.19-1.92-0.56c-9.04-4-18.06-5.58-27.08-5.52c-9.25,0.06-18.58,1.85-27.99,4.54 c-0.34,0.12-0.71,0.18-1.09,0.18C1.51,100.01,0,98.5,0,96.64V18.97c0-1.86,1.51-3.37,3.37-3.37h9.61l0.06-11.26 c0.01-1.62,1.15-2.96,2.68-3.28l0,0c8.87-1.85,19.65-1.39,29.1,2.23c6.53,2.5,12.46,6.49,16.79,12.25 c4.37-5.37,10.21-9.23,16.78-11.72c8.98-3.41,19.34-4.23,29.09-2.8c1.68,0.24,2.88,1.69,2.88,3.33h0V15.6L110.37,15.6z M68.13,91.82c7.45-2.34,14.89-3.3,22.33-3.26c8.61,0.05,17.16,1.46,25.68,3.66V22.35h-5.77v55.22c0,1.86-1.51,3.37-3.37,3.37 c-0.27,0-0.53-0.03-0.78-0.09c-7.38-1.16-14.53-0.2-21.51,2.29C79.09,85.15,73.57,88.15,68.13,91.82L68.13,91.82z M58.12,85.25 V22.46c-3.53-6.23-9.24-10.4-15.69-12.87c-7.31-2.8-15.52-3.43-22.68-2.41l-0.38,66.81c7.81-0.28,15.45,0.71,22.64,3.06 C47.73,78.91,53.15,81.64,58.12,85.25L58.12,85.25z"
+                    ></path>
+                  </svg>
+                </div>
+
+                <!-- Header: Date -->
+                <p class="text-sm font-semibold text-primary tracking-wide">
+                  2011 – 2017
+                </p>
+
+                <!-- Details -->
+                <div>
+                  <h3 class="text-xl font-bold text-text-primary">
+                    Primary Education
+                  </h3>
+                  <p class="text-text-secondary font-medium text-base mt-1">
+                    Hun Sen Svay Leu Primary School
+                  </p>
+                  <div
+                    class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-3.5 h-3.5 text-primary/80"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      ><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path><path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+                    >
+                    <span>Siem Reap, Cambodia</span>
+                  </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mt-1">
+                  <span
+                    class="inline-flex items-center rounded-full bg-indigo-400/10 px-3 py-1 text-[11px] font-medium text-indigo-400 ring-1 ring-inset ring-indigo-400/20"
+                    >Primary Education</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CONTACT SECTION                              -->
+  <!-- ============================================ -->
+  <section id="contact" class="py-20 bg-soft-bg transition-colors duration-300">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- Floating Animation Style for Rocket -->
+      <style>
+        @keyframes float {
+          0% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-12px) rotate(-4deg); }
+          100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+      </style>
+
+      <!-- Section Heading -->
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-text-primary inline-block"
+        >
+          Contact Me
+        </h2>
+        <div class="h-1.5 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <!-- Main Two-Column Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start">
+        
+        <!-- ======================== -->
+        <!-- LEFT COLUMN: INFO       -->
+        <!-- ======================== -->
+        <div class="flex flex-col justify-center space-y-6 pt-2">
+          
+          <!-- Animated Rocket Icon -->
+          <div class="mb-2 group w-fit cursor-pointer hover:scale-105 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-20 h-20 md:w-24 md:h-24 text-primary drop-shadow-lg animate-float hover:animate-none">
+              <path d="M9.752 6.193c.599.6 1.73.437 2.528-.362s.96-1.932.362-2.531c-.599-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.362 2.532"/>
+              <path d="M15.811 3.312c-.363 1.534-1.334 3.626-3.64 6.218l-.24 2.408a2.56 2.56 0 0 1-.732 1.526L8.817 15.85a.51.51 0 0 1-.867-.434l.27-1.899c.04-.28-.013-.593-.131-.956a9 9 0 0 0-.249-.657l-.082-.202c-.815-.197-1.578-.662-2.191-1.277-.614-.615-1.079-1.379-1.275-2.195l-.203-.083a10 10 0 0 0-.655-.248c-.363-.119-.675-.172-.955-.132l-1.896.27A.51.51 0 0 1 .15 7.17l2.382-2.386c.41-.41.947-.67 1.524-.734h.006l2.4-.238C9.005 1.55 11.087.582 12.623.208c.89-.217 1.59-.232 2.08-.188.244.023.435.06.57.093q.1.026.16.045c.184.06.279.13.351.295l.029.073a3.5 3.5 0 0 1 .157.721c.055.485.051 1.178-.159 2.065m-4.828 7.475.04-.04-.107 1.081a1.54 1.54 0 0 1-.44.913l-1.298 1.3.054-.38c.072-.506-.034-.993-.172-1.418a9 9 0 0 0-.164-.45c.738-.065 1.462-.38 2.087-1.006M5.205 5c-.625.626-.94 1.351-1.004 2.09a9 9 0 0 0-.45-.164c-.424-.138-.91-.244-1.416-.172l-.38.054 1.3-1.3c.245-.246.566-.401.91-.44l1.08-.107zm9.406-3.961c-.38-.034-.967-.027-1.746.163-1.558.38-3.917 1.496-6.937 4.521-.62.62-.799 1.34-.687 2.051.107.676.483 1.362 1.048 1.928.564.565 1.25.941 1.924 1.049.71.112 1.429-.067 2.048-.688 3.079-3.083 4.192-5.444 4.556-6.987.183-.771.18-1.345.138-1.713a3 3 0 0 0-.045-.283 3 3 0 0 0-.3-.041Z"/>
+              <path d="M7.009 12.139a7.6 7.6 0 0 1-1.804-1.352A7.6 7.6 0 0 1 3.794 8.86c-1.102.992-1.965 5.054-1.839 5.18.125.126 3.936-.896 5.054-1.902Z"/>
+            </svg>
+          </div>
+
+          <div>
+            <h3 class="text-3xl md:text-4xl font-bold text-text-primary leading-tight">
+              Let's build something <br />
+              <span class="text-primary">amazing</span> together
+            </h3>
+            <p class="text-text-secondary text-base md:text-lg leading-relaxed mt-4 max-w-md">
+              Whether you have a project idea, a job opportunity, or just want to say hi — my inbox is always open.
+            </p>
+          </div>
+
+          <!-- Response Time Note -->
+          <div class="flex items-center gap-2 text-sm text-text-secondary/80 border-b border-white/10 dark:border-gray-700/30 pb-6 w-fit">
+            <span class="text-yellow-500">⚡</span>
+            Typically responds within 24 hours
+          </div>
+
+          <!-- Social Buttons -->
+          <div class="flex gap-4">
+            <a href="https://github.com/TunSopheak" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary transition duration-300 bg-white/5 dark:bg-black/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/tun-sopheak" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary transition duration-300 bg-white/5 dark:bg-black/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037 -1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414 v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065z m1.782 13.019H3.555V9h3.564v11.452z M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542 C0 23.227.792 24 1.771 24h20.451 C23.2 24 24 23.227 24 22.271V1.729 C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="mailto:sopheaktun.tsp@gmail.com" class="flex items-center justify-center w-12 h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary transition duration-300 bg-white/5 dark:bg-black/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ======================== -->
+        <!-- RIGHT COLUMN: FORM      -->
+        <!-- ======================== -->
+        <div class="bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 rounded-3xl p-6 md:p-8 shadow-xl">
+          
+          <div class="mb-6">
+            <h3 class="text-2xl md:text-3xl font-bold text-text-primary">
+              Send a <span class="text-primary">Message</span>
+            </h3>
+            <p class="text-sm text-text-secondary/80 mt-1">
+              Fill out the form below and I'll respond as soon as possible.
+            </p>
+          </div>
+
+          <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-5">
+            
+            <!-- Name Input -->
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary/60">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                </svg>
+              </span>
+              <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full bg-white/5 dark:bg-black/40 border border-white/10 dark:border-gray-700/30 rounded-xl px-4 py-3.5 pl-12 focus:outline-none focus:border-primary transition text-text-primary placeholder:text-text-secondary/60" />
+            </div>
+
+            <!-- Email Input -->
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary/60">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                </svg>
+              </span>
+              <input type="email" id="email" name="email" placeholder="Email Address" required class="w-full bg-white/5 dark:bg-black/40 border border-white/10 dark:border-gray-700/30 rounded-xl px-4 py-3.5 pl-12 focus:outline-none focus:border-primary transition text-text-primary placeholder:text-text-secondary/60" />
+            </div>
+
+            <!-- Subject Input -->
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary/60">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h6M7 16h2" /></svg>
+              </span>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required class="w-full bg-white/5 dark:bg-black/40 border border-white/10 dark:border-gray-700/30 rounded-xl px-4 py-3.5 pl-12 focus:outline-none focus:border-primary transition text-text-primary placeholder:text-text-secondary/60" />
+            </div>
+
+            <!-- Message Textarea -->
+            <div class="relative">
+              <span class="absolute left-4 top-5 text-text-secondary/60">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
+                </svg>
+              </span>
+              <textarea id="message" name="message" rows="4" placeholder="Your Message" required class="w-full bg-white/5 dark:bg-black/40 border border-white/10 dark:border-gray-700/30 rounded-xl px-4 py-3.5 pl-12 focus:outline-none focus:border-primary transition text-text-primary placeholder:text-text-secondary/60 resize-none"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary text-primary px-6 py-3.5 text-base font-medium hover:bg-primary/10 hover:border-primary-hover transition duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+              </svg>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- REACH ME ANYTIME ROW (NOW CLICKABLE)         -->
+      <!-- ============================================ -->
+      <div class="mt-20 border-t border-white/10 dark:border-gray-700/30 pt-12">
+        <h3 class="text-2xl font-bold text-center text-text-primary mb-10">Reach Me Anytime</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          
+          <!-- Phone -->
+          <a href="tel:+855XXXXXXXXX" class="flex flex-col items-center gap-3 group cursor-pointer transition-colors duration-300">
+            <div class="w-14 h-14 rounded-full border-2 border-primary/50 flex items-center justify-center text-primary bg-white/5 dark:bg-black/30 group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+              </svg>
+            </div>
+            <p class="text-text-secondary text-sm font-medium group-hover:text-primary transition-colors duration-300">+855 95 879 812</p>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:sopheaktun.tsp@gmail.com" class="flex flex-col items-center gap-3 group cursor-pointer transition-colors duration-300">
+            <div class="w-14 h-14 rounded-full border-2 border-primary/50 flex items-center justify-center text-primary bg-white/5 dark:bg-black/30 group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+              </svg>
+            </div>
+            <p class="text-text-secondary text-sm font-medium group-hover:text-primary transition-colors duration-300">sopheaktun.tsp@gmail.com</p>
+          </a>
+
+          <!-- Location -->
+          <a href="https://www.google.com/maps/search/Phnom+Penh,+Cambodia" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 group cursor-pointer transition-colors duration-300">
+            <div class="w-14 h-14 rounded-full border-2 border-primary/50 flex items-center justify-center text-primary bg-white/5 dark:bg-black/30 group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg>
+            </div>
+            <p class="text-text-secondary text-sm font-medium group-hover:text-primary transition-colors duration-300">Phnom Penh, Cambodia</p>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Form handling via fetch (Replaces the default Formspree redirect)
+    async function handleSubmit(event: Event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalText = submitButton.innerHTML;
+    
+    submitButton.disabled = true;
+    submitButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/></svg> Sending...`;
+
+    try {
+      // Uses your local API endpoint instead of Formspree
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        showToast("Message sent successfully.", "Thank you for reaching out. I'll get back to you as soon as possible.", "green");
+        form.reset(); 
+      } else {
+        const errorData = await response.json();
+        showToast("Something went wrong!", errorData.error || "Please try again later.", "red");
+      }
+    } catch (error) {
+      showToast("Network error", "Please check your internet connection and try again.", "red");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalText;
+    }
+  }
+
+    // CUSTOM TOAST NOTIFICATION (Fixed Types)
+  function showToast(title: string, message: string, type: "green" | "red" = "green") {
+    const existingToasts = document.querySelectorAll('#toast-container .toast-item');
+    existingToasts.forEach(el => el.remove());
+
+    let container = document.getElementById('toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'toast-container';
+      container.className = 'fixed top-4 right-4 z-50 flex flex-col gap-2 items-end pointer-events-none';
+      document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    
+    const colors = type === "green" 
+      ? { bg: 'bg-green-50 dark:bg-green-900/30', border: 'border-green-200/50 dark:border-green-800/50', text: 'text-green-800 dark:text-green-200', subtext: 'text-green-700/70 dark:text-green-300/70', icon: 'text-green-600 dark:text-green-400' }
+      : { bg: 'bg-red-50 dark:bg-red-900/30', border: 'border-red-200/50 dark:border-red-800/50', text: 'text-red-800 dark:text-red-200', subtext: 'text-red-700/70 dark:text-red-300/70', icon: 'text-red-600 dark:text-red-400' };
+
+    toast.className = `toast-item pointer-events-auto w-full max-w-sm overflow-hidden rounded-xl ${colors.bg} border ${colors.border} shadow-xl p-4 flex items-start gap-3 transform translate-x-full opacity-0 transition-all duration-300`;
+
+    toast.innerHTML = `
+      <div class="flex-shrink-0 mt-0.5">
+        <svg class="h-5 w-5 ${colors.icon}" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="flex-1 pt-0.5">
+        <p class="text-sm font-medium ${colors.text}">${title}</p>
+        <p class="mt-1 text-sm ${colors.subtext}">${message}</p>
+      </div>
+      <button onclick="this.closest('.toast-item').remove()" class="flex-shrink-0 ${colors.subtext} hover:${colors.text}">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    `;
+
+    container.appendChild(toast);
+
+    setTimeout(() => toast.classList.remove('translate-x-full', 'opacity-0'), 50);
+    setTimeout(() => {
+      toast.classList.add('translate-x-full', 'opacity-0');
+      setTimeout(() => toast.remove(), 300);
+    }, 5000);
+  }
+
+  (window as any).handleSubmit = handleSubmit;
+</script>
+
+<!-- ============================================ -->
+<!-- TYPEWRITER SCRIPT                            -->
+<!-- ============================================ -->
+<script>
+  // @ts-nocheck
+  document.addEventListener("DOMContentLoaded", () => {
+    const typedElement = document.getElementById("typed-role");
+    if (!typedElement) return;
+
+    const roles = ["Full Stack Developer", "Software Developer"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
+
+      if (isDeleting) {
+        typedElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typedElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000);
+        return;
+      }
+
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(typeEffect, 500);
+        return;
+      }
+
+      const speed = isDeleting ? 50 : 100;
+      setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+  });
+</script>
+
+<!-- ============================================ -->
+<!-- COUNTER ANIMATION                           -->
+<!-- ============================================ -->
+<script>
+  // @ts-nocheck
+  document.addEventListener("DOMContentLoaded", () => {
+    const counterElement = document.getElementById("project-count");
+    if (!counterElement) return;
+
+    const target = 5;
+    let current = 0;
+    let animationFrame = null;
+    let hasAnimated = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            startCounter();
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(counterElement);
+
+    function startCounter() {
+      const duration = 800;
+      const startTime = performance.now();
+
+      function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(eased * target);
+        counterElement.textContent = String(current);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(updateCounter);
+        } else {
+          counterElement.textContent = String(target);
+        }
+      }
+
+      animationFrame = requestAnimationFrame(updateCounter);
+    }
+  });
+</script>

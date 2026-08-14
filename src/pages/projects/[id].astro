@@ -1,0 +1,138 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects } from "../../data/projects";
+
+// This generates a page for EVERY project in your data automatically!
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={project ? `${project.title} — Tun Sopheak` : "Project Not Found"}>
+  <section class="py-20 bg-soft-bg transition-colors duration-300 min-h-screen">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      {project ? (
+        <div class="flex flex-col gap-8">
+          
+          <!-- Back Link (Fixed: Removed the huge expanding SVG) -->
+          <div class="flex items-center gap-1.5">
+            <a href="/projects/" class="text-sm text-text-secondary hover:text-primary transition flex items-center">
+              <span class="text-xl mr-1">&larr;</span> Back to All Projects
+            </a>
+          </div>
+
+          <!-- Project Title & Year -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 dark:border-gray-700/30 pb-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-text-primary tracking-tight">{project.title}</h1>
+            <span class="text-primary font-medium text-lg shrink-0">{project.year}</span>
+          </div>
+
+          <!-- Large Hero Image (Fixed: Cleaner fallback text) -->
+          <div class="relative w-full aspect-video bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl overflow-hidden border border-white/10 dark:border-gray-700/30 shadow-xl flex items-center justify-center">
+            <img src={project.image} alt={project.title} class="w-full h-full object-cover" onerror="this.style.display='none';" />
+            <div class="hidden absolute inset-0 flex items-center justify-center text-text-secondary/40 font-medium" onload="this.parentElement.classList.add('hidden')" onerror="this.parentElement.classList.remove('hidden'); this.parentElement.previousElementSibling?.remove();">
+              Project image coming soon
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center text-text-secondary/40 font-medium hidden" id="fallback-text">Project image coming soon</div>
+            <script>
+              // Fallback logic inline if needed, but Astro/JS handles onerror well. 
+              // We'll rely on onerror triggering the fallback div.
+            </script>
+          </div>
+
+          <!-- 2-Column Layout -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16 mt-4">
+            
+            <!-- Left Column: Overview, Features, Tech -->
+            <div class="col-span-2 flex flex-col gap-10">
+              
+              <!-- Overview -->
+              <div>
+                <h2 class="text-2xl font-bold text-text-primary border-b border-white/5 dark:border-gray-700/20 pb-3 mb-4 inline-block">Overview</h2>
+                <p class="text-text-secondary text-base leading-relaxed">
+                  {project.overview || "No overview provided yet."}
+                </p>
+              </div>
+
+              <!-- Key Features -->
+              {project.features && project.features.length > 0 && (
+                <div>
+                  <h2 class="text-2xl font-bold text-text-primary border-b border-white/5 dark:border-gray-700/20 pb-3 mb-4 inline-block">Key Features</h2>
+                  <ul class="list-disc list-inside space-y-3 text-text-secondary text-base leading-relaxed marker:text-primary/70">
+                    {project.features.map(feature => <li>{feature}</li>)}
+                  </ul>
+                </div>
+              )}
+
+              <!-- Technologies Used -->
+              {project.tags && project.tags.length > 0 && (
+                <div>
+                  <h2 class="text-2xl font-bold text-text-primary border-b border-white/5 dark:border-gray-700/20 pb-3 mb-4 inline-block">Technologies Used</h2>
+                  <div class="flex flex-wrap gap-2.5">
+                    {project.tags.map(tag => 
+                      <span class="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20">
+                        {tag}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )}
+
+            </div>
+
+            <!-- Right Column: Project Info Sidebar (Fixed Styling) -->
+            <div class="col-span-1">
+              <div class="sticky top-24 bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 rounded-2xl p-6 shadow-xl flex flex-col gap-6">
+                <h3 class="text-xl font-bold text-text-primary border-b border-white/10 dark:border-gray-700/30 pb-3">Project Info</h3>
+                
+                <!-- Type -->
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-text-secondary/60 font-semibold mb-1">Type</p>
+                  <p class="text-text-secondary font-medium">{project.type}</p>
+                </div>
+
+                <!-- Live Site -->
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-text-secondary/60 font-semibold mb-1">Live Site</p>
+                  {project.liveDemo ? (
+                    <a href={project.liveDemo} target="_blank" class="text-primary hover:text-primary-hover hover:underline flex items-center gap-1.5 font-medium text-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                      Visit Live Site
+                    </a>
+                  ) : (
+                    <p class="text-text-secondary/50 text-sm italic">Not available</p>
+                  )}
+                </div>
+
+                <!-- Source Code (Simplified to a single GitHub link) -->
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-text-secondary/60 font-semibold mb-1">Source Code</p>
+                  {project.github ? (
+                    <a href={project.github} target="_blank" class="text-text-secondary hover:text-primary text-sm flex items-center gap-2 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+                      View on GitHub
+                    </a>
+                  ) : (
+                    <p class="text-text-secondary/50 text-sm italic">Private / Not Available</p>
+                  )}
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      ) : (
+        <div class="text-center py-20">
+          <h2 class="text-2xl font-bold text-text-primary">Project Not Found</h2>
+          <a href="/projects/" class="mt-4 inline-block text-primary hover:underline">Back to Projects</a>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

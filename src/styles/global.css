@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* ============================================
+   LIGHT MODE (default)
+   ============================================ */
+:root {
+  /* Backgrounds */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-soft-bg: #f1f5f9;
+
+  /* Text */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+
+  /* Primary (Sky Blue) */
+  --color-primary: #0ea5e9;
+  --color-primary-hover: #0284c7;
+
+  /* Secondary (Teal) */
+  --color-secondary: #14b8a6;
+
+  /* Border */
+  --color-border: #e2e8f0;
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+.dark {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-soft-bg: #1e293b;
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+
+  --color-primary: #38bdf8;
+  --color-primary-hover: #0ea5e9;
+
+  --color-secondary: #2dd4bf;
+
+  --color-border: #334155;
+}
+
+/* ============================================
+   APPLY GLOBALLY
+   ============================================ */
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ============================================
+   TAILWIND 4 CUSTOM UTILITIES
+   ============================================ */
+@theme {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-soft-bg: var(--color-soft-bg);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-secondary: var(--color-secondary);
+  --color-border: var(--color-border);
+}
+
+/* ============================================
+   TYPWRITER BLINKING CURSOR
+   ============================================ */
+.cursor-blink {
+  display: inline-block;
+  animation: blink 0.7s step-end infinite;
+  font-weight: 300;
+  color: var(--color-primary);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row; /* This puts them side-by-side */
+  align-items: center; /* Vertically centers the photo with the text */
+  gap: 40px; /* Space between the text and the photo */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about-text {
+  flex: 1; /* Takes up half the width */
+}
+
+.about-image {
+  flex: 1; /* Takes up half the width */
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px; /* Adds rounded corners like Monir's image */
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Optional: Adds a soft shadow */
+}
+
+/* Mobile responsiveness: Stack them on top of each other on small screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column-reverse; /* Puts the image at the top or bottom on mobile */
+    text-align: center;
+  }
+}

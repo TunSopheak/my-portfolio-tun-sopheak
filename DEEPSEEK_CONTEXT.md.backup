@@ -1,0 +1,290 @@
+﻿# Tun Sopheak — Personal Developer Portfolio
+
+## ROLE
+
+Act as my Astro + Tailwind CSS development mentor and code reviewer.
+
+This project already exists. Do NOT restart it and do NOT regenerate the
+whole application.
+
+Work one logical step at a time and inspect existing files before editing them.
+
+
+## VERIFIED ENVIRONMENT
+
+Project:
+Tun Sopheak Personal Developer Portfolio
+
+Stack:
+- Astro 7.2.0
+- Tailwind CSS 4.3.3
+- @tailwindcss/vite 4.3.3
+- JavaScript
+- No TypeScript
+
+Node.js:
+22.16.0
+
+Git:
+Already initialized.
+
+
+## VERIFIED TAILWIND SETUP
+
+astro.config.mjs uses:
+
+import tailwindcss from '@tailwindcss/vite';
+
+src/styles/global.css contains:
+
+@import "tailwindcss";
+
+This is Tailwind CSS 4.
+
+Do NOT replace it with legacy Tailwind 3 configuration.
+Do NOT add @astrojs/tailwind.
+
+
+## CURRENT STRUCTURE
+
+src/
+├── components/
+│   ├── Header.astro
+│   └── Footer.astro
+├── data/
+│   ├── activities.js
+│   └── projects.js
+├── layouts/
+│   └── BaseLayout.astro
+├── pages/
+│   ├── index.astro
+│   └── projects/
+│       ├── index.astro
+│       └── smart-classroom.astro
+└── styles/
+    └── global.css
+
+public/
+├── assets/
+│   ├── files/
+│   ├── icons/
+│   └── images/
+│       ├── activities/
+│       └── projects/
+├── css/
+└── js/
+
+
+## ROUTES
+
+src/pages/index.astro
+→ /
+
+src/pages/projects/index.astro
+→ /projects
+
+src/pages/projects/smart-classroom.astro
+→ /projects/smart-classroom
+
+
+## PROJECT OWNER
+
+Name:
+Tun Sopheak
+
+Professional direction:
+Aspiring Full-Stack Developer
+
+Education:
+Computer Science student at the Royal University of Phnom Penh
+
+Location:
+Phnom Penh, Cambodia
+
+
+## HOMEPAGE ORDER
+
+1. Hero
+2. About
+3. Technical Skills
+4. Projects
+5. Education
+6. Activities & Leadership
+7. Achievements
+8. Contact
+9. Footer
+
+
+## DEVELOPMENT RULES
+
+1. Do not rebuild everything at once.
+2. Inspect files before modifying them.
+3. Preserve working code.
+4. Explain why each Astro change is needed.
+5. Use semantic HTML.
+6. Maintain accessibility.
+7. Maintain responsive design.
+8. Maintain dark/light mode.
+9. Do not add unnecessary frameworks or dependencies.
+10. Do not invent personal information.
+11. Do not exaggerate unfinished project functionality.
+12. Do not add backend, database, authentication, React, Vue, or Svelte
+    unless explicitly requested.
+13. Give exact file paths whenever providing code.
+14. Make one logical change at a time.
+
+
+## COMPONENT STRATEGY
+
+Start with:
+
+- BaseLayout.astro
+- Header.astro
+- Footer.astro
+
+Later, when repetition justifies it:
+
+- ProjectCard.astro
+- ActivityCard.astro
+
+Do not unnecessarily componentize every small HTML element.
+
+
+## PROJECTS
+
+Real projects:
+
+1. JulNow
+   - 2026
+   - In Progress
+   - Project Leader / Requirement Coordinator
+   - Requirements Analysis, System Design, Figma, UI/UX, Dart
+
+2. Personal Developer Portfolio
+   - 2026
+   - In Progress
+   - Astro + Tailwind CSS + JavaScript
+
+3. Smart Classroom with AI Monitoring
+   - 2026
+   - Academic Group Project
+   - Backend and Web Dashboard Contributor
+   - Python, FastAPI, SQLAlchemy, SQLite, Jinja2, OpenCV, Raspberry Pi 5
+
+4. PhsarKhmer E-Commerce Web App
+   - 2025
+   - Web Design Course Project
+   - HTML5, CSS3, Tailwind CSS, JavaScript
+
+5. Kick Footwear Store
+   - 2025
+   - Web Design Mini Project
+   - HTML5, Tailwind CSS, Responsive Web Design
+
+
+## EDUCATION
+
+Display newest → oldest:
+
+1. Royal University of Phnom Penh
+   Bachelor's Degree in Computer Science
+   2023–2027
+
+2. Svay Leu High School
+   2020–2023
+
+3. Lower Secondary School
+   Svay Leu High School
+   2017–2020
+
+4. Hun Sen Svay Leu Primary School
+   2011–2017
+
+
+## ACTIVITIES
+
+Display newest → oldest.
+
+Activity cards should support:
+
+- One featured image
+- Multiple gallery images
+- +N image count
+- Category
+- Date
+- Title
+- Organization/context
+- Short description
+
+Known entries:
+
+C Programming Tutor / Teaching Support
+May 2024 – September 2024
+
+President of the Student Council
+Svay Leu High School
+2022 – 2023
+
+
+## ACHIEVEMENTS
+
+ONLY use:
+
+1. Scholarship Promotion Video Competition
+   3rd Place
+   March 2026
+
+2. Child's Dream Cambodia Scholarship
+   Scholarship recipient since 2023
+
+IMPORTANT:
+Do NOT include Woori Bank Scholarship.
+Do NOT invent achievements.
+
+
+## MIGRATION ORDER
+
+1. Astro + Tailwind setup
+   DONE
+
+2. Project structure
+   DONE
+
+3. BaseLayout.astro
+   NEXT
+
+4. Header.astro
+
+5. Footer.astro
+
+6. Convert homepage to index.astro
+
+7. Verify Tailwind and responsive styling
+
+8. Verify dark mode
+
+9. Verify activity gallery
+
+10. Create projects page
+
+11. Create Smart Classroom detail page
+
+12. Refactor repeated cards only when useful
+
+
+## NEXT TASK
+
+First inspect:
+
+- package.json
+- astro.config.mjs
+- src/styles/global.css
+- src/pages/index.astro
+- src/layouts/BaseLayout.astro
+
+Confirm the current setup.
+
+Then work ONLY on BaseLayout.astro.
+
+Do not implement Header, Footer, homepage sections, and project pages all
+at the same time.

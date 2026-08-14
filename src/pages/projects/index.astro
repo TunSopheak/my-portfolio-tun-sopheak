@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { projects } from "../../data/projects";
+---
+
+<BaseLayout title="Projects — Tun Sopheak">
+  <section class="py-20 bg-soft-bg transition-colors duration-300 min-h-screen">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- Back Button to Home -->
+      <div class="flex items-center gap-1.5 mb-6">
+        <a
+          href="/#projects"
+          class="text-sm text-text-secondary hover:text-primary transition flex items-center"
+        >
+          <span class="text-xl mr-1">&larr;</span> Back to Home
+        </a>
+      </div>
+
+      <!-- Section Heading -->
+      <div class="text-center mb-12">
+        <h1
+          class="text-3xl md:text-4xl font-bold text-text-primary inline-block"
+        >
+          All Projects
+        </h1>
+        <div class="h-1.5 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {projects.map((project) => (
+          <div class="group flex flex-col bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 rounded-2xl shadow-xl overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            
+            <div class="relative aspect-[16/10] bg-gradient-to-br from-primary/10 to-primary/5 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              />
+              <div class="hidden absolute inset-0 flex items-center justify-center text-primary/40">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-16 h-16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <span class="absolute top-4 right-4 bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2.5 py-1 rounded-full text-[10px] font-semibold backdrop-blur-sm">
+                {project.type}
+              </span>
+            </div>
+
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="text-xl font-bold text-text-primary">
+                {project.title}
+              </h3>
+              <p class="text-sm text-primary/80 font-medium mt-1">
+                {project.year}
+              </p>
+              <p class="text-text-secondary text-sm leading-relaxed mt-3 flex-1">
+                {project.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2 mt-4">
+                {project.tags.map((tag) => (
+                  <span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-medium text-primary ring-1 ring-inset ring-primary/20">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- UPGRADED: Solid Glowing Pill Button -->
+              <div class="flex items-center gap-4 mt-5 pt-4 border-t border-white/10 dark:border-gray-700/30">
+                <a href={`/projects/${project.id}`} class="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-white px-6 py-2.5 text-sm font-medium hover:bg-primary-hover shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 group">
+                  View Details
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-sm text-text-secondary/70 hover:text-primary transition">GitHub</a>
+                )}
+                {project.liveDemo && (
+                  <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" class="text-sm text-text-secondary/70 hover:text-primary transition">Live Demo</a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
