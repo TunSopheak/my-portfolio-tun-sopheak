@@ -2,113 +2,128 @@
 <header
   class="sticky top-0 z-10 bg-surface shadow-sm transition-colors duration-300 dark:border-b dark:border-border"
 >
-  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:py-5">
     <!-- Logo / Name -->
-    <a href="/" class="text-xl font-bold text-text-primary">Tun Sopheak</a>
+    <a
+      href="/"
+      class="text-xl md:text-2xl font-bold text-text-primary hover:text-primary transition-colors duration-200"
+    >
+      Tun Sopheak
+    </a>
 
     <!-- Navigation & Controls -->
-    <div class="flex items-center space-x-6">
-      <ul class="flex space-x-6">
+    <div class="flex items-center gap-6 md:gap-8">
+      <ul class="flex items-center gap-6 md:gap-8">
         <li>
           <a
             href="/#hero"
-            class="text-text-secondary hover:text-primary dark:hover:text-primary"
-            >Home</a
+            data-link="hero"
+            class="group relative inline-block text-sm md:text-base font-medium text-text-secondary transition-colors duration-200 hover:text-primary data-[active=true]:text-primary"
           >
+            Home
+            <span
+              class="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full data-[active=true]:w-full"
+            ></span>
+          </a>
         </li>
         <li>
           <a
             href="/#about"
-            class="text-text-secondary hover:text-primary dark:hover:text-primary"
-            >About</a
+            data-link="about"
+            class="group relative inline-block text-sm md:text-base font-medium text-text-secondary transition-colors duration-200 hover:text-primary data-[active=true]:text-primary"
           >
+            About
+            <span
+              class="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full data-[active=true]:w-full"
+            ></span>
+          </a>
         </li>
         <li>
           <a
             href="/#skills"
-            class="text-text-secondary hover:text-primary dark:hover:text-primary"
-            >Skills</a
+            data-link="skills"
+            class="group relative inline-block text-sm md:text-base font-medium text-text-secondary transition-colors duration-200 hover:text-primary data-[active=true]:text-primary"
           >
+            Skills
+            <span
+              class="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full data-[active=true]:w-full"
+            ></span>
+          </a>
         </li>
         <li>
           <a
             href="/#projects"
-            class="text-text-secondary hover:text-primary dark:hover:text-primary"
-            >Projects</a
+            data-link="projects"
+            class="group relative inline-block text-sm md:text-base font-medium text-text-secondary transition-colors duration-200 hover:text-primary data-[active=true]:text-primary"
           >
+            Projects
+            <span
+              class="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full data-[active=true]:w-full"
+            ></span>
+          </a>
         </li>
         <li>
           <a
             href="/#education"
-            class="text-text-secondary hover:text-primary dark:hover:text-primary"
-            >Education</a
+            data-link="education"
+            class="group relative inline-block text-sm md:text-base font-medium text-text-secondary transition-colors duration-200 hover:text-primary data-[active=true]:text-primary"
           >
+            Education
+            <span
+              class="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full data-[active=true]:w-full"
+            ></span>
+          </a>
         </li>
         <li>
           <a
             href="/#activities"
-            class="text-text-secondary hover:text-primary dark:hover:text-primary"
-            >Activities</a
+            data-link="activities"
+            class="group relative inline-block text-sm md:text-base font-medium text-text-secondary transition-colors duration-200 hover:text-primary data-[active=true]:text-primary"
           >
+            Activities
+            <span
+              class="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full data-[active=true]:w-full"
+            ></span>
+          </a>
         </li>
         <li>
           <a
             href="/#achievements"
-            class="text-text-secondary hover:text-primary dark:hover:text-primary"
-            >Achievements</a
+            data-link="achievements"
+            class="group relative inline-block text-sm md:text-base font-medium text-text-secondary transition-colors duration-200 hover:text-primary data-[active=true]:text-primary"
           >
+            Achievements
+            <span
+              class="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full data-[active=true]:w-full"
+            ></span>
+          </a>
         </li>
         <li>
           <a
             href="/#contact"
-            class="text-text-secondary hover:text-primary dark:hover:text-primary"
-            >Contact</a
+            data-link="contact"
+            class="group relative inline-block text-sm md:text-base font-medium text-text-secondary transition-colors duration-200 hover:text-primary data-[active=true]:text-primary"
           >
+            Contact
+            <span
+              class="absolute -bottom-1.5 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full data-[active=true]:w-full"
+            ></span>
+          </a>
         </li>
       </ul>
 
-      <!-- ============================================ -->
-      <!-- LANGUAGE TOGGLE (with Globe Icon)            -->
-      <!-- ============================================ -->
-      <button
-        id="lang-toggle"
-        class="flex items-center gap-1.5 text-sm font-medium text-text-secondary hover:text-primary dark:hover:text-primary"
-        aria-label="Toggle language"
-      >
-        <!-- Globe Icon - Simplified, uses currentColor -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="2" y1="12" x2="22" y2="12"></line>
-          <path
-            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-          ></path>
-        </svg>
-        <!-- Language Label -->
-        <span id="lang-label">EN</span>
-      </button>
-
-      <!-- ============================================ -->
-      <!-- DARK MODE TOGGLE                             -->
-      <!-- ============================================ -->
+      <!-- Dark / Light Mode Toggle -->
       <button
         id="theme-toggle"
-        class="text-text-secondary hover:text-primary focus:outline-none dark:hover:text-primary"
+        type="button"
+        class="text-text-secondary hover:text-primary focus:outline-none transition-colors duration-200"
         aria-label="Toggle dark mode"
       >
-        <!-- Sun Icon -->
+        <!-- Sun icon (shown in dark mode → click to switch to light) -->
         <svg
           id="theme-toggle-sun"
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
+          class="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -127,11 +142,11 @@
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
 
-        <!-- Moon Icon -->
+        <!-- Moon icon (shown in light mode → click to switch to dark) -->
         <svg
           id="theme-toggle-moon"
           xmlns="http://www.w3.org/2000/svg"
-          class="hidden h-6 w-6"
+          class="hidden h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -149,58 +164,64 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // ============================================
-    // 1. DARK MODE TOGGLE (WITH NULL CHECKS)
+    // DARK / LIGHT MODE TOGGLE
     // ============================================
     const themeToggle = document.getElementById("theme-toggle");
     const sunIcon = document.getElementById("theme-toggle-sun");
     const moonIcon = document.getElementById("theme-toggle-moon");
 
-    // Check if icons exist before using them
-    if (sunIcon && moonIcon) {
-      const savedTheme = localStorage.getItem("theme");
+    if (!themeToggle || !sunIcon || !moonIcon) return;
 
-      if (savedTheme === "dark") {
-        document.documentElement.classList.add("dark");
-        sunIcon.classList.remove("hidden");
-        moonIcon.classList.add("hidden");
-      } else {
-        document.documentElement.classList.remove("dark");
-        sunIcon.classList.add("hidden");
-        moonIcon.classList.remove("hidden");
-        if (!savedTheme) localStorage.setItem("theme", "light");
-      }
+    const applyTheme = (isDark: boolean) => {
+      document.documentElement.classList.toggle("dark", isDark);
+      // Dark mode → show sun (click to go light)
+      // Light mode → show moon (click to go dark)
+      sunIcon.classList.toggle("hidden", !isDark);
+      moonIcon.classList.toggle("hidden", isDark);
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    };
 
-      // Check if toggle button exists
-      themeToggle?.addEventListener("click", () => {
-        const isDark = document.documentElement.classList.toggle("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-        sunIcon.classList.toggle("hidden", !isDark);
-        moonIcon.classList.toggle("hidden", isDark);
-      });
-    }
+    // Initial theme: saved preference → system preference → light
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark =
+      savedTheme === "dark" || (savedTheme === null && prefersDark);
 
-    // ============================================
-    // 2. LANGUAGE TOGGLE (WITH NULL CHECKS)
-    // ============================================
-    const langToggle = document.getElementById("lang-toggle");
-    const langLabel = document.getElementById("lang-label");
+    applyTheme(isDark);
 
-    // Check if label exists
-    if (langLabel) {
-      const savedLang = localStorage.getItem("lang") || "en";
-      document.documentElement.lang = savedLang;
-      langLabel.textContent = savedLang === "en" ? "EN" : "KH";
-    }
-
-    // Check if toggle button exists
-    langToggle?.addEventListener("click", () => {
-      const currentLang = document.documentElement.lang || "en";
-      const newLang = currentLang === "en" ? "kh" : "en";
-      document.documentElement.lang = newLang;
-      localStorage.setItem("lang", newLang);
-      if (langLabel) {
-        langLabel.textContent = newLang === "en" ? "EN" : "KH";
-      }
+    themeToggle.addEventListener("click", () => {
+      const currentlyDark = document.documentElement.classList.contains("dark");
+      applyTheme(!currentlyDark);
     });
+
+    // ============================================
+    // SCROLL SPY (active underline based on scroll)
+    // ============================================
+    const navLinks = document.querySelectorAll("nav ul li a[data-link]");
+    const sections = document.querySelectorAll("section[id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => link.removeAttribute("data-active"));
+
+            const id = entry.target.id;
+            const activeLink = document.querySelector(
+              `nav ul li a[data-link="${id}"]`
+            );
+            if (activeLink) {
+              activeLink.setAttribute("data-active", "true");
+            }
+          }
+        });
+      },
+      {
+        rootMargin: "0px 0px -40% 0px",
+        threshold: 0.1,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
   });
 </script>
