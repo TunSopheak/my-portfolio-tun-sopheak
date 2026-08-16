@@ -1,0 +1,46 @@
+<!-- src/components/BackToTop.astro -->
+<button
+  id="back-to-top"
+  class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 p-3 rounded-full bg-white/5 dark:bg-black/30 backdrop-blur-md border border-primary/50 shadow-xl transition-all duration-300 opacity-0 translate-y-4 pointer-events-none hover:scale-110 hover:shadow-primary/20 hover:border-primary focus:outline-none"
+  aria-label="Scroll back to top"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-5 h-5 text-primary"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M12 19V5" />
+    <path d="M5 12l7-7 7 7" />
+  </svg>
+</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const backToTopBtn = document.getElementById("back-to-top");
+
+    // Only run if the button exists
+    if (backToTopBtn) {
+      // Show/Hide button on scroll
+      window.addEventListener("scroll", () => {
+        // If scrolled down more than 400px, show the button
+        if (window.scrollY > 400) {
+          backToTopBtn.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+          backToTopBtn.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+        } else {
+          backToTopBtn.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+          backToTopBtn.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+        }
+      });
+
+      // Smooth scroll to top on click
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  });
+</script>
