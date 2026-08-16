@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 export const POST: APIRoute = async ({ request }) => {
   try {
     // 1. Check if Vercel is actually injecting the key
-    const apiKey = import.meta.env.RESEND_API_KEY;
+    const apiKey = String(import.meta.env.RESEND_API_KEY).trim();
     if (!apiKey) {
       return new Response(JSON.stringify({ error: 'Resend API Key is missing on the Vercel server.' }), { status: 500 });
     }
@@ -43,8 +43,8 @@ export const POST: APIRoute = async ({ request }) => {
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
 
-  } catch (error: any) {
-    // 4. Catch any other severe crash on the server
-    return new Response(JSON.stringify({ error: `Server crash: ${error.message || 'Unknown error'}` }), { status: 500 });
+    } catch (error: any) {
+    // 4. Catch any other severe crash on the server and stringify the FULL error
+    return new Response(JSON.stringify({ error: `Server crash: ${JSON.stringify(error)}` }), { status: 500 });
   }
 };
