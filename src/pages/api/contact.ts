@@ -1,28 +1,31 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
 export const POST: APIRoute = async ({ request }) => {
-  const data = await request.formData();
-  
-  const name = String(data.get('name') || '');
-  const email = String(data.get('email') || '');
-  const subject = String(data.get('subject') || '');
-  const message = String(data.get('message') || '');
-
-  if (!name || !email || !message) {
-    return new Response(JSON.stringify({ error: 'Missing fields' }), { status: 400 });
-  }
-
   try {
-    // IMPORTANT: For now, 'onboarding@resend.dev' is the ONLY allowed 'from' address 
-    // unless you buy and verify a custom domain on Resend.
+    // 1. Check if Vercel is actually injecting the key
+    const apiKey = import.meta.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return new Response(JSON.stringify({ error: 'Resend API Key is missing on the Vercel server.' }), { status: 500 });
+    }
+
+    const resend = new Resend(apiKey);
+    const data = await request.formData();
+    
+    const name = String(data.get('name') || '');
+    const email = String(data.get('email') || '');
+    const subject = String(data.get('subject') || '');
+    const message = String(data.get('message') || '');
+
+    if (!name || !email || !message) {
+      return new Response(JSON.stringify({ error: 'Missing fields' }), { status: 400 });
+    }
+
+    // 2. Try to send the email
     const { data: emailData, error } = await resend.emails.send({
       from: 'Tun Sopheak Portfolio <onboarding@resend.dev>', 
       to: ['sopheaktun.tsp@gmail.com'],
       subject: subject || `New Portfolio Message from ${name}`,
-      // Includes the visitor's real email inside the body so you can reply to them!
       html: `
         <h2>New Message from ${name}</h2>
         <p><strong>Visitor Email:</strong> <a href="mailto:${email}">${email}</a></p>
@@ -33,12 +36,15 @@ export const POST: APIRoute = async ({ request }) => {
       `
     });
 
+    // 3. Handle Resend's specific error
     if (error) {
-      return new Response(JSON.stringify({ error }), { status: 500 });
+      return new Response(JSON.stringify({ error: `Resend Error: ${error.message}` }), { status: 500 });
     }
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: 'Server error' }), { status: 500 });
+
+  } catch (error: any) {
+    // 4. Catch any other severe crash on the server
+    return new Response(JSON.stringify({ error: `Server crash: ${error.message || 'Unknown error'}` }), { status: 500 });
   }
 };
