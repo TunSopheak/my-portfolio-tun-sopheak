@@ -1420,40 +1420,36 @@ import { projects } from "../data/projects";
 </BaseLayout>
 
 <script>
+  import emailjs from '@emailjs/browser';
+
   async function handleSubmit(event: Event) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    const formData = new FormData(form);
     const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalText = submitButton.innerHTML;
 
     submitButton.disabled = true;
-    submitButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
-    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/></svg> Sending...`;
+    submitButton.innerHTML = `<svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v4m0 0L8 4m4 4l4-4" /></svg> Sending...`;
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      });
+      const serviceID = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+      const templateID = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      if (response.ok) {
+      const templateParams = {
+        name: form.querySelector<HTMLInputElement>('#name')?.value ?? '',
+        email: form.querySelector<HTMLInputElement>('#email')?.value ?? '',
+        title: form.querySelector<HTMLInputElement>('#subject')?.value ?? '',
+        message: form.querySelector<HTMLTextAreaElement>('#message')?.value ?? '',
+      };
+
+      const response = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+
+      if (response.status === 200) {
         showToast("Message sent successfully.", "Thank you for reaching out. I'll get back to you as soon as possible.", "green");
         form.reset();
       } else {
-        let errorMsg = "Please try again later.";
-        try {
-          const errorData = await response.json();
-          if (typeof errorData.error === 'string') {
-            errorMsg = errorData.error;
-          } else if (errorData.error) {
-            errorMsg = JSON.stringify(errorData.error);
-          }
-        } catch (e) {
-          errorMsg = response.statusText || "Unknown server error";
-        }
-        showToast("Something went wrong!", errorMsg, "red");
+        showToast("Something went wrong!", "EmailJS responded with an error.", "red");
       }
     } catch (error) {
       showToast("Network error", "Please check your internet connection and try again.", "red");
