@@ -4,7 +4,10 @@ import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   output: 'server',
-  adapter: vercel(),
+  // Add functionPerRoute: true to isolate the API route
+  adapter: vercel({
+    functionPerRoute: true, 
+  }),
   vite: {
     plugins: [tailwindcss()]
   }
