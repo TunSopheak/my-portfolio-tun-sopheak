@@ -1420,8 +1420,7 @@ import { projects } from "../data/projects";
 </BaseLayout>
 
 <script>
-  // Form handling via fetch (Replaces the default Formspree redirect)
-    async function handleSubmit(event: Event) {
+  async function handleSubmit(event: Event) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
@@ -1434,7 +1433,6 @@ import { projects } from "../data/projects";
     <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/></svg> Sending...`;
 
     try {
-      // Uses your local API endpoint instead of Formspree
       const response = await fetch("/api/contact", {
         method: "POST",
         body: formData,
@@ -1444,7 +1442,6 @@ import { projects } from "../data/projects";
         showToast("Message sent successfully.", "Thank you for reaching out. I'll get back to you as soon as possible.", "green");
         form.reset();
       } else {
-        // Handle JSON error correctly to avoid [object Object]
         let errorMsg = "Please try again later.";
         try {
           const errorData = await response.json();
@@ -1454,7 +1451,6 @@ import { projects } from "../data/projects";
             errorMsg = JSON.stringify(errorData.error);
           }
         } catch (e) {
-          // If the response isn't valid JSON, use the status text
           errorMsg = response.statusText || "Unknown server error";
         }
         showToast("Something went wrong!", errorMsg, "red");
@@ -1467,7 +1463,6 @@ import { projects } from "../data/projects";
     }
   }
 
-    // CUSTOM TOAST NOTIFICATION (Fixed Types)
   function showToast(title: string, message: string, type: "green" | "red" = "green") {
     const existingToasts = document.querySelectorAll('#toast-container .toast-item');
     existingToasts.forEach(el => el.remove());
