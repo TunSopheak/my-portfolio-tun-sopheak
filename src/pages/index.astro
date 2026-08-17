@@ -7,206 +7,187 @@ import { projects } from "../data/projects";
   <!-- ============================================ -->
   <!-- HERO SECTION                                 -->
   <!-- ============================================ -->
-  <section id="hero" class="min-h-screen flex items-center py-16">
-    <div class="mx-auto max-w-6xl px-4">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <section id="hero" class="min-h-screen flex items-center py-16 relative overflow-hidden">
+    
+    <!-- ===== BACKGROUND VIDEO ===== -->
+    <div class="absolute inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+      <video 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        class="w-full h-full object-cover object-center opacity-40 dark:opacity-60 group-hover:scale-105 transition-transform duration-[20s]"
+      >
+        <source src="/assets/videos/khmer-tech-bg.mp4" type="video/mp4">
+      </video>
+      
+      <!-- ===== IMPROVED OVERLAY GRADIENT ===== -->
+      <div class="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/40 to-transparent md:from-bg/80 md:via-bg/20"></div>
+    </div>
+
+    <div class="mx-auto max-w-6xl px-4 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+        
         <!-- ===== LEFT COLUMN: TEXT ===== -->
-        <div>
-          <!-- Open to Work Badge -->
-          <div class="flex justify-start mb-4">
-            <span
-              class="inline-flex items-center gap-2 bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300 px-4 py-1.5 rounded-full text-sm font-medium border border-green-300 dark:border-green-700"
-            >
-              <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"
-              ></span>
-              Open to Work
-            </span>
-          </div>
-
-          <!-- Greeting -->
-          <p class="text-lg text-text-secondary mb-1">Hello, I'm</p>
-
-          <!-- Name -->
-          <h1
-            class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary"
-          >
-            Tun Sopheak
-          </h1>
-
-          <!-- Typewriter Role -->
-          <div class="mt-2">
-            <span class="text-xl md:text-2xl font-medium text-primary">
-              <span id="typed-role"></span>
-              <span class="cursor-blink">|</span>
-            </span>
-          </div>
-
-          <!-- Tagline -->
-          <p
-            class="text-base md:text-lg text-text-secondary mt-4 max-w-xl leading-relaxed"
-          >
-            Turning ideas into functional web applications with clean code,
-            modern tools, and a focus on real-world impact.
-          </p>
-
-          <!-- Education / Location -->
-          <p class="text-sm text-text-secondary mt-3">
-            Computer Science Student at RUPP · Phnom Penh, Cambodia
-          </p>
-
-          <!-- CTA Buttons -->
-          <div class="flex flex-wrap gap-4 mt-7">
-            <a
-              href="#projects"
-              class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-hover transition"
-            >
-              View Projects
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
+        <div class="bg-white/5 dark:bg-black/30 backdrop-blur-sm border border-white/10 dark:border-gray-700/30 rounded-2xl p-6 md:p-8 shadow-2xl">
+          <div>
+            <!-- Open to Work Badge -->
+            <div class="flex justify-start mb-5">
+              <span
+                class="inline-flex items-center gap-2 bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300 px-4 py-1.5 rounded-full text-sm font-medium border border-green-300 dark:border-green-700 shadow-sm"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
+                <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
+                Open to Work
+              </span>
+            </div>
 
-            <a
-              href="/assets/files/Tun_Sopheak - Curriculum_Vitae - Full_Stack_Developer.pdf"
-              download
-              class="inline-flex items-center gap-2 border-2 border-primary text-primary dark:text-primary dark:border-primary px-6 py-3 rounded-lg font-medium hover:bg-primary/10 transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"></path>
-              </svg>
-              Download CV
-            </a>
-          </div>
+            <!-- Greeting -->
+            <p class="text-lg md:text-xl text-text-secondary mb-1 tracking-wide">Hello, I'm</p>
 
-          <!-- Social Icons -->
-          <div class="flex items-center gap-6 mt-8">
-            <!-- GitHub -->
-            <a
-              href="https://github.com/TunSopheak"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-text-secondary hover:text-primary transition"
-              aria-label="GitHub"
-              title="GitHub"
+            <!-- Name -->
+            <h1
+              class="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary tracking-tight drop-shadow-sm"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-7 w-7"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57
-                    0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41
-                    -.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795
-                    .945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305
-                    3.495.99.105-.78.42-1.305.765-1.605
-                    -2.67-.3-5.46-1.335-5.46-5.925
-                    0-1.305.465-2.385 1.23-3.225
-                    -.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23
-                    .96-.27 1.98-.405 3-.405s2.04.135 3 .405
-                    c2.295-1.56 3.3-1.23 3.3-1.23
-                    .66 1.62.24 2.85.12 3.15
-                    .765.84 1.23 1.905 1.23 3.225
-                    0 4.605-2.805 5.625-5.475 5.925
-                    .435.375.81 1.095.81 2.22
-                    0 1.605-.015 2.895-.015 3.3
-                    0 .315.225.69.825.57
-                    A12.02 12.02 0 0024 12
-                    c0-6.63-5.37-12-12-12z"
-                ></path>
-              </svg>
-            </a>
+              Tun Sopheak
+            </h1>
 
-            <!-- LinkedIn -->
-            <a
-              href="https://www.linkedin.com/in/tun-sopheak"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-text-secondary hover:text-primary transition"
-              aria-label="LinkedIn"
-              title="LinkedIn"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-7 w-7"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037
-                    -1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414
-                    v1.561h.046c.477-.9 1.637-1.85 3.37-1.85
-                    3.601 0 4.267 2.37 4.267 5.455v6.286z
-                    M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065
-                    0-1.138.92-2.063 2.063-2.063
-                    1.14 0 2.064.925 2.064 2.063
-                    0 1.139-.925 2.065-2.064 2.065z
-                    m1.782 13.019H3.555V9h3.564v11.452z
-                    M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542
-                    C0 23.227.792 24 1.771 24h20.451
-                    C23.2 24 24 23.227 24 22.271V1.729
-                    C24 .774 23.2 0 22.222 0h.003z"
-                ></path>
-              </svg>
-            </a>
+            <!-- Typewriter Role -->
+            <div class="mt-3">
+              <span class="text-2xl md:text-3xl font-medium text-primary drop-shadow-sm">
+                <span id="typed-role"></span>
+                <span class="cursor-blink">|</span>
+              </span>
+            </div>
 
-            <!-- Email -->
-            <a
-              href="mailto:sopheaktun.tsp@gmail.com"
-              class="text-text-secondary hover:text-primary transition"
-              aria-label="Email"
-              title="Email"
+            <!-- Tagline -->
+            <p
+              class="text-base md:text-lg text-text-secondary mt-6 max-w-lg leading-relaxed"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-7 w-7"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+              Turning ideas into functional web applications with clean code,
+              modern tools, and a focus on real-world impact.
+            </p>
+
+            <!-- Education / Location -->
+            <p class="text-sm text-text-secondary/80 mt-3">
+              Computer Science Student at RUPP · Phnom Penh, Cambodia
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a
+                href="#projects"
+                class="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full font-medium hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 group"
               >
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                <path d="M22 7l-10 7L2 7"></path>
-              </svg>
-            </a>
+                View Projects
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+
+              <a
+                href="/assets/files/Tun_Sopheak - Curriculum_Vitae - Full_Stack_Developer.pdf"
+                download
+                class="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary dark:text-primary px-6 py-3.5 rounded-full font-medium hover:bg-primary/10 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"></path>
+                </svg>
+                Download CV
+              </a>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="flex items-center gap-6 mt-8">
+              <!-- GitHub -->
+              <a
+                href="https://github.com/TunSopheak"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-text-secondary hover:text-primary transition-colors duration-200"
+                aria-label="GitHub"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+
+              <!-- LinkedIn -->
+              <a
+                href="https://www.linkedin.com/in/tun-sopheak"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-text-secondary hover:text-primary transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037 -1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414 v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065z m1.782 13.019H3.555V9h3.564v11.452z M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542 C0 23.227.792 24 1.771 24h20.451 C23.2 24 24 23.227 24 22.271V1.729 C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+
+              <!-- Email -->
+              <a
+                href="mailto:sopheaktun.tsp@gmail.com"
+                class="text-text-secondary hover:text-primary transition-colors duration-200"
+                aria-label="Email"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 7L2 7"></path></svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- ===== RIGHT COLUMN: PROFILE PHOTO ===== -->
+        <!-- ===== RIGHT COLUMN: PROFILE PHOTO & TECH LOGOS ===== -->
         <div class="flex justify-center lg:justify-end">
-          <div class="relative">
-            <!-- Profile Image -->
-            <img
-              src="/assets/images/tun-sopheak-profile.jpg"
-              alt="Tun Sopheak profile photo"
-              class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary shadow-xl hover:shadow-2xl transition-shadow duration-300"
-            />
-            <div
-              class="absolute -inset-1 rounded-full border-2 border-primary/20 -z-10"
-            >
+          <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 shrink-0">
+            
+            <!-- ============================== -->
+            <!-- FLYING TECH STACK LOGOS          -->
+            <!-- ============================== -->
+            <!-- React -->
+            <div class="absolute -top-8 -left-4 md:-left-8 md:-top-10 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 0s;">
+              <i class="devicon-react-original colored text-4xl md:text-5xl"></i>
+            </div>
+            <!-- Astro -->
+            <div class="absolute -top-2 -right-6 md:-top-4 md:-right-8 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 1s;">
+              <i class="devicon-astro-original colored text-4xl md:text-5xl"></i>
+            </div>
+            <!-- Tailwind -->
+            <div class="absolute bottom-6 -left-6 md:bottom-8 md:-left-8 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 2s;">
+              <i class="devicon-tailwindcss-original colored text-4xl md:text-5xl"></i>
+            </div>
+            <!-- Node.js -->
+            <div class="absolute bottom-4 -right-4 md:bottom-4 md:-right-8 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 0.5s;">
+              <i class="devicon-nodejs-plain colored text-4xl md:text-5xl"></i>
+            </div>
+            <!-- PostgreSQL -->
+            <div class="absolute top-1/2 -translate-y-1/2 -right-8 md:-right-14 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 1.5s;">
+              <i class="devicon-postgresql-plain colored text-4xl md:text-5xl"></i>
+            </div>
+            <!-- ============================== -->
+
+            <!-- Profile Image Container -->
+            <div class="relative w-full h-full rounded-full border-2 border-primary shadow-[0_0_25px_rgba(251,191,36,0.3)] dark:shadow-[0_0_25px_rgba(251,191,36,0.4)] transition-shadow duration-300 hover:shadow-[0_0_35px_rgba(251,191,36,0.5)] group">
+              <img
+                src="/assets/images/tun-sopheak-profile.jpg"
+                alt="Tun Sopheak profile photo"
+                class="w-full h-full rounded-full object-cover relative z-10"
+              />
             </div>
           </div>
         </div>
@@ -868,58 +849,69 @@ import { projects } from "../data/projects";
         </p>
       </div>
 
-      <!-- Projects Grid (First 3 projects) -->
+      <!-- Projects Grid (First 3 projects only) -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {projects.slice(0, 3).map((project) => (
-                    <div class="group bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 rounded-2xl p-4 md:p-5 shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:border-primary/40 transition-all duration-300 flex flex-col gap-4">
+        {projects.slice(0, 3).map((project) => {
+          const isComingSoon = project.id === "julnow";
+          return (
+            <div class="group bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 rounded-2xl p-4 md:p-5 shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:border-primary/40 transition-all duration-300 flex flex-col gap-4">
+              
+              <!-- Thumbnail Image -->
+              <div class="relative aspect-[16/10] bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl overflow-hidden shrink-0">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="hidden absolute inset-0 flex items-center justify-center text-primary/40">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                </div>
+              </div>
 
-            <!-- Thumbnail Image -->
-            <div class="relative aspect-[16/10] bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl overflow-hidden shrink-0">
-              <img
-                src={project.image}
-                alt={project.title}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-              />
-              <div class="hidden absolute inset-0 flex items-center justify-center text-primary/40">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              <!-- Content -->
+              <div class="flex flex-col flex-1 gap-3">
+                <div>
+                  <h3 class="text-xl font-bold text-text-primary leading-tight">{project.title}</h3>
+                  <p class="text-sm text-primary/80 font-medium mt-1">{project.year}</p>
+                </div>
+
+                <p class="text-text-secondary text-sm leading-relaxed flex-1">
+                  {project.description}
+                </p>
+
+                <!-- Tech Stack Badges -->
+                <div class="flex flex-wrap gap-2">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-medium text-primary ring-1 ring-inset ring-primary/20">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <!-- View Details Button OR Coming Soon -->
+                <div class="flex items-center gap-4 mt-4 pt-4 border-t border-white/10 dark:border-gray-700/30">
+                  {isComingSoon ? (
+                    <!-- Coming Soon Badge -->
+                    <span class="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 dark:bg-black/40 text-text-secondary/50 px-6 py-2.5 text-sm font-medium cursor-not-allowed">
+                      Coming Soon
+                    </span>
+                  ) : (
+                    <!-- Normal View Details Button -->
+                    <a href={`/projects/${project.id}`} class="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-white px-6 py-2.5 text-sm font-medium hover:bg-primary-hover shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 group">
+                      View Details
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                  )}
+                  {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-sm text-text-secondary/70 hover:text-primary transition">GitHub</a>}
+                  {project.liveDemo && !isComingSoon && <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" class="text-sm text-text-secondary/70 hover:text-primary transition">Live Demo</a>}
+                </div>
               </div>
             </div>
-
-            <!-- Content -->
-            <div class="flex flex-col flex-1 gap-3">
-              <div>
-                <h3 class="text-xl font-bold text-text-primary leading-tight">{project.title}</h3>
-                <p class="text-sm text-primary/80 font-medium mt-1">{project.year}</p>
-              </div>
-
-              <p class="text-text-secondary text-sm leading-relaxed flex-1">
-                {project.description}
-              </p>
-
-              <!-- Tech Stack Badges -->
-              <div class="flex flex-wrap gap-2">
-                {project.tags.slice(0, 3).map((tag) => (
-                  <span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-medium text-primary ring-1 ring-inset ring-primary/20">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <!-- View Details Button (Fixed single border) -->
-              <div class="flex items-center gap-4 mt-4 pt-4 border-t border-white/10 dark:border-gray-700/30">
-                <a href={`/projects/${project.id}`} class="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-white px-6 py-2.5 text-sm font-medium hover:bg-primary-hover shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 group">
-                  View Details
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-                {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-sm text-text-secondary/70 hover:text-primary transition">GitHub</a>}
-                {project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" class="text-sm text-text-secondary/70 hover:text-primary transition">Live Demo</a>}
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <!-- View All Projects Button -->
@@ -1134,7 +1126,7 @@ import { projects } from "../data/projects";
                     <title>school</title>
                     <path
                       class="cls-1"
-                      d="M51.63,3.48c9.14-6.32,9.83,6.19,18.81-1.62V14.61C61.87,22.31,60,9.86,51.63,16.19V3.48ZM47.29,0h1.39a1.26,1.26,0,0,1,1.26,1.26V19.88a1.24,1.24,0,0,1,0,.27L73.44,33.64V45H88.11A7.87,7.87,0,0,1,96,52.84v68.24a1.8,1.8,0,0,1-1.8,1.8H1.8a1.81,1.81,0,0,1-1.8-1.8V52.84a7.82,7.82,0,0,1,2.31-5.55h0A7.85,7.85,0,0,1,7.86,45H22.54V33.64L46.06,20.15a1.12,1.12,0,0,1,0-.27V1.26A1.27,1.27,0,0,1,47.29,0ZM46.13,29.75a1.41,1.41,0,0,1,2.81,0v5.42h4A1.41,1.41,0,0,1,53,38H47.53a1.41,1.41,0,0,1-1.4-1.41V29.75ZM48,25.44A9.55,9.55,0,1,1,38.43,35,9.54,9.54,0,0,1,48,25.44ZM36.05,119.18v.09H59.93V89a13.4,13.4,0,0,0-3.47-9.23,11.75,11.75,0,0,0-16.93,0A13.4,13.4,0,0,0,36.05,89v30.19Zm-3.61.09V89a17,17,0,0,1,4.46-11.7,15.32,15.32,0,0,1,22.17,0A17,17,0,0,1,63.53,89v30.28H92.37V52.84a4.29,4.29,0,0,0-4.26-4.26H7.86a4.23,4.23,0,0,0-3,1.25h0a4.21,4.21,0,0,0-1.24,3v66.43ZM8.66,105.46h7.61v5.92H8.66v-5.92Zm0-12.24h7.61v5.92H8.66V93.22ZM8.66,81h7.61v5.92H8.66V81Zm11.78,24.49h7.62v5.92H20.44v-5.92Zm0-12.24h7.62v5.92H20.44V93.22Zm0-12.25h7.62v5.92H20.44V81Zm47.47,24.49h7.62v5.92H67.91v-5.92Zm0-12.24h7.62v5.92H67.91V93.22Zm0-12.25h7.62v5.92H67.91V81ZM79.7,105.46h7.62v5.92H79.7v-5.92Zm0-12.24h7.62v5.92H79.7V93.22ZM79.7,81h7.62v5.92H79.7V81ZM21.09,59.7c-1.81-.19-3.13-.29-3.95-.29a7.34,7.34,0,0,0-1.44.07.26.26,0,0,0-.2.28.35.35,0,0,0,.23.32,9.22,9.22,0,0,0,1.46.39c.81.18,1.48.36,2,.53a5,5,0,0,1,1.41.73,2.25,2.25,0,0,1,.83,1.16,6.9,6.9,0,0,1,.2,1.84,4.12,4.12,0,0,1-1.27,3.41,6.07,6.07,0,0,1-3.84,1A21.62,21.62,0,0,1,13.93,69c-.9-.12-1.6-.23-2.09-.35l-.75-.17.19-3.41a35.74,35.74,0,0,0,4.84.42c.67,0,1-.15,1-.44,0-.13-.08-.22-.23-.28a8.06,8.06,0,0,0-1.25-.24A7.38,7.38,0,0,1,12,63.2a3.84,3.84,0,0,1-1-2.94c0-1.74.42-2.93,1.25-3.57a6.34,6.34,0,0,1,3.86-1,30.38,30.38,0,0,1,4.3.36l.81.14-.12,3.47Zm11.77,8.94a17.14,17.14,0,0,1-4.18.5,7.11,7.11,0,0,1-3.29-.61,3.47,3.47,0,0,1-1.67-2,12.76,12.76,0,0,1-.51-4.1q0-3.84,1.18-5.26c.79-.94,2.3-1.41,4.52-1.41a17.2,17.2,0,0,1,3.28.38l.67.14-.11,3.45a24,24,0,0,0-2.92-.19c-.9,0-1.47.17-1.73.51a3.93,3.93,0,0,0-.38,2.11,9.1,9.1,0,0,0,.18,2.21,1.23,1.23,0,0,0,.59.82,3.06,3.06,0,0,0,1.31.2l3-.11,0,3.39Zm8.88.25V64.38H39.22v4.51H34.75V56h4.47v4.76h2.52V56h4.48V68.89Zm10.91-6.46A6.42,6.42,0,0,0,53,64.8a1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11ZM85,68.89H76.31V56h4.47v9.27H85v3.64Z"
+                      d="M51.63,3.48c9.14-6.32,9.83,6.19,18.81-1.62V14.61C61.87,22.31,60,9.86,51.63,16.19V3.48ZM47.29,0h1.39a1.26,1.26,0,0,1,1.26,1.26V19.88a1.24,1.24,0,0,1,0,.27L73.44,33.64V45H88.11A7.87,7.87,0,0,1,96,52.84v68.24a1.8,1.8,0,0,1-1.8,1.8H1.8a1.81,1.81,0,0,1-1.8-1.8V52.84a7.82,7.82,0,0,1,2.31-5.55h0A7.85,7.85,0,0,1,7.86,45H22.54V33.64L46.06,20.15a1.12,1.12,0,0,1,0-.27V1.26A1.27,1.27,0,0,1,47.29,0ZM46.13,29.75a1.41,1.41,0,0,1,2.81,0v5.42h4A1.41,1.41,0,0,1,53,38H47.53a1.41,1.41,0,0,1-1.4-1.41V29.75ZM48,25.44A9.55,9.55,0,1,1,38.43,35,9.54,9.54,0,0,1,48,25.44ZM36.05,119.18v.09H59.93V89a13.4,13.4,0,0,0-3.47-9.23,11.75,11.75,0,0,0-16.93,0A13.4,13.4,0,0,0,36.05,89v30.19Zm-3.61.09V89a17,17,0,0,1,4.46-11.7,15.32,15.32,0,0,1,22.17,0A17,17,0,0,1,63.53,89v30.28H92.37V52.84a4.29,4.29,0,0,0-4.26-4.26H7.86a4.23,4.23,0,0,0-3,1.25h0a4.21,4.21,0,0,0-1.24,3v66.43ZM8.66,105.46h7.61v5.92H8.66v-5.92Zm0-12.24h7.61v5.92H8.66V93.22ZM8.66,81h7.61v5.92H8.66V81Zm11.78,24.49h7.62v5.92H20.44v-5.92Zm0-12.24h7.62v5.92H20.44V93.22Zm0-12.25h7.62v5.92H20.44V81Zm47.47,24.49h7.62v5.92H67.91v-5.92Zm0-12.24h7.62v5.92H67.91V93.22Zm0-12.25h7.62v5.92H67.91V81ZM79.7,105.46h7.62v5.92H79.7v-5.92Zm0-12.24h7.62v5.92H79.7V93.22ZM79.7,81h7.62v5.92H79.7V81ZM21.09,59.7c-1.81-.19-3.13-.29-3.95-.29a7.34,7.34,0,0,0-1.44.07.26.26,0,0,0-.2.28.35.35,0,0,0,.23.32,9.22,9.22,0,0,0,1.46.39c.81.18,1.48.36,2,.53a5,5,0,0,1,1.41.73,2.25,2.25,0,0,1,.83,1.16,6.9,6.9,0,0,1,.2,1.84,4.12,4.12,0,0,1-1.27,3.41,6.07,6.07,0,0,1-3.84,1A21.62,21.62,0,0,1,13.93,69c-.9-.12-1.6-.23-2.09-.35l-.75-.17.19-3.41a35.74,35.74,0,0,0,4.84.42c.67,0,1-.15,1-.44,0-.13-.08-.22-.23-.28a8.06,8.06,0,0,0-1.25-.24A7.38,7.38,0,0,1,12,63.2a3.84,3.84,0,0,1-1-2.94c0-1.74.42-2.93,1.25-3.57a6.34,6.34,0,0,1,3.86-1,30.38,30.38,0,0,1,4.3.36l.81.14-.12,3.47Zm11.77,8.94a17.14,17.14,0,0,1-4.18.5,7.11,7.11,0,0,1-3.29-.61,3.47,3.47,0,0,1-1.67-2,12.76,12.76,0,0,1-.51-4.1q0-3.84,1.18-5.26c.79-.94,2.3-1.41,4.52-1.41a17.2,17.2,0,0,1,3.28.38l.67.14-.11,3.45a24,24,0,0,0-2.92-.19c-.9,0-1.47.17-1.73.51a3.93,3.93,0,0,0-.38,2.11,9.1,9.1,0,0,0,.18,2.21,1.23,1.23,0,0,0,.59.82,3.06,3.06,0,0,0,1.31.2l3-.11,0,3.39Zm8.88.25V64.38H39.22v4.51H34.75V56h4.47v4.76h2.52V56h4.48V68.89Zm10.91-6.46A6.42,6.42,0,0,0,53,64.8a1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11Zm6.16,0a6.42,6.42,0,0,0,.32,2.37,1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11ZM85,68.89H76.31V56h4.47v9.27H85v3.64Z"
                     ></path>
                   </svg>
                 </div>
@@ -1548,6 +1540,9 @@ import { projects } from "../data/projects";
     document.addEventListener("DOMContentLoaded", () => {
       const typedElement = document.getElementById("typed-role");
       if (!typedElement) return;
+
+      // Important: Clear any accidental whitespace that causes the "F" bug
+      typedElement.innerHTML = ''; 
 
       const roles = ["Full Stack Developer", "Software Developer"];
       let roleIndex = 0;
