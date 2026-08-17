@@ -34,8 +34,7 @@ This is a modern, responsive personal portfolio built with **Astro** and **Tailw
 │   ├── data/               # Project data (projects.js)
 │   ├── layouts/            # Main layout wrapper (BaseLayout.astro)
 │   ├── pages/              # Page routes (index, projects list, [id] dynamic pages)
-│   ├── styles/             # Global CSS with light/dark theme variables
-│   └── api/                # (Formerly used, now static via EmailJS)
+│   └── styles/             # Global CSS with light/dark theme variables
 ├── astro.config.mjs        # Astro configuration
 └── package.json            # Dependencies and scripts
 ```
