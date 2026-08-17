@@ -1,4 +1,3 @@
-```markdown
 # Tun Sopheak — Personal Developer Portfolio
 
 This is a modern, responsive personal portfolio built with **Astro** and **Tailwind CSS**. It features a sleek glassmorphism UI, a fully functional contact form with EmailJS integration, dynamic project routing, and an automatic dark/light mode toggle.
