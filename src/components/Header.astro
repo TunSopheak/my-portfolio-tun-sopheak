@@ -174,18 +174,14 @@
 
     const applyTheme = (isDark: boolean) => {
       document.documentElement.classList.toggle("dark", isDark);
-      // Dark mode → show sun (click to go light)
-      // Light mode → show moon (click to go dark)
       sunIcon.classList.toggle("hidden", !isDark);
       moonIcon.classList.toggle("hidden", isDark);
       localStorage.setItem("theme", isDark ? "dark" : "light");
     };
 
-    // Initial theme: saved preference → system preference → light
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark =
-      savedTheme === "dark" || (savedTheme === null && prefersDark);
+    const isDark = savedTheme === "dark" || (savedTheme === null && prefersDark);
 
     applyTheme(isDark);
 
@@ -195,11 +191,37 @@
     });
 
     // ============================================
-    // SCROLL SPY (active underline based on scroll)
+    // SMOOTH SCROLL WITHOUT HASH IN THE URL
     // ============================================
     const navLinks = document.querySelectorAll("nav ul li a[data-link]");
     const sections = document.querySelectorAll("section[id]");
 
+    // 1. Intercept click events to remove the hash from the URL
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault(); // Stop the default anchor behavior that adds #hash
+
+        // ✅ FIX: Add safe null check for href
+        const href = link.getAttribute("href");
+        if (!href) return;
+        
+        const targetId = href.split("#")[1];
+        if (!targetId) return; // If there is no ID to target, stop
+
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Remove the hash from the address bar completely without reloading the page
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", window.location.pathname);
+        }
+      });
+    });
+
+    // 2. Scroll Spy (keeps the underline active)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -207,9 +229,7 @@
             navLinks.forEach((link) => link.removeAttribute("data-active"));
 
             const id = entry.target.id;
-            const activeLink = document.querySelector(
-              `nav ul li a[data-link="${id}"]`
-            );
+            const activeLink = document.querySelector(`nav ul li a[data-link="${id}"]`);
             if (activeLink) {
               activeLink.setAttribute("data-active", "true");
             }
