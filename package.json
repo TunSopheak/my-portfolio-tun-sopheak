@@ -12,7 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^9.0.5",
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^5.0.0",
     "resend": "^6.20.0",
