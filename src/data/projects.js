@@ -9,7 +9,6 @@ export const projects = [
     tags: ["Python", "FastAPI", "OpenCV", "SQLite"],
     github: "https://github.com/TunSopheak/Smart-Classroom-AI-IoT",
     liveDemo: null,
-    // New fields for the Detail Page
     overview: "This project aimed to create a functional MVP for a modern classroom environment. It integrates AI monitoring for student engagement, facial recognition for automatic attendance, and a central dashboard for educators to manage reports.",
     features: [
       "Student management and attendance tracking dashboard",
@@ -17,8 +16,6 @@ export const projects = [
       "Automated reporting and analytics for teachers",
       "Real-time classroom monitoring interface"
     ],
-    frontendCode: "https://github.com/TunSopheak/Smart-Classroom-Frontend",
-    backendCode: "https://github.com/TunSopheak/Smart-Classroom-Backend",
   },
   {
     id: "phsar-khmer",
@@ -37,8 +34,6 @@ export const projects = [
       "Shopping cart management UI",
       "Login and Authentication UI prototypes"
     ],
-    frontendCode: "https://github.com/TunSopheak/PhsarKhmer-WebApp",
-    backendCode: null,
   },
   {
     id: "kick",
@@ -57,7 +52,5 @@ export const projects = [
       "Detailed product pages with sizing info",
       "Sign-in, shopping cart, and contact forms"
     ],
-    frontendCode: "https://github.com/TunSopheak/Kick",
-    backendCode: null,
   },
 ];
