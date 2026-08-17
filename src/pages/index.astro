@@ -7,188 +7,375 @@ import { projects } from "../data/projects";
   <!-- ============================================ -->
   <!-- HERO SECTION                                 -->
   <!-- ============================================ -->
-  <section id="hero" class="min-h-screen flex items-center py-16 relative overflow-hidden">
-    
-    <!-- ===== BACKGROUND VIDEO ===== -->
-    <div class="absolute inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
-      <video 
-        autoplay 
-        loop 
-        muted 
-        playsinline 
-        class="w-full h-full object-cover object-center opacity-40 dark:opacity-60 group-hover:scale-105 transition-transform duration-[20s]"
+  <section
+    id="hero"
+    class="min-h-screen flex items-center py-16 relative overflow-hidden"
+  >
+    <!-- ========================================== -->
+    <!-- BACKGROUND VIDEO                           -->
+    <!-- ========================================== -->
+    <div
+      class="absolute inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden"
+    >
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="w-full h-full object-cover object-center opacity-40 dark:opacity-60"
       >
-        <source src="/assets/videos/khmer-tech-bg.mp4" type="video/mp4">
+        <source
+          src="/assets/videos/khmer-tech-bg.mp4"
+          type="video/mp4"
+        />
       </video>
-      
-      <!-- ===== IMPROVED OVERLAY GRADIENT ===== -->
-      <div class="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/40 to-transparent md:from-bg/80 md:via-bg/20"></div>
+
+      <!-- Overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/50 to-bg/10
+        md:from-bg/80 md:via-bg/30 md:to-transparent"
+      ></div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- HERO CONTAINER                             -->
+    <!-- ========================================== -->
     <div class="mx-auto max-w-6xl px-4 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
-        
-        <!-- ===== LEFT COLUMN: TEXT ===== -->
-        <div class="bg-white/5 dark:bg-black/30 backdrop-blur-sm border border-white/10 dark:border-gray-700/30 rounded-2xl p-6 md:p-8 shadow-2xl">
-          <div>
-            <!-- Open to Work Badge -->
-            <div class="flex justify-start mb-5">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center"
+      >
+        <!-- ====================================== -->
+        <!-- LEFT COLUMN: TEXT                      -->
+        <!-- ====================================== -->
+        <div
+          class="bg-white/5 dark:bg-black/30 backdrop-blur-sm
+          border border-white/10 dark:border-gray-700/30
+          rounded-2xl p-6 md:p-8 shadow-2xl"
+        >
+          <!-- Open to Work -->
+          <div class="flex justify-start mb-5">
+            <span
+              class="inline-flex items-center gap-2
+              bg-green-100 text-green-700
+              dark:bg-green-900/40 dark:text-green-300
+              px-4 py-1.5 rounded-full text-sm font-medium
+              border border-green-300 dark:border-green-700 shadow-sm"
+            >
               <span
-                class="inline-flex items-center gap-2 bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300 px-4 py-1.5 rounded-full text-sm font-medium border border-green-300 dark:border-green-700 shadow-sm"
-              >
-                <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
-                Open to Work
-              </span>
-            </div>
+                class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"
+              ></span>
+              Open to Work
+            </span>
+          </div>
 
-            <!-- Greeting -->
-            <p class="text-lg md:text-xl text-text-secondary mb-1 tracking-wide">Hello, I'm</p>
+          <!-- Greeting -->
+          <p
+            class="text-lg md:text-xl text-text-secondary mb-1 tracking-wide"
+          >
+            Hello, I'm
+          </p>
 
-            <!-- Name -->
-            <h1
-              class="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary tracking-tight drop-shadow-sm"
+          <!-- Name -->
+          <h1
+            class="text-4xl md:text-6xl lg:text-7xl font-bold
+            text-text-primary tracking-tight drop-shadow-sm"
+          >
+            Tun Sopheak
+          </h1>
+
+          <!-- Typewriter -->
+          <div class="mt-3">
+            <span
+              class="text-2xl md:text-3xl font-medium text-primary drop-shadow-sm"
             >
-              Tun Sopheak
-            </h1>
+              <span id="typed-role"></span>
+              <span class="cursor-blink">|</span>
+            </span>
+          </div>
 
-            <!-- Typewriter Role -->
-            <div class="mt-3">
-              <span class="text-2xl md:text-3xl font-medium text-primary drop-shadow-sm">
-                <span id="typed-role"></span>
-                <span class="cursor-blink">|</span>
-              </span>
-            </div>
+          <!-- Tagline -->
+          <p
+            class="text-base md:text-lg text-text-secondary
+            mt-6 max-w-lg leading-relaxed"
+          >
+            Turning ideas into functional web applications with clean code,
+            modern tools, and a focus on real-world impact.
+          </p>
 
-            <!-- Tagline -->
-            <p
-              class="text-base md:text-lg text-text-secondary mt-6 max-w-lg leading-relaxed"
+          <!-- Education / Location -->
+          <p class="text-sm text-text-secondary/80 mt-3">
+            Computer Science Student at RUPP · Phnom Penh, Cambodia
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4 mt-8">
+            <!-- Projects -->
+            <a
+              href="#projects"
+              class="inline-flex items-center justify-center gap-2
+              bg-primary text-white px-6 py-3.5 rounded-full
+              font-medium hover:bg-primary-hover hover:-translate-y-0.5
+              hover:shadow-lg hover:shadow-primary/30
+              transition-all duration-300 group"
             >
-              Turning ideas into functional web applications with clean code,
-              modern tools, and a focus on real-world impact.
-            </p>
-
-            <!-- Education / Location -->
-            <p class="text-sm text-text-secondary/80 mt-3">
-              Computer Science Student at RUPP · Phnom Penh, Cambodia
-            </p>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-wrap gap-4 mt-8">
-              <a
-                href="#projects"
-                class="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-3.5 rounded-full font-medium hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 group"
+              View Projects
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
               >
-                View Projects
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </a>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path>
+              </svg>
+            </a>
 
-              <a
-                href="/assets/files/Tun_Sopheak - Curriculum_Vitae - Full_Stack_Developer.pdf"
-                download
-                class="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary dark:text-primary px-6 py-3.5 rounded-full font-medium hover:bg-primary/10 hover:-translate-y-0.5 transition-all duration-300"
+            <!-- Download CV -->
+            <a
+              href="/assets/files/Tun_Sopheak - Curriculum_Vitae - Full_Stack_Developer.pdf"
+              download
+              class="inline-flex items-center justify-center gap-2
+              border-2 border-primary text-primary dark:text-primary
+              px-6 py-3.5 rounded-full font-medium
+              hover:bg-primary/10 hover:-translate-y-0.5
+              transition-all duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"></path>
-                </svg>
-                Download CV
-              </a>
-            </div>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"
+                ></path>
+              </svg>
+              Download CV
+            </a>
+          </div>
 
-            <!-- Social Icons -->
-            <div class="flex items-center gap-6 mt-8">
-              <!-- GitHub -->
-              <a
-                href="https://github.com/TunSopheak"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-text-secondary hover:text-primary transition-colors duration-200"
-                aria-label="GitHub"
+          <!-- Social Icons -->
+          <div class="flex items-center gap-6 mt-8">
+            <!-- GitHub -->
+            <a
+              href="https://github.com/TunSopheak"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-secondary hover:text-primary
+              transition-colors duration-200"
+              aria-label="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7 fill-current"
+                viewBox="0 0 24 24"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                />
+              </svg>
+            </a>
 
-              <!-- LinkedIn -->
-              <a
-                href="https://www.linkedin.com/in/tun-sopheak"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-text-secondary hover:text-primary transition-colors duration-200"
-                aria-label="LinkedIn"
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/tun-sopheak"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-text-secondary hover:text-primary
+              transition-colors duration-200"
+              aria-label="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7 fill-current"
+                viewBox="0 0 24 24"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037 -1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414 v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065z m1.782 13.019H3.555V9h3.564v11.452z M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542 C0 23.227.792 24 1.771 24h20.451 C23.2 24 24 23.227 24 22.271V1.729 C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              </a>
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
 
-              <!-- Email -->
-              <a
-                href="mailto:sopheaktun.tsp@gmail.com"
-                class="text-text-secondary hover:text-primary transition-colors duration-200"
-                aria-label="Email"
+            <!-- Email -->
+            <a
+              href="mailto:sopheaktun.tsp@gmail.com"
+              class="text-text-secondary hover:text-primary
+              transition-colors duration-200"
+              aria-label="Email"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7 fill-none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 fill-none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 7L2 7"></path></svg>
-              </a>
-            </div>
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="M22 7l-10 7L2 7"></path>
+              </svg>
+            </a>
           </div>
         </div>
 
-        <!-- ===== RIGHT COLUMN: PROFILE PHOTO & TECH LOGOS ===== -->
+        <!-- ====================================== -->
+        <!-- RIGHT COLUMN: SOLAR SYSTEM (WIDE ORBITS) -->
+        <!-- ====================================== -->
         <div class="flex justify-center lg:justify-end">
-          <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 shrink-0">
-            
-            <!-- ============================== -->
-            <!-- FLYING TECH STACK LOGOS          -->
-            <!-- ============================== -->
-            <!-- React -->
-            <div class="absolute -top-8 -left-4 md:-left-8 md:-top-10 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 0s;">
-              <i class="devicon-react-original colored text-4xl md:text-5xl"></i>
-            </div>
-            <!-- Astro -->
-            <div class="absolute -top-2 -right-6 md:-top-4 md:-right-8 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 1s;">
-              <i class="devicon-astro-original colored text-4xl md:text-5xl"></i>
-            </div>
-            <!-- Tailwind -->
-            <div class="absolute bottom-6 -left-6 md:bottom-8 md:-left-8 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 2s;">
-              <i class="devicon-tailwindcss-original colored text-4xl md:text-5xl"></i>
-            </div>
-            <!-- Node.js -->
-            <div class="absolute bottom-4 -right-4 md:bottom-4 md:-right-8 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 0.5s;">
-              <i class="devicon-nodejs-plain colored text-4xl md:text-5xl"></i>
-            </div>
-            <!-- PostgreSQL -->
-            <div class="absolute top-1/2 -translate-y-1/2 -right-8 md:-right-14 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center drop-shadow-lg animate-float-tech hover:scale-110 transition-transform duration-300 z-20" style="animation-delay: 1.5s;">
-              <i class="devicon-postgresql-plain colored text-4xl md:text-5xl"></i>
-            </div>
-            <!-- ============================== -->
+          <div
+            class="relative
+            w-[280px] h-[280px]
+            sm:w-[320px] sm:h-[320px]
+            md:w-[370px] md:h-[370px]
+            lg:w-[430px] lg:h-[430px]
+            shrink-0"
+          >
 
-            <!-- Profile Image Container -->
-            <div class="relative w-full h-full rounded-full border-2 border-primary shadow-[0_0_25px_rgba(251,191,36,0.3)] dark:shadow-[0_0_25px_rgba(251,191,36,0.4)] transition-shadow duration-300 hover:shadow-[0_0_35px_rgba(251,191,36,0.5)] group">
+            <!-- ================================= -->
+            <!-- STATIONARY ORBIT PATHS (wide)     -->
+            <!-- ================================= -->
+            <div class="orbit-path orbit-path-outer"></div>
+            <div class="orbit-path orbit-path-inner"></div>
+
+            <!-- ================================= -->
+            <!-- SUN CORONA & GLOW EFFECTS          -->
+            <!-- ================================= -->
+            <div class="sun-core-glow"></div>
+            <div class="sun-glow"></div>
+            <div class="sun-flare"></div>
+            <div class="accretion-ring"></div>
+
+            <div class="corona-ring corona-ring-outer"></div>
+            <div class="corona-ring corona-ring-middle"></div>
+            <div class="corona-ring corona-ring-inner"></div>
+
+            <!-- ================================= -->
+            <!-- OUTER ORBIT (Astro + PostgreSQL)  -->
+            <!-- ================================= -->
+            <div
+              class="orbit-ring orbit-ring-outer"
+              style="--orbit-radius: 250px; animation-duration: 20s;"
+            >
+              <div class="planet planet-outer" style="--planet-angle: 0deg;">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg"
+                  alt="Astro"
+                  loading="lazy"
+                />
+                <div class="planet-trail"></div>
+              </div>
+              <div class="planet planet-outer" style="--planet-angle: 180deg;">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                  alt="PostgreSQL"
+                  loading="lazy"
+                />
+                <div class="planet-trail"></div>
+              </div>
+            </div>
+
+            <!-- ================================= -->
+            <!-- INNER ORBIT (React + Tailwind + Node.js) -->
+            <!-- ================================= -->
+            <div
+              class="orbit-ring orbit-ring-inner"
+              style="--orbit-radius: 180px; animation-duration: 10s;"
+            >
+              <div class="planet planet-inner" style="--planet-angle: 0deg;">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                  alt="React"
+                  loading="lazy"
+                />
+                <div class="planet-trail"></div>
+              </div>
+              <div class="planet planet-inner" style="--planet-angle: 120deg;">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                  alt="Tailwind CSS"
+                  loading="lazy"
+                />
+                <div class="planet-trail"></div>
+              </div>
+              <div class="planet planet-inner" style="--planet-angle: 240deg;">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+                  alt="Node.js"
+                  loading="lazy"
+                />
+                <div class="planet-trail"></div>
+              </div>
+            </div>
+
+            <!-- ================================= -->
+            <!-- PROFILE IMAGE (THE SUN)            -->
+            <!-- ================================= -->
+            <div
+              class="absolute inset-[15%] rounded-full
+              border-[1px] border-primary/90
+              bg-soft-bg
+              shadow-[0_0_50px_rgba(47,225,36,0.2)]
+              dark:shadow-[0_0_80px_rgba(251,191,36,0.4)]
+              transition-all duration-500
+              hover:shadow-[0_0_120px_rgba(251,191,36,0.8)]
+              overflow-hidden group z-20"
+            >
+              <div
+                class="absolute inset-1.5 rounded-full
+                border-2 border-white/30 dark:border-white/20
+                z-20 pointer-events-none
+                animate-pulse"
+                style="animation-duration: 2s;"
+              ></div>
+              <div
+                class="absolute inset-0 rounded-full
+                bg-gradient-radial from-transparent via-transparent to-primary/10
+                z-15 pointer-events-none
+                animate-pulse"
+                style="animation-duration: 3s; animation-delay: 0.5s;"
+              ></div>
               <img
                 src="/assets/images/tun-sopheak-profile.jpg"
                 alt="Tun Sopheak profile photo"
-                class="w-full h-full rounded-full object-cover relative z-10"
+                class="w-full h-full rounded-full object-cover relative z-10
+                transition-transform duration-700 group-hover:scale-105"
               />
             </div>
+
+            <!-- ================================= -->
+            <!-- SPARKLE PARTICLES (12)            -->
+            <!-- ================================= -->
+            <div class="sparkle sparkle-1"></div>
+            <div class="sparkle sparkle-2"></div>
+            <div class="sparkle sparkle-3"></div>
+            <div class="sparkle sparkle-4"></div>
+            <div class="sparkle sparkle-5"></div>
+            <div class="sparkle sparkle-6"></div>
+            <div class="sparkle sparkle-7"></div>
+            <div class="sparkle sparkle-8"></div>
+            <div class="sparkle sparkle-9"></div>
+            <div class="sparkle sparkle-10"></div>
+            <div class="sparkle sparkle-11"></div>
+            <div class="sparkle sparkle-12"></div>
+
+            <!-- ================================= -->
+            <!-- DECORATIVE ORBIT DOTS              -->
+            <!-- ================================= -->
+            <div class="orbit-dot orbit-dot-top"></div>
+            <div class="orbit-dot orbit-dot-bottom"></div>
+            <div class="orbit-dot orbit-dot-left"></div>
+            <div class="orbit-dot orbit-dot-right"></div>
+
           </div>
         </div>
       </div>

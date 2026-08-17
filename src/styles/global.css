@@ -43,27 +43,493 @@
 }
 
 /* ============================================
-   CURSOR & TYPEWRITER
+   GLOBAL RESET & BASE
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+.navbar.scrolled {
+  @apply shadow-lg bg-white/80 dark:bg-gray-900/80 border-b border-white/10 dark:border-gray-700/30;
+}
+.nav-link {
+  @apply text-sm font-medium text-text-secondary hover:text-primary transition-colors duration-200 relative;
+}
+.nav-link::after {
+  content: '';
+  @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* ============================================
+   TYPEWRITER CURSOR
    ============================================ */
 .cursor-blink {
   display: inline-block;
-  animation: blink 0.75s step-end infinite;
+  animation: blink 1s step-end infinite;
   font-weight: 300;
   color: var(--color-primary);
 }
-@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-
-/* ============================================
-   NEW ANIMATION: FLOATING TECH LOGOS
-   ============================================ */
-@keyframes float-tech {
-  0% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
-  25% { transform: translateY(-30px) translateX(15px) rotate(12deg) scale(1.1); }
-  50% { transform: translateY(-10px) translateX(-15px) rotate(-8deg) scale(1); }
-  75% { transform: translateY(20px) translateX(10px) rotate(6deg) scale(0.9); }
-  100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-.animate-float-tech {
-  animation: float-tech 7s ease-in-out infinite;
+/* ============================================
+   SCROLL DOWN INDICATOR
+   ============================================ */
+.scroll-indicator {
+  animation: bounceDown 2s ease-in-out infinite;
+}
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* ============================================
+   ACTIVITIES & ACHIEVEMENTS CARDS
+   ============================================ */
+.activity-card,
+.achievement-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.activity-card:hover,
+.achievement-card:hover {
+  transform: translateY(-6px);
+  @apply shadow-2xl;
+}
+
+/* ============================================================
+   SOLAR SYSTEM – SUN CENTERED WITH WIDE ORBITS
+   ============================================================ */
+
+/* ---------- SUN CORE GLOW (behind profile) ---------- */
+.sun-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(251, 191, 36, 0.35) 0%,
+    rgba(251, 191, 36, 0.15) 40%,
+    rgba(251, 191, 36, 0.05) 70%,
+    transparent 100%
+  );
+  animation: pulse-glow 3s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+@keyframes pulse-glow {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* ---------- DEEP CORE GLOW (shine like the Sun) ---------- */
+.sun-core-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(251, 191, 36, 0.6) 0%,
+    rgba(251, 191, 36, 0.2) 30%,
+    rgba(251, 191, 36, 0.05) 50%,
+    transparent 70%
+  );
+  filter: blur(35px);
+  z-index: 1;
+  animation: pulse-core 2.5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes pulse-core {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+/* ---------- SUN FLARE (occasional burst) ---------- */
+.sun-flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(251, 191, 36, 0.1) 0%,
+    rgba(255, 200, 100, 0.05) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 2;
+  animation: flare 8s ease-in-out infinite;
+}
+@keyframes flare {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+  4% { opacity: 0.3; transform: translate(-50%, -50%) scale(1.2); }
+  8% { opacity: 0; transform: translate(-50%, -50%) scale(1.3); }
+  20% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  24% { opacity: 0.15; transform: translate(-50%, -50%) scale(1.1); }
+  28% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* ---------- CORONA RINGS (Fire/Blackhole effect) ---------- */
+.corona-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+}
+.corona-ring-outer {
+  width: 130%;
+  height: 130%;
+  border: 2px solid transparent;
+  border-top-color: rgba(251, 191, 36, 0.2);
+  border-right-color: rgba(251, 191, 36, 0.05);
+  animation: spin-corona 25s linear infinite;
+  filter: blur(2px);
+}
+.corona-ring-middle {
+  width: 115%;
+  height: 115%;
+  border: 3px solid transparent;
+  border-bottom-color: rgba(251, 191, 36, 0.15);
+  border-left-color: rgba(251, 191, 36, 0.05);
+  animation: spin-corona-reverse 20s linear infinite;
+  filter: blur(3px);
+}
+.corona-ring-inner {
+  width: 105%;
+  height: 105%;
+  border: 1.5px solid transparent;
+  border-top-color: rgba(251, 191, 36, 0.3);
+  border-right-color: rgba(251, 191, 36, 0.1);
+  animation: spin-corona 15s linear infinite;
+  filter: blur(1px);
+}
+@keyframes spin-corona { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes spin-corona-reverse { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
+
+/* ---------- ACCRETION RING (Energy disk) ---------- */
+.accretion-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(251, 191, 36, 0.05) 10%,
+    transparent 20%,
+    rgba(251, 191, 36, 0.08) 30%,
+    transparent 40%,
+    rgba(251, 191, 36, 0.03) 50%,
+    transparent 60%,
+    rgba(251, 191, 36, 0.06) 70%,
+    transparent 80%,
+    rgba(251, 191, 36, 0.04) 90%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  z-index: 3;
+  animation: spin-accretion 20s linear infinite;
+  pointer-events: none;
+}
+@keyframes spin-accretion {
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ---------- STATIONARY ORBIT PATHS (Visible tracks – WIDE) ---------- */
+.orbit-path {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px dashed rgba(251, 191, 36, 0.2);
+  width: calc(var(--radius) * 2);
+  height: calc(var(--radius) * 2);
+  pointer-events: none;
+  z-index: 9;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.orbit-path-outer {
+  --radius: 200px; /* Increased from 155px */
+  border-color: rgba(251, 191, 36, 0.12);
+  border-width: 1.5px;
+  animation: path-pulse 4s ease-in-out infinite alternate;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.03);
+}
+.orbit-path-inner {
+  --radius: 140px; /* Increased from 105px */
+  border-color: rgba(251, 191, 36, 0.08);
+  border-style: dotted;
+  border-width: 1.5px;
+  animation: path-pulse 5s ease-in-out infinite alternate-reverse;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.02);
+}
+@keyframes path-pulse {
+  0% { border-color: rgba(251, 191, 36, 0.06); opacity: 0.4; box-shadow: 0 0 10px rgba(251, 191, 36, 0.01); }
+  100% { border-color: rgba(251, 191, 36, 0.18); opacity: 1; box-shadow: 0 0 40px rgba(251, 191, 36, 0.06); }
+}
+
+/* ---------- ORBIT RING (Planets rotate on these – WIDE) ---------- */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-origin: center;
+  animation: spin-orbit linear infinite;
+  will-change: transform;
+  z-index: 10;
+  pointer-events: none;
+}
+@keyframes spin-orbit { 100% { transform: rotate(360deg); } }
+
+/* Orbit path lines (visible dashed rings) – in addition to stationary paths */
+.orbit-ring::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(251, 191, 36, 0.15);
+  width: calc(var(--orbit-radius) * 2);
+  height: calc(var(--orbit-radius) * 2);
+  pointer-events: none;
+  animation: none !important;
+}
+.orbit-ring-outer::before {
+  border-color: rgba(251, 191, 36, 0.12);
+  border-width: 1px;
+}
+.orbit-ring-inner::before {
+  border-color: rgba(251, 191, 36, 0.08);
+  border-style: dotted;
+  border-width: 1px;
+}
+
+/* ---------- PLANETS (Tech Logos) ---------- */
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.12),
+    0 0 30px rgba(251, 191, 36, 0.04);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.5s ease,
+              background 0.4s ease;
+  pointer-events: auto;
+  will-change: transform;
+  z-index: 15;
+  transform: rotate(var(--planet-angle)) translateX(var(--orbit-radius));
+}
+.planet-outer {
+  width: 54px;
+  height: 54px;
+  margin-top: -27px;
+  margin-left: -27px;
+}
+.planet-inner {
+  width: 46px;
+  height: 46px;
+  margin-top: -23px;
+  margin-left: -23px;
+}
+.planet img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Glow ring around planet on hover */
+.planet::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.2), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.planet:hover::after { opacity: 1; }
+
+.planet:hover {
+  transform: rotate(var(--planet-angle)) translateX(var(--orbit-radius)) scale(1.35) !important;
+  box-shadow: 0 0 60px rgba(251, 191, 36, 0.5), 0 8px 30px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  z-index: 50;
+  border-color: rgba(251, 191, 36, 0.6);
+}
+
+/* ---------- PLANET TRAIL (Comet effect) ---------- */
+.planet-trail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 3px;
+  margin-left: 12px;
+  margin-top: -1.5px;
+  background: linear-gradient(to right, rgba(251, 191, 36, 0.25), transparent);
+  border-radius: 2px;
+  transform: rotate(calc(var(--planet-angle) * -1deg)) translateX(0px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.planet:hover .planet-trail { opacity: 1; }
+
+/* ---------- SPARKLE PARTICLES (12) ---------- */
+.sparkle {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 3;
+  animation: sparkle-float var(--duration, 3s) ease-in-out infinite alternate;
+}
+.sparkle::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  border-radius: 9999px;
+  background: inherit;
+  filter: blur(4px);
+  opacity: 0.3;
+}
+.sparkle-1 { top: 4%; left: 10%; width: 6px; height: 6px; background: rgba(251, 191, 36, 0.9); --duration: 2.8s; animation-delay: 0s; }
+.sparkle-2 { top: 8%; right: 5%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.8); --duration: 3.5s; animation-delay: 0.6s; }
+.sparkle-3 { bottom: 5%; left: 7%; width: 5px; height: 5px; background: rgba(251, 191, 36, 0.85); --duration: 3.2s; animation-delay: 1.2s; }
+.sparkle-4 { bottom: 10%; right: 8%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.7); --duration: 4s; animation-delay: 0.3s; }
+.sparkle-5 { top: 40%; left: 2%; width: 5px; height: 5px; background: rgba(251, 191, 36, 0.9); --duration: 2.5s; animation-delay: 0.9s; }
+.sparkle-6 { top: 35%; right: 2%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.8); --duration: 3.8s; animation-delay: 1.5s; }
+.sparkle-7 { top: 20%; left: 45%; width: 3px; height: 3px; background: rgba(251, 191, 36, 0.7); --duration: 2.2s; animation-delay: 0.4s; }
+.sparkle-8 { bottom: 20%; left: 45%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.8); --duration: 3.3s; animation-delay: 1.1s; }
+.sparkle-9 { top: 28%; left: 8%; width: 3px; height: 3px; background: rgba(251, 191, 36, 0.6); --duration: 2.6s; animation-delay: 1.8s; }
+.sparkle-10 { top: 28%; right: 8%; width: 3px; height: 3px; background: rgba(251, 191, 36, 0.6); --duration: 2.9s; animation-delay: 0.7s; }
+.sparkle-11 { top: 50%; left: 5%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.7); --duration: 3.6s; animation-delay: 1.3s; }
+.sparkle-12 { top: 50%; right: 5%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.7); --duration: 3.1s; animation-delay: 0.5s; }
+
+@keyframes sparkle-float {
+  0% { transform: translate(0, 0) scale(0.2); opacity: 0.1; }
+  100% { transform: translate(calc(20px * (1 - 2 * random())), calc(-25px * (1 - 2 * random()))) scale(1); opacity: 0.9; }
+}
+
+/* ---------- ORBIT DOTS (Decorative) ---------- */
+.orbit-dot {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 8;
+  background: rgba(251, 191, 36, 0.4);
+  animation: dot-pulse 2s ease-in-out infinite alternate;
+}
+.orbit-dot-top { top: 5%; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; animation-delay: 0s; }
+.orbit-dot-bottom { bottom: 5%; left: 50%; transform: translateX(-50%); width: 3px; height: 3px; animation-delay: 0.8s; }
+.orbit-dot-left { top: 50%; left: 5%; transform: translateY(-50%); width: 3px; height: 3px; animation-delay: 1.6s; }
+.orbit-dot-right { top: 50%; right: 5%; transform: translateY(-50%); width: 4px; height: 4px; animation-delay: 0.4s; }
+
+@keyframes dot-pulse {
+  0% { transform: translateX(-50%) scale(0.5); opacity: 0.2; }
+  100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+}
+.orbit-dot-left { animation-name: dot-pulse-left; }
+.orbit-dot-right { animation-name: dot-pulse-right; }
+@keyframes dot-pulse-left {
+  0% { transform: translateY(-50%) scale(0.5); opacity: 0.2; }
+  100% { transform: translateY(-50%) scale(1.2); opacity: 0.8; }
+}
+@keyframes dot-pulse-right {
+  0% { transform: translateY(-50%) scale(0.5); opacity: 0.2; }
+  100% { transform: translateY(-50%) scale(1.2); opacity: 0.8; }
+}
+
+/* ============================================================
+   RESPONSIVE: WIDE ORBIT RADIUS & PLANET SIZES
+   ============================================================ */
+@media (max-width: 640px) {
+  .orbit-path-outer { --radius: 140px !important; }
+  .orbit-path-inner { --radius: 100px !important; }
+  .orbit-ring-outer { --orbit-radius: 140px !important; }
+  .orbit-ring-inner { --orbit-radius: 100px !important; }
+  .planet-outer { width: 40px; height: 40px; margin-top: -20px; margin-left: -20px; }
+  .planet-inner { width: 34px; height: 34px; margin-top: -17px; margin-left: -17px; }
+  .corona-ring-outer { width: 115%; height: 115%; }
+  .corona-ring-middle { width: 125%; height: 125%; }
+  .corona-ring-inner { width: 110%; height: 110%; }
+  .sparkle { --size: 3px !important; }
+  .sparkle-1 { top: 2%; left: 8%; }
+  .sparkle-2 { top: 6%; right: 3%; }
+  .sparkle-3 { bottom: 3%; left: 5%; }
+  .sparkle-4 { bottom: 8%; right: 6%; }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .orbit-path-outer { --radius: 170px !important; }
+  .orbit-path-inner { --radius: 120px !important; }
+  .orbit-ring-outer { --orbit-radius: 170px !important; }
+  .orbit-ring-inner { --orbit-radius: 120px !important; }
+}
+
+/* ============================================================
+   REDUCE MOTION (Accessibility)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring,
+  .corona-ring-outer,
+  .corona-ring-middle,
+  .corona-ring-inner,
+  .sun-flare,
+  .accretion-ring,
+  .orbit-path {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .sparkle {
+    animation: none !important;
+    opacity: 0.4;
+  }
+  .sun-core-glow,
+  .sun-glow {
+    animation: none !important;
+  }
+  .planet:hover { transform: scale(1.1) !important; }
 }
