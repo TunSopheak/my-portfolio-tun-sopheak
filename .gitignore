@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Large files (hosted on Google Drive)
+public/assets/files/
+*.pdf
+*.mp4
+*.mov
+*.avi
