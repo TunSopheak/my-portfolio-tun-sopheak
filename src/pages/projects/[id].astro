@@ -19,7 +19,7 @@ const { project } = Astro.props;
       {project ? (
         <div class="flex flex-col gap-8">
           
-          <!-- Back Link -->
+          <!-- Back to All Projects -->
           <div class="flex items-center gap-1.5">
             <a href="/projects/" class="text-sm text-text-secondary hover:text-primary transition flex items-center">
               <span class="text-xl mr-1">&larr;</span> Back to All Projects
@@ -32,7 +32,7 @@ const { project } = Astro.props;
             <span class="text-primary font-medium text-lg shrink-0">{project.year}</span>
           </div>
 
-          <!-- Large Hero Image (Fixed: Clean and simple fallback) -->
+          <!-- Large Hero Image -->
           <div class="relative w-full aspect-video bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl overflow-hidden border border-white/10 dark:border-gray-700/30 shadow-xl">
             <img 
               src={project.image} 

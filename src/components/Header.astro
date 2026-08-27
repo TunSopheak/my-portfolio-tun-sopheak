@@ -170,28 +170,27 @@
     const sunIcon = document.getElementById("theme-toggle-sun");
     const moonIcon = document.getElementById("theme-toggle-moon");
 
-    if (!themeToggle || !sunIcon || !moonIcon) return;
+    if (themeToggle && sunIcon && moonIcon) {
+      const applyTheme = (isDark: boolean) => {
+        document.documentElement.classList.toggle("dark", isDark);
+        sunIcon.classList.toggle("hidden", !isDark);
+        moonIcon.classList.toggle("hidden", isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      };
 
-    const applyTheme = (isDark: boolean) => {
-      document.documentElement.classList.toggle("dark", isDark);
-      sunIcon.classList.toggle("hidden", !isDark);
-      moonIcon.classList.toggle("hidden", isDark);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    };
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const isDark = savedTheme === "dark" || (savedTheme === null && prefersDark);
+      applyTheme(isDark);
 
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = savedTheme === "dark" || (savedTheme === null && prefersDark);
-
-    applyTheme(isDark);
-
-    themeToggle.addEventListener("click", () => {
-      const currentlyDark = document.documentElement.classList.contains("dark");
-      applyTheme(!currentlyDark);
-    });
+      themeToggle.addEventListener("click", () => {
+        const currentlyDark = document.documentElement.classList.contains("dark");
+        applyTheme(!currentlyDark);
+      });
+    }
 
     // ============================================
-    // SMOOTH SCROLL WITHOUT HASH IN THE URL
+    // NAVIGATION – WORKS ON HOMEPAGE & DETAIL PAGES
     // ============================================
     const navLinks = document.querySelectorAll("nav ul li a[data-link]");
     const sections = document.querySelectorAll("section[id]");
@@ -203,16 +202,26 @@
         if (!href) return;
         const targetId = href.split("#")[1];
         if (!targetId) return;
+
         const targetSection = document.getElementById(targetId);
+
         if (targetSection) {
+          // Section exists on this page → scroll smoothly
           targetSection.scrollIntoView({ behavior: "smooth" });
-        }
-        if (window.history && window.history.replaceState) {
-          window.history.replaceState(null, "", window.location.pathname);
+          // Remove hash from URL (cleaner)
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, "", window.location.pathname);
+          }
+        } else {
+          // Section does NOT exist → navigate to homepage with hash
+          window.location.href = `/#${targetId}`;
         }
       });
     });
 
+    // ============================================
+    // SCROLL SPY – Highlights active section
+    // ============================================
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
