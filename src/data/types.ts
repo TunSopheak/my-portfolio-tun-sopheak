@@ -7,7 +7,7 @@ export interface Activity {
   year: string;
   type: string;
   image: string;
-  images?: string[]; // optional
+  images?: string[];
   tags: string[];
   details: string;
 }

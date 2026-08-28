@@ -1519,67 +1519,82 @@ import type { Project, Activity } from "../data/types";
       <style>
         @keyframes float {
           0% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-12px) rotate(-4deg); }
+          50% { transform: translateY(-14px) rotate(-3deg); }
           100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
         }
         .animate-float {
           animation: float 4s ease-in-out infinite;
         }
+        .animate-pulse-glow {
+          animation: pulse-glow 2.5s ease-in-out infinite;
+        }
       </style>
 
       <!-- Section Heading -->
-      <div class="text-center mb-12">
+      <div class="text-center mb-10 md:mb-12">
         <h2
           class="text-3xl md:text-4xl font-bold text-text-primary inline-block"
         >
           Contact Me
         </h2>
         <div class="h-1.5 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
+        <p class="text-text-secondary text-sm md:text-base mt-4 max-w-2xl mx-auto px-4">
+          Have a question, project idea, or just want to say hello? I'd love to hear from you.
+        </p>
       </div>
 
       <!-- Main Two-Column Layout -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
 
         <!-- ======================== -->
         <!-- LEFT COLUMN: INFO       -->
         <!-- ======================== -->
-        <div class="flex flex-col justify-center space-y-6 pt-2">
+        <div class="flex flex-col justify-center space-y-5 md:space-y-6 pt-0 lg:pt-2 text-center lg:text-left">
 
           <!-- Animated Rocket Icon -->
-          <div class="mb-2 group w-fit cursor-pointer hover:scale-105 transition-transform duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-20 h-20 md:w-24 md:h-24 text-primary drop-shadow-lg animate-float hover:animate-none">
-              <path d="M9.752 6.193c.599.6 1.73.437 2.528-.362s.96-1.932.362-2.531c-.599-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.362 2.532"/>
-              <path d="M15.811 3.312c-.363 1.534-1.334 3.626-3.64 6.218l-.24 2.408a2.56 2.56 0 0 1-.732 1.526L8.817 15.85a.51.51 0 0 1-.867-.434l.27-1.899c.04-.28-.013-.593-.131-.956a9 9 0 0 0-.249-.657l-.082-.202c-.815-.197-1.578-.662-2.191-1.277-.614-.615-1.079-1.379-1.275-2.195l-.203-.083a10 10 0 0 0-.655-.248c-.363-.119-.675-.172-.955-.132l-1.896.27A.51.51 0 0 1 .15 7.17l2.382-2.386c.41-.41.947-.67 1.524-.734h.006l2.4-.238C9.005 1.55 11.087.582 12.623.208c.89-.217 1.59-.232 2.08-.188.244.023.435.06.57.093q.1.026.16.045c.184.06.279.13.351.295l.029.073a3.5 3.5 0 0 1 .157.721c.055.485.051 1.178-.159 2.065m-4.828 7.475.04-.04-.107 1.081a1.54 1.54 0 0 1-.44.913l-1.298 1.3.054-.38c.072-.506-.034-.993-.172-1.418a9 9 0 0 0-.164-.45c.738-.065 1.462-.38 2.087-1.006M5.205 5c-.625.626-.94 1.351-1.004 2.09a9 9 0 0 0-.45-.164c-.424-.138-.91-.244-1.416-.172l-.38.054 1.3-1.3c.245-.246.566-.401.91-.44l1.08-.107zm9.406-3.961c-.38-.034-.967-.027-1.746.163-1.558.38-3.917 1.496-6.937 4.521-.62.62-.799 1.34-.687 2.051.107.676.483 1.362 1.048 1.928.564.565 1.25.941 1.924 1.049.71.112 1.429-.067 2.048-.688 3.079-3.083 4.192-5.444 4.556-6.987.183-.771.18-1.345.138-1.713a3 3 0 0 0-.045-.283 3 3 0 0 0-.3-.041Z"/>
-              <path d="M7.009 12.139a7.6 7.6 0 0 1-1.804-1.352A7.6 7.6 0 0 1 3.794 8.86c-1.102.992-1.965 5.054-1.839 5.18.125.126 3.936-.896 5.054-1.902Z"/>
-            </svg>
+          <div class="flex justify-center lg:justify-start">
+            <div class="mb-1 md:mb-2 group w-fit cursor-pointer hover:scale-105 transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-primary drop-shadow-lg animate-float hover:animate-none">
+                <path d="M9.752 6.193c.599.6 1.73.437 2.528-.362s.96-1.932.362-2.531c-.599-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.362 2.532"/>
+                <path d="M15.811 3.312c-.363 1.534-1.334 3.626-3.64 6.218l-.24 2.408a2.56 2.56 0 0 1-.732 1.526L8.817 15.85a.51.51 0 0 1-.867-.434l.27-1.899c.04-.28-.013-.593-.131-.956a9 9 0 0 0-.249-.657l-.082-.202c-.815-.197-1.578-.662-2.191-1.277-.614-.615-1.079-1.379-1.275-2.195l-.203-.083a10 10 0 0 0-.655-.248c-.363-.119-.675-.172-.955-.132l-1.896.27A.51.51 0 0 1 .15 7.17l2.382-2.386c.41-.41.947-.67 1.524-.734h.006l2.4-.238C9.005 1.55 11.087.582 12.623.208c.89-.217 1.59-.232 2.08-.188.244.023.435.06.57.093q.1.026.16.045c.184.06.279.13.351.295l.029.073a3.5 3.5 0 0 1 .157.721c.055.485.051 1.178-.159 2.065m-4.828 7.475.04-.04-.107 1.081a1.54 1.54 0 0 1-.44.913l-1.298 1.3.054-.38c.072-.506-.034-.993-.172-1.418a9 9 0 0 0-.164-.45c.738-.065 1.462-.38 2.087-1.006M5.205 5c-.625.626-.94 1.351-1.004 2.09a9 9 0 0 0-.45-.164c-.424-.138-.91-.244-1.416-.172l-.38.054 1.3-1.3c.245-.246.566-.401.91-.44l1.08-.107zm9.406-3.961c-.38-.034-.967-.027-1.746.163-1.558.38-3.917 1.496-6.937 4.521-.62.62-.799 1.34-.687 2.051.107.676.483 1.362 1.048 1.928.564.565 1.25.941 1.924 1.049.71.112 1.429-.067 2.048-.688 3.079-3.083 4.192-5.444 4.556-6.987.183-.771.18-1.345.138-1.713a3 3 0 0 0-.045-.283 3 3 0 0 0-.3-.041Z"/>
+                <path d="M7.009 12.139a7.6 7.6 0 0 1-1.804-1.352A7.6 7.6 0 0 1 3.794 8.86c-1.102.992-1.965 5.054-1.839 5.18.125.126 3.936-.896 5.054-1.902Z"/>
+              </svg>
+            </div>
           </div>
 
           <div>
-            <h3 class="text-3xl md:text-4xl font-bold text-text-primary leading-tight">
-              Ready to build something <br />
-              <span class="text-primary">amazing</span> together
+            <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary leading-tight">
+              Ready to build something <br class="hidden sm:inline" />
+              <span class="text-primary relative inline-block">
+                amazing
+              </span>
+              together
             </h3>
-            <p class="text-text-secondary text-base md:text-lg leading-relaxed mt-4 max-w-md">
+            <p class="text-text-secondary text-sm sm:text-base md:text-lg leading-relaxed mt-3 md:mt-4 max-w-md mx-auto lg:mx-0 px-2 sm:px-0">
               I'm currently open to full-time roles, freelance contracts, and interesting SaaS collaborations. Whether you have a project idea, a job opportunity, or just want to say hi — my inbox is always open.
             </p>
           </div>
 
           <!-- Response Time Note -->
-          <div class="flex items-center gap-2 text-sm text-text-secondary/80">
-            <span class="text-yellow-500">⚡</span>
+          <div class="flex items-center justify-center lg:justify-start gap-2 text-sm text-text-secondary/80">
+            <span class="text-yellow-500 animate-pulse">⚡</span>
             Typically responds within 24 hours
           </div>
 
           <!-- Social Buttons -->
-          <div class="flex gap-4">
-            <a href="https://github.com/TunSopheak" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary transition duration-300 bg-white/5 dark:bg-black/30">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <div class="flex gap-3 justify-center lg:justify-start flex-wrap">
+            <a href="https://github.com/TunSopheak" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 bg-white/5 dark:bg-black/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.15 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.62.24 2.85.12 3.15.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             </a>
-            <a href="https://www.linkedin.com/in/tun-sopheak" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary transition duration-300 bg-white/5 dark:bg-black/30">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037 -1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414 v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065z m1.782 13.019H3.555V9h3.564v11.452z M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542 C0 23.227.792 24 1.771 24h20.451 C23.2 24 24 23.227 24 22.271V1.729 C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <a href="https://www.linkedin.com/in/tun-sopheak" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 bg-white/5 dark:bg-black/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037 -1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414 v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065z m1.782 13.019H3.555V9h3.564v11.452z M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542 C0 23.227.792 24 1.771 24h20.451 C23.2 24 24 23.227 24 22.271V1.729 C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <a href="mailto:sopheaktun.tsp@gmail.com" class="flex items-center justify-center w-12 h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary transition duration-300 bg-white/5 dark:bg-black/30">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+            <a href="mailto:sopheaktun.tsp@gmail.com" class="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-xl border border-white/10 dark:border-gray-700/30 text-text-secondary hover:text-primary hover:border-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 bg-white/5 dark:bg-black/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
               </svg>
             </a>
@@ -1587,9 +1602,9 @@ import type { Project, Activity } from "../data/types";
         </div>
 
         <!-- ======================== -->
-        <!-- RIGHT COLUMN: FORM      -->
+        <!-- RIGHT COLUMN: FORM (ORIGINAL) -->
         <!-- ======================== -->
-        <div class="bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 rounded-3xl p-6 md:p-8 shadow-xl">
+        <div class="bg-white/5 dark:bg-black/30 backdrop-blur-md border border-white/10 dark:border-gray-700/30 rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
 
           <div class="mb-6">
             <h3 class="text-2xl md:text-3xl font-bold text-text-primary">

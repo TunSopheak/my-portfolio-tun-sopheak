@@ -116,14 +116,13 @@
         </li>
       </ul>
 
-      <!-- Dark / Light Mode Toggle (Cool & Interactive) -->
+      <!-- Dark / Light Mode Toggle (Interactive) -->
       <button
         id="theme-toggle"
         type="button"
         class="relative p-2 rounded-full text-text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 focus:outline-none group"
         aria-label="Toggle dark mode"
       >
-        <!-- Sun icon (shown in dark mode → click to switch to light) -->
         <svg
           id="theme-toggle-sun"
           xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +145,6 @@
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
 
-        <!-- Moon icon (shown in light mode → click to switch to dark) -->
         <svg
           id="theme-toggle-moon"
           xmlns="http://www.w3.org/2000/svg"
@@ -161,17 +159,16 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
 
-        <!-- Glow ring on hover -->
         <span class="absolute inset-0 rounded-full border-2 border-primary/0 transition-all duration-300 group-hover:border-primary/20"></span>
       </button>
 
-      <!-- Hamburger Menu Button (Mobile) with Animated SVG Icons -->
+      <!-- Hamburger Menu Button (Mobile) with SVG Icons -->
       <button
         id="menu-toggle"
         class="md:hidden relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-primary/10 transition-all duration-300 focus:outline-none group"
         aria-label="Toggle menu"
       >
-        <!-- List Icon (shown when menu is closed) -->
+        <!-- List Icon (closed) -->
         <svg
           id="menu-icon-hamburger"
           xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +179,7 @@
           <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
         </svg>
 
-        <!-- X-Circle Icon (shown when menu is open) -->
+        <!-- X-Circle Icon (open) -->
         <svg
           id="menu-icon-close"
           xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +191,6 @@
           <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
         </svg>
 
-        <!-- Pulsing ring on hover -->
         <span class="absolute inset-0 rounded-full border border-primary/0 transition-all duration-300 group-hover:border-primary/20"></span>
       </button>
     </div>
@@ -271,12 +267,13 @@
     // ============================================
     // DARK / LIGHT MODE TOGGLE
     // ============================================
-    const themeToggle = document.getElementById("theme-toggle");
-    const sunIcon = document.getElementById("theme-toggle-sun");
-    const moonIcon = document.getElementById("theme-toggle-moon");
+    const themeToggle = document.getElementById("theme-toggle") as HTMLButtonElement | null;
+    const sunIcon = document.getElementById("theme-toggle-sun") as SVGElement | null;
+    const moonIcon = document.getElementById("theme-toggle-moon") as SVGElement | null;
 
     if (themeToggle && sunIcon && moonIcon) {
-      const applyTheme = (isDark) => {
+      // Apply theme with explicit boolean type
+      const applyTheme = (isDark: boolean) => {
         document.documentElement.classList.toggle("dark", isDark);
         sunIcon.classList.toggle("hidden", !isDark);
         moonIcon.classList.toggle("hidden", isDark);
@@ -297,10 +294,10 @@
     // ============================================
     // MOBILE MENU TOGGLE – SVG Icon Swap
     // ============================================
-    const toggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("mobile-menu");
-    const hamburgerIcon = document.getElementById("menu-icon-hamburger");
-    const closeIcon = document.getElementById("menu-icon-close");
+    const toggle = document.getElementById("menu-toggle") as HTMLButtonElement | null;
+    const menu = document.getElementById("mobile-menu") as HTMLDivElement | null;
+    const hamburgerIcon = document.getElementById("menu-icon-hamburger") as SVGElement | null;
+    const closeIcon = document.getElementById("menu-icon-close") as SVGElement | null;
 
     if (toggle && menu && hamburgerIcon && closeIcon) {
       let isOpen = false;
@@ -333,8 +330,8 @@
     // ============================================
     // NAVIGATION – WORKS ON HOMEPAGE & DETAIL PAGES
     // ============================================
-    const navLinks = document.querySelectorAll("nav ul li a[data-link]");
-    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>("nav ul li a[data-link]");
+    const sections = document.querySelectorAll<HTMLElement>("section[id]");
 
     navLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
@@ -366,7 +363,9 @@
           if (entry.isIntersecting) {
             navLinks.forEach((link) => link.removeAttribute("data-active"));
             const id = entry.target.id;
-            const activeLink = document.querySelector(`nav ul li a[data-link="${id}"]`);
+            const activeLink = document.querySelector<HTMLAnchorElement>(
+              `nav ul li a[data-link="${id}"]`
+            );
             if (activeLink) {
               activeLink.setAttribute("data-active", "true");
             }
