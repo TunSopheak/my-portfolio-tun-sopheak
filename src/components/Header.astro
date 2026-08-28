@@ -1,8 +1,10 @@
 <!-- src/components/Header.astro -->
+
 <header
-  class="sticky top-0 z-40 bg-surface shadow-sm transition-colors duration-300 dark:border-b dark:border-border"
+  class="sticky top-0 z-40 bg-surface/80 backdrop-blur-xl shadow-sm transition-all duration-300 dark:border-b dark:border-border"
 >
-  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:py-5">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-5">
+    
     <!-- Logo / Name -->
     <a
       href="/"
@@ -12,8 +14,10 @@
     </a>
 
     <!-- Navigation & Controls -->
-    <div class="flex items-center gap-6 md:gap-8">
-      <ul class="flex items-center gap-6 md:gap-8">
+    <div class="flex items-center gap-4 md:gap-6">
+      
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-4 lg:gap-8">
         <li>
           <a
             href="/#hero"
@@ -112,18 +116,18 @@
         </li>
       </ul>
 
-      <!-- Dark / Light Mode Toggle -->
+      <!-- Dark / Light Mode Toggle (Cool & Interactive) -->
       <button
         id="theme-toggle"
         type="button"
-        class="text-text-secondary hover:text-primary focus:outline-none transition-colors duration-200"
+        class="relative p-2 rounded-full text-text-secondary hover:text-primary hover:bg-primary/10 transition-all duration-300 focus:outline-none group"
         aria-label="Toggle dark mode"
       >
         <!-- Sun icon (shown in dark mode → click to switch to light) -->
         <svg
           id="theme-toggle-sun"
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
+          class="h-5 w-5 transition-all duration-500 group-hover:rotate-90 group-hover:scale-110"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -146,7 +150,7 @@
         <svg
           id="theme-toggle-moon"
           xmlns="http://www.w3.org/2000/svg"
-          class="hidden h-5 w-5"
+          class="hidden h-5 w-5 transition-all duration-500 group-hover:-rotate-90 group-hover:scale-110"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -156,7 +160,108 @@
         >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
+
+        <!-- Glow ring on hover -->
+        <span class="absolute inset-0 rounded-full border-2 border-primary/0 transition-all duration-300 group-hover:border-primary/20"></span>
       </button>
+
+      <!-- Hamburger Menu Button (Mobile) with Animated SVG Icons -->
+      <button
+        id="menu-toggle"
+        class="md:hidden relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-primary/10 transition-all duration-300 focus:outline-none group"
+        aria-label="Toggle menu"
+      >
+        <!-- List Icon (shown when menu is closed) -->
+        <svg
+          id="menu-icon-hamburger"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-text-secondary transition-all duration-300 group-hover:text-primary group-hover:scale-110"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
+
+        <!-- X-Circle Icon (shown when menu is open) -->
+        <svg
+          id="menu-icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          class="hidden h-6 w-6 text-text-secondary transition-all duration-300 group-hover:text-primary group-hover:rotate-90 group-hover:scale-110"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+        </svg>
+
+        <!-- Pulsing ring on hover -->
+        <span class="absolute inset-0 rounded-full border border-primary/0 transition-all duration-300 group-hover:border-primary/20"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div
+      id="mobile-menu"
+      class="md:hidden absolute top-full left-0 w-full bg-surface/95 dark:bg-surface-dark/95 backdrop-blur-md border-b border-white/10 dark:border-gray-700/30 shadow-2xl max-h-0 overflow-hidden transition-all duration-500 ease-out"
+    >
+      <div class="flex flex-col gap-1 p-4 pb-6">
+        <a
+          href="/#hero"
+          data-link="hero"
+          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
+        >
+          Home
+        </a>
+        <a
+          href="/#about"
+          data-link="about"
+          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
+        >
+          About
+        </a>
+        <a
+          href="/#skills"
+          data-link="skills"
+          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
+        >
+          Skills
+        </a>
+        <a
+          href="/#projects"
+          data-link="projects"
+          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
+        >
+          Projects
+        </a>
+        <a
+          href="/#education"
+          data-link="education"
+          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
+        >
+          Education
+        </a>
+        <a
+          href="/#activities"
+          data-link="activities"
+          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
+        >
+          Activities
+        </a>
+        <a
+          href="/#achievements"
+          data-link="achievements"
+          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
+        >
+          Achievements
+        </a>
+        <a
+          href="/#contact"
+          data-link="contact"
+          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
+        >
+          Contact
+        </a>
+      </div>
     </div>
   </nav>
 </header>
@@ -171,7 +276,7 @@
     const moonIcon = document.getElementById("theme-toggle-moon");
 
     if (themeToggle && sunIcon && moonIcon) {
-      const applyTheme = (isDark: boolean) => {
+      const applyTheme = (isDark) => {
         document.documentElement.classList.toggle("dark", isDark);
         sunIcon.classList.toggle("hidden", !isDark);
         moonIcon.classList.toggle("hidden", isDark);
@@ -186,6 +291,42 @@
       themeToggle.addEventListener("click", () => {
         const currentlyDark = document.documentElement.classList.contains("dark");
         applyTheme(!currentlyDark);
+      });
+    }
+
+    // ============================================
+    // MOBILE MENU TOGGLE – SVG Icon Swap
+    // ============================================
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const hamburgerIcon = document.getElementById("menu-icon-hamburger");
+    const closeIcon = document.getElementById("menu-icon-close");
+
+    if (toggle && menu && hamburgerIcon && closeIcon) {
+      let isOpen = false;
+
+      const toggleMenu = () => {
+        isOpen = !isOpen;
+        menu.classList.toggle("max-h-0");
+        menu.classList.toggle("max-h-[500px]");
+        hamburgerIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+        toggle.classList.toggle("bg-primary/10");
+        document.body.style.overflow = isOpen ? "hidden" : "";
+      };
+
+      toggle.addEventListener("click", toggleMenu);
+
+      // Close menu when clicking a link
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (isOpen) toggleMenu();
+        });
+      });
+
+      // Close menu on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isOpen) toggleMenu();
       });
     }
 
@@ -206,14 +347,11 @@
         const targetSection = document.getElementById(targetId);
 
         if (targetSection) {
-          // Section exists on this page → scroll smoothly
           targetSection.scrollIntoView({ behavior: "smooth" });
-          // Remove hash from URL (cleaner)
           if (window.history && window.history.replaceState) {
             window.history.replaceState(null, "", window.location.pathname);
           }
         } else {
-          // Section does NOT exist → navigate to homepage with hash
           window.location.href = `/#${targetId}`;
         }
       });

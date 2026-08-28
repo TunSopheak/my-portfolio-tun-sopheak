@@ -50,10 +50,11 @@ import type { Project, Activity } from "../data/types";
         <div
           class="bg-white/5 dark:bg-black/30 backdrop-blur-sm
           border border-white/10 dark:border-gray-700/30
-          rounded-2xl p-6 md:p-8 shadow-2xl"
+          rounded-2xl p-6 md:p-8 shadow-2xl
+          text-center lg:text-left"
         >
           <!-- Open to Work -->
-          <div class="flex justify-start mb-5">
+          <div class="flex justify-center lg:justify-start mb-5">
             <span
               class="inline-flex items-center gap-2
               bg-green-100 text-green-700
@@ -96,7 +97,7 @@ import type { Project, Activity } from "../data/types";
           <!-- Tagline -->
           <p
             class="text-base md:text-lg text-text-secondary
-            mt-6 max-w-lg leading-relaxed"
+            mt-6 max-w-lg leading-relaxed mx-auto lg:mx-0"
           >
             Turning ideas into functional web applications with clean code,
             modern tools, and a focus on real-world impact.
@@ -108,7 +109,7 @@ import type { Project, Activity } from "../data/types";
           </p>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-wrap gap-4 mt-8">
+          <div class="flex flex-col sm:flex-row flex-wrap gap-4 mt-8 justify-center lg:justify-start">
             <!-- Projects -->
             <a
               href="#projects"
@@ -164,7 +165,7 @@ import type { Project, Activity } from "../data/types";
           </div>
 
           <!-- Social Icons -->
-          <div class="flex items-center gap-6 mt-8">
+          <div class="flex items-center justify-center lg:justify-start gap-6 mt-8">
             <!-- GitHub -->
             <a
               href="https://github.com/TunSopheak"
@@ -234,8 +235,8 @@ import type { Project, Activity } from "../data/types";
         <div class="flex justify-center lg:justify-end">
           <div
             class="relative
-            w-[280px] h-[280px]
-            sm:w-[320px] sm:h-[320px]
+            w-[220px] h-[220px]
+            sm:w-[280px] sm:h-[280px]
             md:w-[370px] md:h-[370px]
             lg:w-[430px] lg:h-[430px]
             shrink-0"
@@ -385,7 +386,7 @@ import type { Project, Activity } from "../data/types";
   <!-- ============================================ -->
   <!-- ABOUT ME SECTION                             -->
   <!-- ============================================ -->
-  <section id="about" class="py-20 bg-soft-bg transition-colors duration-300">
+  <section id="about" class="py-12 md:py-20 bg-soft-bg transition-colors duration-300">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <!-- Section Heading (With Blue Underline) -->
       <div class="text-center mb-12">
@@ -430,7 +431,7 @@ import type { Project, Activity } from "../data/types";
 
           <!-- Stats Row (Refined & Smaller) -->
           <div
-            class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-500/20 text-center pt-5 mt-5 border-t border-gray-500/20 w-full"
+            class="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-gray-500/20 text-center pt-5 mt-5 border-t border-gray-500/20 w-full"
           >
             <div class="flex-1 py-2 md:py-1 px-3">
               <p class="text-2xl md:text-3xl font-bold text-primary">
@@ -444,7 +445,7 @@ import type { Project, Activity } from "../data/types";
             </div>
             <div class="flex-1 py-2 md:py-1 px-3">
               <p class="text-2xl md:text-3xl font-bold text-primary">
-                <span id="project-count" data-target={projects.length}>0</span>+
+                <span id="project-count" data-target={projects.length}>0</span>
               </p>
               <p
                 class="text-xs md:text-xs uppercase tracking-wider text-text-secondary/70 font-medium mt-0.5"
@@ -509,7 +510,7 @@ import type { Project, Activity } from "../data/types";
   <!-- ============================================ -->
   <!-- SKILLS SECTION                               -->
   <!-- ============================================ -->
-  <section id="skills" class="py-20 bg-soft-bg transition-colors duration-300">
+  <section id="skills" class="py-12 md:py-20 bg-soft-bg transition-colors duration-300">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <!-- Section Heading -->
       <div class="text-center mb-12">
@@ -1021,7 +1022,7 @@ import type { Project, Activity } from "../data/types";
   <!-- ============================================ -->
   <!-- PROJECTS SECTION (DATA-DRIVEN)               -->
   <!-- ============================================ -->
-  <section id="projects" class="py-20 bg-soft-bg transition-colors duration-300">
+  <section id="projects" class="py-12 md:py-20 bg-soft-bg transition-colors duration-300">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <!-- Section Heading -->
       <div class="text-center mb-12">
@@ -1115,7 +1116,7 @@ import type { Project, Activity } from "../data/types";
   <!-- ============================================ -->
   <section
     id="education"
-    class="py-20 bg-soft-bg transition-colors duration-300"
+    class="py-12 md:py-20 bg-soft-bg transition-colors duration-300"
   >
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <!-- Section Heading -->
@@ -1128,20 +1129,19 @@ import type { Project, Activity } from "../data/types";
         <div class="h-1.5 w-12 bg-primary mx-auto mt-2 rounded-full"></div>
       </div>
 
-      <!-- Left-Aligned Timeline Structure -->
+      <!-- Timeline Structure -->
       <div class="relative mt-6 md:mt-8">
         <!-- Center Vertical Line (Hidden on Mobile) -->
         <div
           class="absolute left-[21px] md:left-1/2 top-8 bottom-8 w-[2px] bg-gradient-to-b from-transparent via-primary/30 to-transparent -translate-x-1/2 hidden md:block z-0"
-        >
-        </div>
+        ></div>
 
-        <div class="flex flex-col gap-14 md:gap-20">
+        <div class="flex flex-col gap-6 md:gap-20">
           <!-- ============================================ -->
           <!-- STEP 1: B.S. COMPUTER SCIENCE (LEFT) - ACTIVE-->
           <!-- ============================================ -->
           <div class="relative flex w-full md:justify-start">
-            <!-- Desktop Dot (z-0 ensures it stays behind the sticky navbar) -->
+            <!-- Desktop Dot -->
             <div
               class="absolute left-[21px] md:left-1/2 top-2 -translate-x-1/2 z-0 hidden md:flex flex-col items-center"
             >
@@ -1153,120 +1153,59 @@ import type { Project, Activity } from "../data/types";
             </div>
 
             <!-- The Card -->
-            <div class="w-full pl-14 md:pl-0 md:w-[48%] md:mr-auto">
+            <div class="w-full md:w-[48%] mx-auto md:mx-0 md:mr-auto">
               <div
-                class="relative w-full bg-gradient-to-r from-primary/10 to-transparent border border-primary/40 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-start gap-4 overflow-hidden group"
+                class="relative w-full bg-gradient-to-r from-primary/10 to-transparent border border-primary/40 rounded-2xl p-4 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-start gap-3 md:gap-4 overflow-hidden group"
               >
-                <!-- Icon Box: Custom University Cap SVG -->
+                <!-- Icon Box -->
                 <div
-                  class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-blue-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1.5"
+                  class="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-blue-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1.5"
                 >
-                  <svg
-                    class="w-full h-full"
-                    viewBox="0 0 122.88 73.27"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M104.27,58.88l-0.54-19.99l-32.85,9.49c-2.96,0.65-5.88,0.96-8.74,0.97c-3.07,0.01-6.09-0.32-9.06-0.97 L21.7,38.79v20.27c0.9,10.53,31.11,13.75,40.38,14.19c7.43,0.36,36.78-3.52,40.64-9.57C103.55,62.36,104.07,60.76,104.27,58.88 L104.27,58.88z M117.58,24.5v24.43h0.77c0.53,0,0.96,0.43,0.96,0.96v6.57c0,0.52-0.43,0.96-0.96,0.96h-0.77v2.3 c0.98,0.18,1.73,1.05,1.73,2.08v0c0,1.16-0.96,2.12-2.12,2.12h-3.79c-1.16,0-2.12-0.95-2.12-2.12v0c0-1.03,0.75-1.9,1.73-2.08v-2.3 h-0.77c-0.52,0-0.96-0.43-0.96-0.96v-6.57c0-0.53,0.43-0.96,0.96-0.96h0.77v-23L73.03,38.35c-7.24,1.72-14.48,1.84-21.72,0 L7.18,25.18l-3.99-1.19c-4.97-2.03-3.73-6.8,0.9-7.9L54,1.19c5.15-1.47,10.29-1.7,15.44,0l49.01,14.72 c5.33,1.3,6.38,6.23,0.18,8.26L117.58,24.5L117.58,24.5z"
-                    ></path>
+                  <svg class="w-full h-full" viewBox="0 0 122.88 73.27" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M104.27,58.88l-0.54-19.99l-32.85,9.49c-2.96,0.65-5.88,0.96-8.74,0.97c-3.07,0.01-6.09-0.32-9.06-0.97 L21.7,38.79v20.27c0.9,10.53,31.11,13.75,40.38,14.19c7.43,0.36,36.78-3.52,40.64-9.57C103.55,62.36,104.07,60.76,104.27,58.88 L104.27,58.88z M117.58,24.5v24.43h0.77c0.53,0,0.96,0.43,0.96,0.96v6.57c0,0.52-0.43,0.96-0.96,0.96h-0.77v2.3 c0.98,0.18,1.73,1.05,1.73,2.08v0c0,1.16-0.96,2.12-2.12,2.12h-3.79c-1.16,0-2.12-0.95-2.12-2.12v0c0-1.03,0.75-1.9,1.73-2.08v-2.3 h-0.77c-0.52,0-0.96-0.43-0.96-0.96v-6.57c0-0.53,0.43-0.96,0.96-0.96h0.77v-23L73.03,38.35c-7.24,1.72-14.48,1.84-21.72,0 L7.18,25.18l-3.99-1.19c-4.97-2.03-3.73-6.8,0.9-7.9L54,1.19c5.15-1.47,10.29-1.7,15.44,0l49.01,14.72 c5.33,1.3,6.38,6.23,0.18,8.26L117.58,24.5L117.58,24.5z"/>
                   </svg>
                 </div>
 
                 <!-- Header: Date + Active Badge -->
-                <div
-                  class="w-full flex flex-wrap items-center justify-between gap-2"
-                >
-                  <p class="text-sm font-semibold text-primary tracking-wide">
-                    2023 – 2027
-                  </p>
-                  <span
-                    class="inline-flex items-center gap-1.5 rounded-full bg-green-500/20 border border-green-500/30 px-3 py-1 text-[11px] font-bold text-green-400 shadow-[0_0_10px_rgba(74,222,128,0.2)]"
-                  >
-                    <span
-                      class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"
-                    ></span> Active
+                <div class="w-full flex flex-wrap items-center justify-between gap-2">
+                  <p class="text-sm font-semibold text-primary tracking-wide">2023 – 2027</p>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-green-500/20 border border-green-500/30 px-3 py-1 text-[11px] font-bold text-green-400 shadow-[0_0_10px_rgba(74,222,128,0.2)]">
+                    <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span> Active
                   </span>
                 </div>
 
                 <!-- Details -->
                 <div>
-                  <h3 class="text-xl font-bold text-text-primary">
-                    B.S. Computer Science
-                  </h3>
-                  <p class="text-text-secondary font-medium text-base mt-1">
-                    Royal University of Phnom Penh (RUPP)
-                  </p>
-                  <div
-                    class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-3.5 h-3.5 text-primary/80"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      ></path><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
-                    >
+                  <h3 class="text-lg md:text-xl font-bold text-text-primary">B.S. Computer Science</h3>
+                  <p class="text-text-secondary font-medium text-sm md:text-base mt-1">Royal University of Phnom Penh (RUPP)</p>
+                  <div class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
                     <span>Phnom Penh, Cambodia</span>
                   </div>
                 </div>
 
                 <!-- Tags -->
                 <div class="flex flex-wrap gap-2 mt-1">
-                  <span
-                    class="inline-flex items-center gap-1 rounded-full bg-green-400/10 px-3 py-1 text-[11px] font-medium text-green-400 ring-1 ring-inset ring-green-400/20"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-3 h-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      ></path></svg
-                    >
+                  <span class="inline-flex items-center gap-1 rounded-full bg-green-400/10 px-3 py-1 text-[11px] font-medium text-green-400 ring-1 ring-inset ring-green-400/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
                     GPA: 3.70 / 4.00
                   </span>
-                  <span
-                    class="inline-flex items-center gap-1 rounded-full bg-blue-400/10 px-3 py-1 text-[11px] font-medium text-blue-400 ring-1 ring-inset ring-blue-400/20"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-3 h-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg
-                    >
+                  <span class="inline-flex items-center gap-1 rounded-full bg-blue-400/10 px-3 py-1 text-[11px] font-medium text-blue-400 ring-1 ring-inset ring-blue-400/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
                     Full Stack Track
                   </span>
                 </div>
 
                 <!-- Description -->
-                <p
-                  class="text-sm text-text-secondary/80 leading-relaxed mt-1 border-t border-white/5 dark:border-gray-700/20 pt-3 w-full"
-                >
-                  Studied software development, web technologies, databases,
-                  networking, mobile apps, and system analysis.
+                <p class="text-xs md:text-sm text-text-secondary/80 leading-relaxed mt-1 border-t border-white/5 dark:border-gray-700/20 pt-3 w-full">
+                  Studied software development, web technologies, databases, networking, mobile apps, and system analysis.
                 </p>
               </div>
             </div>
@@ -1276,89 +1215,46 @@ import type { Project, Activity } from "../data/types";
           <!-- STEP 2: SECONDARY EDUCATION (RIGHT)          -->
           <!-- ============================================ -->
           <div class="relative flex w-full md:justify-end">
-            <!-- Desktop Dot (z-0) -->
-            <div
-              class="absolute left-[21px] md:left-1/2 top-2 -translate-x-1/2 z-0 hidden md:flex flex-col items-center"
-            >
-              <div
-                class="w-5 h-5 rounded-full border-2 border-primary/30 bg-soft-bg flex items-center justify-center"
-              >
+            <!-- Desktop Dot -->
+            <div class="absolute left-[21px] md:left-1/2 top-2 -translate-x-1/2 z-0 hidden md:flex flex-col items-center">
+              <div class="w-5 h-5 rounded-full border-2 border-primary/30 bg-soft-bg flex items-center justify-center">
                 <div class="w-2 h-2 bg-primary/40 rounded-full"></div>
               </div>
             </div>
 
             <!-- The Card -->
-            <div class="w-full pl-14 md:pl-0 md:w-[48%] md:ml-auto">
-              <div
-                class="w-full bg-white/5 dark:bg-black/30 border border-white/10 dark:border-gray-700/30 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 flex flex-col items-start gap-4 group"
-              >
-                <!-- Icon Box: Custom Complex School SVG -->
-                <div
-                  class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-500 shadow-lg shadow-purple-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1"
-                >
-                  <svg
-                    class="w-full h-full"
-                    viewBox="0 0 95.97 122.88"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs
-                      ><style>
-                        .cls-1 {
-                          fill-rule: evenodd;
-                        }
-                      </style></defs
-                    >
+            <div class="w-full md:w-[48%] mx-auto md:mx-0 md:ml-auto">
+              <div class="w-full bg-white/5 dark:bg-black/30 border border-white/10 dark:border-gray-700/30 rounded-2xl p-4 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 flex flex-col items-start gap-3 md:gap-4 group">
+                <!-- Icon Box -->
+                <div class="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-500 shadow-lg shadow-purple-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1">
+                  <svg class="w-full h-full" viewBox="0 0 95.97 122.88" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <defs><style>.cls-1 { fill-rule: evenodd; }</style></defs>
                     <title>school</title>
-                    <path
-                      class="cls-1"
-                      d="M51.63,3.48c9.14-6.32,9.83,6.19,18.81-1.62V14.61C61.87,22.31,60,9.86,51.63,16.19V3.48ZM47.29,0h1.39a1.26,1.26,0,0,1,1.26,1.26V19.88a1.24,1.24,0,0,1,0,.27L73.44,33.64V45H88.11A7.87,7.87,0,0,1,96,52.84v68.24a1.8,1.8,0,0,1-1.8,1.8H1.8a1.81,1.81,0,0,1-1.8-1.8V52.84a7.82,7.82,0,0,1,2.31-5.55h0A7.85,7.85,0,0,1,7.86,45H22.54V33.64L46.06,20.15a1.12,1.12,0,0,1,0-.27V1.26A1.27,1.27,0,0,1,47.29,0ZM46.13,29.75a1.41,1.41,0,0,1,2.81,0v5.42h4A1.41,1.41,0,0,1,53,38H47.53a1.41,1.41,0,0,1-1.4-1.41V29.75ZM48,25.44A9.55,9.55,0,1,1,38.43,35,9.54,9.54,0,0,1,48,25.44ZM36.05,119.18v.09H59.93V89a13.4,13.4,0,0,0-3.47-9.23,11.75,11.75,0,0,0-16.93,0A13.4,13.4,0,0,0,36.05,89v30.19Zm-3.61.09V89a17,17,0,0,1,4.46-11.7,15.32,15.32,0,0,1,22.17,0A17,17,0,0,1,63.53,89v30.28H92.37V52.84a4.29,4.29,0,0,0-4.26-4.26H7.86a4.23,4.23,0,0,0-3,1.25h0a4.21,4.21,0,0,0-1.24,3v66.43ZM8.66,105.46h7.61v5.92H8.66v-5.92Zm0-12.24h7.61v5.92H8.66V93.22ZM8.66,81h7.61v5.92H8.66V81Zm11.78,24.49h7.62v5.92H20.44v-5.92Zm0-12.24h7.62v5.92H20.44V93.22Zm0-12.25h7.62v5.92H20.44V81Zm47.47,24.49h7.62v5.92H67.91v-5.92Zm0-12.24h7.62v5.92H67.91V93.22Zm0-12.25h7.62v5.92H67.91V81ZM79.7,105.46h7.62v5.92H79.7v-5.92Zm0-12.24h7.62v5.92H79.7V93.22ZM79.7,81h7.62v5.92H79.7V81ZM21.09,59.7c-1.81-.19-3.13-.29-3.95-.29a7.34,7.34,0,0,0-1.44.07.26.26,0,0,0-.2.28.35.35,0,0,0,.23.32,9.22,9.22,0,0,0,1.46.39c.81.18,1.48.36,2,.53a5,5,0,0,1,1.41.73,2.25,2.25,0,0,1,.83,1.16,6.9,6.9,0,0,1,.2,1.84,4.12,4.12,0,0,1-1.27,3.41,6.07,6.07,0,0,1-3.84,1A21.62,21.62,0,0,1,13.93,69c-.9-.12-1.6-.23-2.09-.35l-.75-.17.19-3.41a35.74,35.74,0,0,0,4.84.42c.67,0,1-.15,1-.44,0-.13-.08-.22-.23-.28a8.06,8.06,0,0,0-1.25-.24A7.38,7.38,0,0,1,12,63.2a3.84,3.84,0,0,1-1-2.94c0-1.74.42-2.93,1.25-3.57a6.34,6.34,0,0,1,3.86-1,30.38,30.38,0,0,1,4.3.36l.81.14-.12,3.47Zm11.77,8.94a17.14,17.14,0,0,1-4.18.5,7.11,7.11,0,0,1-3.29-.61,3.47,3.47,0,0,1-1.67-2,12.76,12.76,0,0,1-.51-4.1q0-3.84,1.18-5.26c.79-.94,2.3-1.41,4.52-1.41a17.2,17.2,0,0,1,3.28.38l.67.14-.11,3.45a24,24,0,0,0-2.92-.19c-.9,0-1.47.17-1.73.51a3.93,3.93,0,0,0-.38,2.11,9.1,9.1,0,0,0,.18,2.21,1.23,1.23,0,0,0,.59.82,3.06,3.06,0,0,0,1.31.2l3-.11,0,3.39Zm8.88.25V64.38H39.22v4.51H34.75V56h4.47v4.76h2.52V56h4.48V68.89Zm10.91-6.46A6.42,6.42,0,0,0,53,64.8a1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11Zm6.16,0a6.42,6.42,0,0,0,.32,2.37,1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11ZM85,68.89H76.31V56h4.47v9.27H85v3.64Z"
-                    ></path>
+                    <path class="cls-1" d="M51.63,3.48c9.14-6.32,9.83,6.19,18.81-1.62V14.61C61.87,22.31,60,9.86,51.63,16.19V3.48ZM47.29,0h1.39a1.26,1.26,0,0,1,1.26,1.26V19.88a1.24,1.24,0,0,1,0,.27L73.44,33.64V45H88.11A7.87,7.87,0,0,1,96,52.84v68.24a1.8,1.8,0,0,1-1.8,1.8H1.8a1.81,1.81,0,0,1-1.8-1.8V52.84a7.82,7.82,0,0,1,2.31-5.55h0A7.85,7.85,0,0,1,7.86,45H22.54V33.64L46.06,20.15a1.12,1.12,0,0,1,0-.27V1.26A1.27,1.27,0,0,1,47.29,0ZM46.13,29.75a1.41,1.41,0,0,1,2.81,0v5.42h4A1.41,1.41,0,0,1,53,38H47.53a1.41,1.41,0,0,1-1.4-1.41V29.75ZM48,25.44A9.55,9.55,0,1,1,38.43,35,9.54,9.54,0,0,1,48,25.44ZM36.05,119.18v.09H59.93V89a13.4,13.4,0,0,0-3.47-9.23,11.75,11.75,0,0,0-16.93,0A13.4,13.4,0,0,0,36.05,89v30.19Zm-3.61.09V89a17,17,0,0,1,4.46-11.7,15.32,15.32,0,0,1,22.17,0A17,17,0,0,1,63.53,89v30.28H92.37V52.84a4.29,4.29,0,0,0-4.26-4.26H7.86a4.23,4.23,0,0,0-3,1.25h0a4.21,4.21,0,0,0-1.24,3v66.43ZM8.66,105.46h7.61v5.92H8.66v-5.92Zm0-12.24h7.61v5.92H8.66V93.22ZM8.66,81h7.61v5.92H8.66V81Zm11.78,24.49h7.62v5.92H20.44v-5.92Zm0-12.24h7.62v5.92H20.44V93.22Zm0-12.25h7.62v5.92H20.44V81Zm47.47,24.49h7.62v5.92H67.91v-5.92Zm0-12.24h7.62v5.92H67.91V93.22Zm0-12.25h7.62v5.92H67.91V81ZM79.7,105.46h7.62v5.92H79.7v-5.92Zm0-12.24h7.62v5.92H79.7V93.22ZM79.7,81h7.62v5.92H79.7V81ZM21.09,59.7c-1.81-.19-3.13-.29-3.95-.29a7.34,7.34,0,0,0-1.44.07.26.26,0,0,0-.2.28.35.35,0,0,0,.23.32,9.22,9.22,0,0,0,1.46.39c.81.18,1.48.36,2,.53a5,5,0,0,1,1.41.73,2.25,2.25,0,0,1,.83,1.16,6.9,6.9,0,0,1,.2,1.84,4.12,4.12,0,0,1-1.27,3.41,6.07,6.07,0,0,1-3.84,1A21.62,21.62,0,0,1,13.93,69c-.9-.12-1.6-.23-2.09-.35l-.75-.17.19-3.41a35.74,35.74,0,0,0,4.84.42c.67,0,1-.15,1-.44,0-.13-.08-.22-.23-.28a8.06,8.06,0,0,0-1.25-.24A7.38,7.38,0,0,1,12,63.2a3.84,3.84,0,0,1-1-2.94c0-1.74.42-2.93,1.25-3.57a6.34,6.34,0,0,1,3.86-1,30.38,30.38,0,0,1,4.3.36l.81.14-.12,3.47Zm11.77,8.94a17.14,17.14,0,0,1-4.18.5,7.11,7.11,0,0,1-3.29-.61,3.47,3.47,0,0,1-1.67-2,12.76,12.76,0,0,1-.51-4.1q0-3.84,1.18-5.26c.79-.94,2.3-1.41,4.52-1.41a17.2,17.2,0,0,1,3.28.38l.67.14-.11,3.45a24,24,0,0,0-2.92-.19c-.9,0-1.47.17-1.73.51a3.93,3.93,0,0,0-.38,2.11,9.1,9.1,0,0,0,.18,2.21,1.23,1.23,0,0,0,.59.82,3.06,3.06,0,0,0,1.31.2l3-.11,0,3.39Zm8.88.25V64.38H39.22v4.51H34.75V56h4.47v4.76h2.52V56h4.48V68.89Zm10.91-6.46A6.42,6.42,0,0,0,53,64.8a1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11Zm6.16,0a6.42,6.42,0,0,0,.32,2.37,1.59,1.59,0,0,0,2.65,0,6.68,6.68,0,0,0,.31-2.38,6.66,6.66,0,0,0-.3-2.38,1.29,1.29,0,0,0-1.32-.7,1.31,1.31,0,0,0-1.34.72,6.4,6.4,0,0,0-.32,2.36Zm7.79,0c0,2.36-.49,4.06-1.47,5.12s-2.53,1.59-4.67,1.59-3.7-.53-4.69-1.6-1.47-2.77-1.47-5.11.49-4,1.46-5.11,2.54-1.59,4.69-1.59,3.7.53,4.68,1.59,1.47,2.76,1.47,5.11ZM85,68.89H76.31V56h4.47v9.27H85v3.64Z"/>
                   </svg>
                 </div>
 
                 <!-- Header: Date -->
-                <p class="text-sm font-semibold text-primary tracking-wide">
-                  2017 – 2023
-                </p>
+                <p class="text-sm font-semibold text-primary tracking-wide">2017 – 2023</p>
 
                 <!-- Details -->
                 <div>
-                  <h3 class="text-xl font-bold text-text-primary">
-                    Secondary Education
-                  </h3>
-                  <p class="text-text-secondary font-medium text-base mt-1">
-                    Svay Leu High School
-                  </p>
-                  <div
-                    class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-3.5 h-3.5 text-primary/80"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      ></path><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
-                    >
+                  <h3 class="text-lg md:text-xl font-bold text-text-primary">Secondary Education</h3>
+                  <p class="text-text-secondary font-medium text-sm md:text-base mt-1">Svay Leu High School</p>
+                  <div class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
                     <span>Siem Reap, Cambodia</span>
                   </div>
                 </div>
 
                 <!-- Tags -->
                 <div class="flex flex-wrap gap-2 mt-1">
-                  <span
-                    class="inline-flex items-center rounded-full bg-indigo-400/10 px-3 py-1 text-[11px] font-medium text-indigo-400 ring-1 ring-inset ring-indigo-400/20"
-                    >Secondary Diploma</span
-                  >
+                  <span class="inline-flex items-center rounded-full bg-indigo-400/10 px-3 py-1 text-[11px] font-medium text-indigo-400 ring-1 ring-inset ring-indigo-400/20">
+                    Secondary Diploma
+                  </span>
                 </div>
               </div>
             </div>
@@ -1368,80 +1264,44 @@ import type { Project, Activity } from "../data/types";
           <!-- STEP 3: PRIMARY EDUCATION (LEFT)             -->
           <!-- ============================================ -->
           <div class="relative flex w-full md:justify-start">
-            <!-- Desktop Dot (z-0) -->
-            <div
-              class="absolute left-[21px] md:left-1/2 top-2 -translate-x-1/2 z-0 hidden md:flex flex-col items-center"
-            >
-              <div
-                class="w-5 h-5 rounded-full border-2 border-primary/30 bg-soft-bg flex items-center justify-center"
-              >
+            <!-- Desktop Dot -->
+            <div class="absolute left-[21px] md:left-1/2 top-2 -translate-x-1/2 z-0 hidden md:flex flex-col items-center">
+              <div class="w-5 h-5 rounded-full border-2 border-primary/30 bg-soft-bg flex items-center justify-center">
                 <div class="w-2 h-2 bg-primary/40 rounded-full"></div>
               </div>
             </div>
 
             <!-- The Card -->
-            <div class="w-full pl-14 md:pl-0 md:w-[48%] md:mr-auto">
-              <div
-                class="w-full bg-white/5 dark:bg-black/30 border border-white/10 dark:border-gray-700/30 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 flex flex-col items-start gap-4 group"
-              >
-                <!-- Icon Box: Custom Primary School SVG -->
-                <div
-                  class="w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-orange-400 to-pink-500 shadow-lg shadow-orange-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1"
-                >
-                  <svg
-                    class="w-full h-full"
-                    viewBox="0 0 122.88 101.37"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12.64,77.27l0.31-54.92h-6.2v69.88c8.52-2.2,17.07-3.6,25.68-3.66c7.95-0.05,15.9,1.06,23.87,3.76 c-4.95-4.01-10.47-6.96-16.36-8.88c-7.42-2.42-15.44-3.22-23.66-2.52c-1.86,0.15-3.48-1.23-3.64-3.08 C12.62,77.65,12.62,77.46,12.64,77.27L12.64,77.27z M103.62,19.48c-0.02-0.16-0.04-0.33-0.04-0.51c0-0.17,0.01-0.34,0.04-0.51V7.34 c-7.8-0.74-15.84,0.12-22.86,2.78c-6.56,2.49-12.22,6.58-15.9,12.44V85.9c5.72-3.82,11.57-6.96,17.58-9.1 c6.85-2.44,13.89-3.6,21.18-3.02V19.48L103.62,19.48z M110.37,15.6h9.14c1.86,0,3.37,1.51,3.37,3.37v77.66 c0,1.86-1.51,3.37-3.37,3.37c-0.38,0-0.75-0.06-1.09-0.18c-9.4-2.69-18.74-4.48-27.99-4.54c-9.02-0.06-18.03,1.53-27.08,5.52 c-0.56,0.37-1.23,0.57-1.92,0.56c-0.68,0.01-1.35-0.19-1.92-0.56c-9.04-4-18.06-5.58-27.08-5.52c-9.25,0.06-18.58,1.85-27.99,4.54 c-0.34,0.12-0.71,0.18-1.09,0.18C1.51,100.01,0,98.5,0,96.64V18.97c0-1.86,1.51-3.37,3.37-3.37h9.61l0.06-11.26 c0.01-1.62,1.15-2.96,2.68-3.28l0,0c8.87-1.85,19.65-1.39,29.1,2.23c6.53,2.5,12.46,6.49,16.79,12.25 c4.37-5.37,10.21-9.23,16.78-11.72c8.98-3.41,19.34-4.23,29.09-2.8c1.68,0.24,2.88,1.69,2.88,3.33h0V15.6L110.37,15.6z M68.13,91.82c7.45-2.34,14.89-3.3,22.33-3.26c8.61,0.05,17.16,1.46,25.68,3.66V22.35h-5.77v55.22c0,1.86-1.51,3.37-3.37,3.37 c-0.27,0-0.53-0.03-0.78-0.09c-7.38-1.16-14.53-0.2-21.51,2.29C79.09,85.15,73.57,88.15,68.13,91.82L68.13,91.82z M58.12,85.25 V22.46c-3.53-6.23-9.24-10.4-15.69-12.87c-7.31-2.8-15.52-3.43-22.68-2.41l-0.38,66.81c7.81-0.28,15.45,0.71,22.64,3.06 C47.73,78.91,53.15,81.64,58.12,85.25L58.12,85.25z"
-                    ></path>
+            <div class="w-full md:w-[48%] mx-auto md:mx-0 md:mr-auto">
+              <div class="w-full bg-white/5 dark:bg-black/30 border border-white/10 dark:border-gray-700/30 rounded-2xl p-4 md:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 flex flex-col items-start gap-3 md:gap-4 group">
+                <!-- Icon Box -->
+                <div class="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-2xl bg-gradient-to-br from-orange-400 to-pink-500 shadow-lg shadow-orange-500/40 ring-1 ring-white/20 dark:ring-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-transform duration-300 group-hover:scale-105 p-1">
+                  <svg class="w-full h-full" viewBox="0 0 122.88 101.37" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.64,77.27l0.31-54.92h-6.2v69.88c8.52-2.2,17.07-3.6,25.68-3.66c7.95-0.05,15.9,1.06,23.87,3.76 c-4.95-4.01-10.47-6.96-16.36-8.88c-7.42-2.42-15.44-3.22-23.66-2.52c-1.86,0.15-3.48-1.23-3.64-3.08 C12.62,77.65,12.62,77.46,12.64,77.27L12.64,77.27z M103.62,19.48c-0.02-0.16-0.04-0.33-0.04-0.51c0-0.17,0.01-0.34,0.04-0.51V7.34 c-7.8-0.74-15.84,0.12-22.86,2.78c-6.56,2.49-12.22,6.58-15.9,12.44V85.9c5.72-3.82,11.57-6.96,17.58-9.1 c6.85-2.44,13.89-3.6,21.18-3.02V19.48L103.62,19.48z M110.37,15.6h9.14c1.86,0,3.37,1.51,3.37,3.37v77.66 c0,1.86-1.51,3.37-3.37,3.37c-0.38,0-0.75-0.06-1.09-0.18c-9.4-2.69-18.74-4.48-27.99-4.54c-9.02-0.06-18.03,1.53-27.08,5.52 c-0.56,0.37-1.23,0.57-1.92,0.56c-0.68,0.01-1.35-0.19-1.92-0.56c-9.04-4-18.06-5.58-27.08-5.52c-9.25,0.06-18.58,1.85-27.99,4.54 c-0.34,0.12-0.71,0.18-1.09,0.18C1.51,100.01,0,98.5,0,96.64V18.97c0-1.86,1.51-3.37,3.37-3.37h9.61l0.06-11.26 c0.01-1.62,1.15-2.96,2.68-3.28l0,0c8.87-1.85,19.65-1.39,29.1,2.23c6.53,2.5,12.46,6.49,16.79,12.25 c4.37-5.37,10.21-9.23,16.78-11.72c8.98-3.41,19.34-4.23,29.09-2.8c1.68,0.24,2.88,1.69,2.88,3.33h0V15.6L110.37,15.6z M68.13,91.82c7.45-2.34,14.89-3.3,22.33-3.26c8.61,0.05,17.16,1.46,25.68,3.66V22.35h-5.77v55.22c0,1.86-1.51,3.37-3.37,3.37 c-0.27,0-0.53-0.03-0.78-0.09c-7.38-1.16-14.53-0.2-21.51,2.29C79.09,85.15,73.57,88.15,68.13,91.82L68.13,91.82z M58.12,85.25 V22.46c-3.53-6.23-9.24-10.4-15.69-12.87c-7.31-2.8-15.52-3.43-22.68-2.41l-0.38,66.81c7.81-0.28,15.45,0.71,22.64,3.06 C47.73,78.91,53.15,81.64,58.12,85.25L58.12,85.25z"/>
                   </svg>
                 </div>
 
                 <!-- Header: Date -->
-                <p class="text-sm font-semibold text-primary tracking-wide">
-                  2011 – 2017
-                </p>
+                <p class="text-sm font-semibold text-primary tracking-wide">2011 – 2017</p>
 
                 <!-- Details -->
                 <div>
-                  <h3 class="text-xl font-bold text-text-primary">
-                    Primary Education
-                  </h3>
-                  <p class="text-text-secondary font-medium text-base mt-1">
-                    Hun Sen Svay Leu Primary School
-                  </p>
-                  <div
-                    class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-3.5 h-3.5 text-primary/80"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      ></path><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
-                    >
+                  <h3 class="text-lg md:text-xl font-bold text-text-primary">Primary Education</h3>
+                  <p class="text-text-secondary font-medium text-sm md:text-base mt-1">Hun Sen Svay Leu Primary School</p>
+                  <div class="flex items-center gap-1.5 mt-2 text-xs text-text-secondary/70">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-primary/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
                     <span>Siem Reap, Cambodia</span>
                   </div>
                 </div>
 
                 <!-- Tags -->
                 <div class="flex flex-wrap gap-2 mt-1">
-                  <span
-                    class="inline-flex items-center rounded-full bg-indigo-400/10 px-3 py-1 text-[11px] font-medium text-indigo-400 ring-1 ring-inset ring-indigo-400/20"
-                    >Primary Education</span
-                  >
+                  <span class="inline-flex items-center rounded-full bg-indigo-400/10 px-3 py-1 text-[11px] font-medium text-indigo-400 ring-1 ring-inset ring-indigo-400/20">
+                    Primary Education
+                  </span>
                 </div>
               </div>
             </div>
@@ -1454,7 +1314,7 @@ import type { Project, Activity } from "../data/types";
   <!-- ============================================ -->
   <!-- ACTIVITIES SECTION                           -->
   <!-- ============================================ -->
-  <section id="activities" class="py-20 bg-soft-bg transition-colors duration-300">
+  <section id="activities" class="py-12 md:py-20 bg-soft-bg transition-colors duration-300">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       
       <!-- Section Heading -->
@@ -1538,7 +1398,7 @@ import type { Project, Activity } from "../data/types";
   <!-- ============================================ -->
   <!-- ACHIEVEMENTS SECTION                         -->
   <!-- ============================================ -->
-  <section id="achievements" class="py-20 bg-soft-bg transition-colors duration-300">
+  <section id="achievements" class="py-12 md:py-20 bg-soft-bg transition-colors duration-300">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       
       <!-- Section Heading -->
@@ -1652,7 +1512,7 @@ import type { Project, Activity } from "../data/types";
   <!-- ============================================ -->
   <!-- CONTACT SECTION                              -->
   <!-- ============================================ -->
-  <section id="contact" class="py-20 bg-soft-bg transition-colors duration-300">
+  <section id="contact" class="py-12 md:py-20 bg-soft-bg transition-colors duration-300">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
       <!-- Floating Animation Style for Rocket -->
