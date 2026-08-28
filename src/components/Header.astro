@@ -8,12 +8,9 @@
     <!-- Logo / Name -->
     <a href="/" class="flex items-center gap-2.5 group">
       <div class="relative h-10 w-10 md:h-12 md:w-12 shrink-0">
-        <!-- Glow ring behind logo -->
         <div
           class="absolute inset-0 rounded-full bg-primary/20 blur-md group-hover:bg-primary/40 transition-all duration-300"
-        >
-        </div>
-        <!-- Logo -->
+        ></div>
         <div
           class="relative h-full w-full rounded-full overflow-hidden ring-2 ring-primary/30 group-hover:ring-primary/60 transition-all duration-300"
         >
@@ -133,7 +130,7 @@
         </li>
       </ul>
 
-      <!-- Dark / Light Mode Toggle (Interactive) -->
+      <!-- Dark / Light Mode Toggle -->
       <button
         id="theme-toggle"
         type="button"
@@ -181,13 +178,12 @@
         ></span>
       </button>
 
-      <!-- Hamburger Menu Button (Mobile) with SVG Icons -->
+      <!-- Hamburger Menu Button (Mobile) -->
       <button
         id="menu-toggle"
         class="md:hidden relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-primary/10 transition-all duration-300 focus:outline-none group"
         aria-label="Toggle menu"
       >
-        <!-- List Icon (closed) -->
         <svg
           id="menu-icon-hamburger"
           xmlns="http://www.w3.org/2000/svg"
@@ -201,7 +197,6 @@
           ></path>
         </svg>
 
-        <!-- X-Circle Icon (open) -->
         <svg
           id="menu-icon-close"
           xmlns="http://www.w3.org/2000/svg"
@@ -222,73 +217,186 @@
         ></span>
       </button>
     </div>
-
-    <!-- Mobile Navigation Menu -->
-    <div
-      id="mobile-menu"
-      class="md:hidden absolute top-full left-0 w-full bg-surface/95 dark:bg-surface-dark/95 backdrop-blur-md border-b border-white/10 dark:border-gray-700/30 shadow-2xl max-h-0 overflow-hidden transition-all duration-500 ease-out"
-    >
-      <div class="flex flex-col gap-1 p-4 pb-6">
-        <a
-          href="/#hero"
-          data-link="hero"
-          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
-        >
-          Home
-        </a>
-        <a
-          href="/#about"
-          data-link="about"
-          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
-        >
-          About
-        </a>
-        <a
-          href="/#skills"
-          data-link="skills"
-          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
-        >
-          Skills
-        </a>
-        <a
-          href="/#projects"
-          data-link="projects"
-          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
-        >
-          Projects
-        </a>
-        <a
-          href="/#education"
-          data-link="education"
-          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
-        >
-          Education
-        </a>
-        <a
-          href="/#activities"
-          data-link="activities"
-          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
-        >
-          Activities
-        </a>
-        <a
-          href="/#achievements"
-          data-link="achievements"
-          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
-        >
-          Achievements
-        </a>
-        <a
-          href="/#contact"
-          data-link="contact"
-          class="text-text-secondary hover:text-primary transition-all duration-300 text-sm font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:pl-5"
-        >
-          Contact
-        </a>
-      </div>
-    </div>
   </nav>
 </header>
+
+<!-- ============================================ -->
+<!-- IMPROVED MOBILE MENU – SLIDE FROM RIGHT     -->
+<!-- ============================================ -->
+
+<!-- Overlay -->
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-all duration-300 opacity-0 pointer-events-none"
+></div>
+
+<!-- Sidebar Menu -->
+<div
+  id="mobile-menu"
+  class="fixed top-0 right-0 z-50 h-full w-[75%] max-w-[280px] bg-surface/95 dark:bg-surface-dark/95 backdrop-blur-2xl shadow-2xl border-l border-white/10 dark:border-gray-700/30 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] translate-x-full flex flex-col"
+>
+  <!-- Header: "Menu" + Close Button -->
+  <div class="flex items-center justify-between px-5 pt-5 pb-3 border-b border-white/5 dark:border-gray-700/20">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+        <span class="text-xs font-bold text-primary">TSP</span>
+      </div>
+      <span class="text-xs font-medium text-text-secondary/50 tracking-wider uppercase">Menu</span>
+    </div>
+    <button
+      id="menu-close"
+      class="p-1.5 rounded-full hover:bg-primary/10 transition-all duration-200 text-text-secondary hover:text-primary hover:rotate-90"
+      aria-label="Close menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menu Items (Clean – no bullet points) -->
+  <div class="flex-1 overflow-y-auto px-3 py-3 space-y-0.5">
+    <a
+      href="/#hero"
+      data-link="hero"
+      class="mobile-link group flex items-center justify-between px-4 py-2.5 rounded-xl text-text-secondary hover:text-primary transition-all duration-200 hover:bg-primary/5 hover:pl-5"
+    >
+      <span class="text-sm font-medium">Home</span>
+      <svg
+        class="w-3.5 h-3.5 text-text-secondary/20 group-hover:text-primary/50 transition-all duration-200 group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <a
+      href="/#about"
+      data-link="about"
+      class="mobile-link group flex items-center justify-between px-4 py-2.5 rounded-xl text-text-secondary hover:text-primary transition-all duration-200 hover:bg-primary/5 hover:pl-5"
+    >
+      <span class="text-sm font-medium">About</span>
+      <svg
+        class="w-3.5 h-3.5 text-text-secondary/20 group-hover:text-primary/50 transition-all duration-200 group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <a
+      href="/#skills"
+      data-link="skills"
+      class="mobile-link group flex items-center justify-between px-4 py-2.5 rounded-xl text-text-secondary hover:text-primary transition-all duration-200 hover:bg-primary/5 hover:pl-5"
+    >
+      <span class="text-sm font-medium">Skills</span>
+      <svg
+        class="w-3.5 h-3.5 text-text-secondary/20 group-hover:text-primary/50 transition-all duration-200 group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <a
+      href="/#projects"
+      data-link="projects"
+      class="mobile-link group flex items-center justify-between px-4 py-2.5 rounded-xl text-text-secondary hover:text-primary transition-all duration-200 hover:bg-primary/5 hover:pl-5"
+    >
+      <span class="text-sm font-medium">Projects</span>
+      <svg
+        class="w-3.5 h-3.5 text-text-secondary/20 group-hover:text-primary/50 transition-all duration-200 group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <a
+      href="/#education"
+      data-link="education"
+      class="mobile-link group flex items-center justify-between px-4 py-2.5 rounded-xl text-text-secondary hover:text-primary transition-all duration-200 hover:bg-primary/5 hover:pl-5"
+    >
+      <span class="text-sm font-medium">Education</span>
+      <svg
+        class="w-3.5 h-3.5 text-text-secondary/20 group-hover:text-primary/50 transition-all duration-200 group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <a
+      href="/#activities"
+      data-link="activities"
+      class="mobile-link group flex items-center justify-between px-4 py-2.5 rounded-xl text-text-secondary hover:text-primary transition-all duration-200 hover:bg-primary/5 hover:pl-5"
+    >
+      <span class="text-sm font-medium">Activities</span>
+      <svg
+        class="w-3.5 h-3.5 text-text-secondary/20 group-hover:text-primary/50 transition-all duration-200 group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <a
+      href="/#achievements"
+      data-link="achievements"
+      class="mobile-link group flex items-center justify-between px-4 py-2.5 rounded-xl text-text-secondary hover:text-primary transition-all duration-200 hover:bg-primary/5 hover:pl-5"
+    >
+      <span class="text-sm font-medium">Achievements</span>
+      <svg
+        class="w-3.5 h-3.5 text-text-secondary/20 group-hover:text-primary/50 transition-all duration-200 group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <a
+      href="/#contact"
+      data-link="contact"
+      class="mobile-link group flex items-center justify-between px-4 py-2.5 rounded-xl text-text-secondary hover:text-primary transition-all duration-200 hover:bg-primary/5 hover:pl-5"
+    >
+      <span class="text-sm font-medium">Contact</span>
+      <svg
+        class="w-3.5 h-3.5 text-text-secondary/20 group-hover:text-primary/50 transition-all duration-200 group-hover:translate-x-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -306,7 +414,6 @@
     ) as SVGElement | null;
 
     if (themeToggle && sunIcon && moonIcon) {
-      // Apply theme with explicit boolean type
       const applyTheme = (isDark: boolean) => {
         document.documentElement.classList.toggle("dark", isDark);
         sunIcon.classList.toggle("hidden", !isDark);
@@ -330,14 +437,18 @@
     }
 
     // ============================================
-    // MOBILE MENU TOGGLE – SVG Icon Swap
+    // SIDEBAR MENU – SLIDE FROM RIGHT
     // ============================================
+    const menu = document.getElementById("mobile-menu") as HTMLDivElement | null;
+    const overlay = document.getElementById(
+      "mobile-menu-overlay",
+    ) as HTMLDivElement | null;
     const toggle = document.getElementById(
       "menu-toggle",
     ) as HTMLButtonElement | null;
-    const menu = document.getElementById(
-      "mobile-menu",
-    ) as HTMLDivElement | null;
+    const closeBtn = document.getElementById(
+      "menu-close",
+    ) as HTMLButtonElement | null;
     const hamburgerIcon = document.getElementById(
       "menu-icon-hamburger",
     ) as SVGElement | null;
@@ -345,43 +456,62 @@
       "menu-icon-close",
     ) as SVGElement | null;
 
-    if (toggle && menu && hamburgerIcon && closeIcon) {
-      let isOpen = false;
+    let isOpen = false;
 
-      const toggleMenu = () => {
-        isOpen = !isOpen;
-        menu.classList.toggle("max-h-0");
-        menu.classList.toggle("max-h-[500px]");
-        hamburgerIcon.classList.toggle("hidden");
-        closeIcon.classList.toggle("hidden");
-        toggle.classList.toggle("bg-primary/10");
-        document.body.style.overflow = isOpen ? "hidden" : "";
-      };
+    const openMenu = () => {
+      if (!menu || !overlay) return;
+      isOpen = true;
+      menu.classList.remove("translate-x-full");
+      overlay.classList.remove("opacity-0", "pointer-events-none");
+      overlay.classList.add("opacity-100", "pointer-events-auto");
+      document.body.style.overflow = "hidden";
+      if (hamburgerIcon && closeIcon) {
+        hamburgerIcon.classList.add("hidden");
+        closeIcon.classList.remove("hidden");
+      }
+      if (toggle) toggle.classList.add("bg-primary/10");
+    };
 
-      toggle.addEventListener("click", toggleMenu);
+    const closeMenu = () => {
+      if (!menu || !overlay) return;
+      isOpen = false;
+      menu.classList.add("translate-x-full");
+      overlay.classList.remove("opacity-100", "pointer-events-auto");
+      overlay.classList.add("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "";
+      if (hamburgerIcon && closeIcon) {
+        hamburgerIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+      }
+      if (toggle) toggle.classList.remove("bg-primary/10");
+    };
 
-      // Close menu when clicking a link
-      menu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          if (isOpen) toggleMenu();
-        });
-      });
+    const toggleMenu = () => {
+      isOpen ? closeMenu() : openMenu();
+    };
 
-      // Close menu on Escape key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && isOpen) toggleMenu();
-      });
-    }
+    if (toggle) toggle.addEventListener("click", toggleMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    if (overlay) overlay.addEventListener("click", closeMenu);
+
+    document.querySelectorAll(".mobile-link").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen) closeMenu();
+    });
 
     // ============================================
     // NAVIGATION – WORKS ON HOMEPAGE & DETAIL PAGES
+    // (Consistent for both desktop AND mobile)
     // ============================================
-    const navLinks = document.querySelectorAll<HTMLAnchorElement>(
-      "nav ul li a[data-link]",
+    const allNavLinks = document.querySelectorAll<HTMLAnchorElement>(
+      "nav ul li a[data-link], .mobile-link"
     );
     const sections = document.querySelectorAll<HTMLElement>("section[id]");
 
-    navLinks.forEach((link) => {
+    allNavLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
         const href = link.getAttribute("href");
@@ -404,15 +534,22 @@
 
     // ============================================
     // SCROLL SPY – Highlights active section
+    // (Supports both desktop and mobile links)
     // ============================================
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            navLinks.forEach((link) => link.removeAttribute("data-active"));
+            // Remove active from all links
+            document
+              .querySelectorAll<HTMLAnchorElement>(
+                "nav ul li a[data-link], .mobile-link"
+              )
+              .forEach((link) => link.removeAttribute("data-active"));
+
             const id = entry.target.id;
             const activeLink = document.querySelector<HTMLAnchorElement>(
-              `nav ul li a[data-link="${id}"]`,
+              `nav ul li a[data-link="${id}"], .mobile-link[data-link="${id}"]`
             );
             if (activeLink) {
               activeLink.setAttribute("data-active", "true");
