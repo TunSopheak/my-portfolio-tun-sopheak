@@ -1,60 +1,33 @@
 @import "tailwindcss";
 
-/* ============================================
-   LIGHT MODE – កែលម្អពន្លឺ និងកម្រិតពណ៌
-   ============================================ */
 :root {
-  /* ផ្ទៃខាងក្រោយ – ភ្លឺជាងមុន ស្អាតជាង */
   --color-bg: #faf8f6;
   --color-surface: #ffffff;
   --color-soft-bg: #f3f0ec;
-  
-  /* អត្ថបទ – ងងឹតជាងមុន ដើម្បីអានបានស្រួល */
   --color-text-primary: #1a1410;
-  --color-text-secondary: #4a3f37;  /* ងងឹតជាងមុនច្រើន (ប្រសើរឡើង ២០០%) */
+  --color-text-secondary: #4a3f37;
   --color-text-muted: #7a6f67;
-  
-  /* ពណ៌ចម្បង – Amber កក់ក្តៅ */
   --color-primary: #d97706;
   --color-primary-hover: #b45309;
   --color-primary-light: #fef3c7;
-  
-  /* ពណ៌បន្ទាប់ – Teal */
   --color-secondary: #0d9488;
-  
-  /* បន្ទាត់ព្រំដែន – មើលឃើញច្បាស់ */
   --color-border: #ded9d4;
 }
 
-/* ============================================
-   DARK MODE – កែលម្អភាពងងឹត និងកម្រិតពណ៌
-   ============================================ */
 .dark {
-  /* ផ្ទៃខាងក្រោយ – មិនខ្មៅពេក ដើម្បីបន្ថយភាពតានតឹងភ្នែក */
   --color-bg: #0f0c0a;
   --color-surface: #1a1614;
   --color-soft-bg: #1f1b18;
-  
-  /* អត្ថបទ – ភ្លឺជាងមុន មើលច្បាស់ */
   --color-text-primary: #f5f0eb;
-  --color-text-secondary: #c5bdb6;  /* ភ្លឺជាងមុន (ប្រសើរឡើង ៥០%) */
+  --color-text-secondary: #c5bdb6;
   --color-text-muted: #8a8078;
-  
-  /* ពណ៌ចម្បង – លឿងមាសភ្លឺ (ភ្លឺជាង Light Mode) */
   --color-primary: #fbbf24;
   --color-primary-hover: #f59e0b;
   --color-primary-light: #422b00;
-  
-  /* ពណ៌បន្ទាប់ – Teal ភ្លឺ */
   --color-secondary: #2dd4bf;
-  
-  /* បន្ទាត់ព្រំដែន – មើលឃើញច្បាស់ */
   --color-border: #2a2520;
 }
 
-/* ============================================
-   TAILWIND THEME MAPPING
-   ============================================ */
 @theme {
   --color-bg: var(--color-bg);
   --color-surface: var(--color-surface);
@@ -69,9 +42,6 @@
   --color-border: var(--color-border);
 }
 
-/* ============================================
-   BASE STYLES
-   ============================================ */
 html {
   scroll-behavior: smooth;
 }
@@ -82,9 +52,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ============================================
-   SCROLLBAR (មើលឃើញច្បាស់)
-   ============================================ */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -99,9 +66,6 @@ body {
   background: var(--color-primary-hover);
 }
 
-/* ============================================
-   NAVBAR
-   ============================================ */
 .navbar {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -141,9 +105,6 @@ body {
   width: 100%;
 }
 
-/* ============================================
-   TYPEWRITER
-   ============================================ */
 .cursor-blink {
   display: inline-block;
   animation: blink 1s step-end infinite;
@@ -155,9 +116,6 @@ body {
   50% { opacity: 0; }
 }
 
-/* ============================================
-   SCROLL INDICATOR
-   ============================================ */
 .scroll-indicator {
   animation: bounceDown 2s ease-in-out infinite;
 }
@@ -166,9 +124,6 @@ body {
   50% { transform: translateY(8px); opacity: 1; }
 }
 
-/* ============================================
-   CARDS – មើលឃើញច្បាស់
-   ============================================ */
 .activity-card,
 .achievement-card {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -179,10 +134,6 @@ body {
   transform: translateY(-6px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
-
-/* ============================================================
-   SOLAR SYSTEM (រក្សាដដែល ប៉ុន្តែបង្កើនពន្លឺ)
-   ============================================================ */
 
 .sun-glow {
   position: absolute;
@@ -539,9 +490,6 @@ body {
   100% { transform: translateY(-50%) scale(1.2); opacity: 0.7; }
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 640px) {
   .orbit-path-outer { --radius: 140px !important; }
   .orbit-path-inner { --radius: 100px !important; }
@@ -560,9 +508,6 @@ body {
   .orbit-ring-inner { --orbit-radius: 120px !important; }
 }
 
-/* ============================================================
-   REDUCE MOTION
-   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   .orbit-ring,
   .corona-ring-outer,
