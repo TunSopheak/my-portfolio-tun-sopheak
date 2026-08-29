@@ -1,4 +1,4 @@
-```markdown
+
 # Tun Sopheak — Personal Developer Portfolio
 
 A modern, responsive personal portfolio built with **Astro** and **Tailwind CSS**.  
@@ -81,4 +81,3 @@ All commands are run from the root of the project:
 This project is open source and available under the [MIT License](LICENSE).
 
 Designed & Developed with ❤️ by **Tun Sopheak**.
-```
