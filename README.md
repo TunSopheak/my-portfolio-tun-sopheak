@@ -2,7 +2,7 @@
 
 This is a modern, responsive personal portfolio built with **Astro** and **Tailwind CSS**. It features a sleek glassmorphism UI, a fully functional contact form with EmailJS integration, dynamic project routing, and an automatic dark/light mode toggle.
 
-**Live Site:** [my-portfolio-tun-sopheak.vercel.app](https://my-portfolio-tun-sopheak.vercel.app)
+**Live Site:** [tun-sopheak-portfolio.vercel.app](https://tun-sopheak-portfolio.vercel.app/)
 
 ---
 
