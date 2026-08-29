@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
+/* ============================================
+   LIGHT MODE – Clean & Readable
+   ============================================ */
 :root {
   --color-bg: #faf8f6;
   --color-surface: #ffffff;
   --color-soft-bg: #f3f0ec;
   --color-text-primary: #1a1410;
-  --color-text-secondary: #1a1410;
+  --color-text-secondary: #4a3f37;
   --color-text-muted: #7a6f67;
   --color-primary: #d97706;
   --color-primary-hover: #b45309;
@@ -14,12 +17,15 @@
   --color-border: #ded9d4;
 }
 
+/* ============================================
+   DARK MODE – High Contrast & Readable
+   ============================================ */
 .dark {
   --color-bg: #0f0c0a;
   --color-surface: #1a1614;
   --color-soft-bg: #1f1b18;
   --color-text-primary: #f5f0eb;
-  --color-text-secondary: #f5f0eb;
+  --color-text-secondary: #c5bdb6;
   --color-text-muted: #8a8078;
   --color-primary: #fbbf24;
   --color-primary-hover: #f59e0b;
@@ -28,6 +34,9 @@
   --color-border: #2a2520;
 }
 
+/* ============================================
+   TAILWIND THEME MAPPING
+   ============================================ */
 @theme {
   --color-bg: var(--color-bg);
   --color-surface: var(--color-surface);
@@ -42,6 +51,9 @@
   --color-border: var(--color-border);
 }
 
+/* ============================================
+   BASE STYLES
+   ============================================ */
 html {
   scroll-behavior: smooth;
 }
@@ -52,6 +64,9 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ============================================
+   SCROLLBAR (Accessible & Visible)
+   ============================================ */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -66,18 +81,36 @@ body {
   background: var(--color-primary-hover);
 }
 
+/* ============================================
+   NAVBAR – Glassmorphism with Fallback
+   ============================================ */
 .navbar {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: box-shadow 0.3s ease, background 0.3s ease;
 }
+
 .navbar.scrolled {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-  background: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  background: rgba(250, 248, 246, 0.8);
   border-bottom: 1px solid var(--color-border);
 }
+
+/* ✅ CSS-only fallback for color-mix */
+@supports (background: color-mix(in srgb, red 50%, blue)) {
+  .navbar.scrolled {
+    background: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  }
+}
+
 .dark .navbar.scrolled {
-  background: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  background: rgba(15, 12, 10, 0.8);
+}
+
+@supports (background: color-mix(in srgb, red 50%, blue)) {
+  .dark .navbar.scrolled {
+    background: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  }
 }
 
 .nav-link {
@@ -87,11 +120,13 @@ body {
   transition: color 0.2s ease;
   position: relative;
 }
+
 .nav-link:hover {
   color: var(--color-primary);
 }
+
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -100,11 +135,15 @@ body {
   background: var(--color-primary);
   transition: width 0.3s ease;
 }
+
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
 }
 
+/* ============================================
+   TYPEWRITER CURSOR
+   ============================================ */
 .cursor-blink {
   display: inline-block;
   animation: blink 1s step-end infinite;
@@ -112,18 +151,36 @@ body {
   color: var(--color-primary);
 }
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
 .scroll-indicator {
   animation: bounceDown 2s ease-in-out infinite;
 }
 @keyframes bounceDown {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(8px); opacity: 1; }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
 }
 
+/* ============================================
+   CARDS – Smooth Hover
+   ============================================ */
 .activity-card,
 .achievement-card {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -135,6 +192,11 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
+/* ============================================================
+   SOLAR SYSTEM – Sun + Planets
+   ============================================================ */
+
+/* ---------- SUN GLOW ---------- */
 .sun-glow {
   position: absolute;
   top: 50%;
@@ -155,10 +217,18 @@ body {
   pointer-events: none;
 }
 @keyframes pulse-glow {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
 }
 
+/* ---------- CORE GLOW ---------- */
 .sun-core-glow {
   position: absolute;
   top: 50%;
@@ -180,10 +250,17 @@ body {
   pointer-events: none;
 }
 @keyframes pulse-core {
-  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.6; }
-  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
 }
 
+/* ---------- FLARE ---------- */
 .sun-flare {
   position: absolute;
   top: 50%;
@@ -203,14 +280,34 @@ body {
   animation: flare 8s ease-in-out infinite;
 }
 @keyframes flare {
-  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
-  4% { opacity: 0.25; transform: translate(-50%, -50%) scale(1.2); }
-  8% { opacity: 0; transform: translate(-50%, -50%) scale(1.3); }
-  20% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-  24% { opacity: 0.12; transform: translate(-50%, -50%) scale(1.1); }
-  28% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  4% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  8% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  24% {
+    opacity: 0.12;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  28% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
 }
 
+/* ---------- CORONA RINGS ---------- */
 .corona-ring {
   position: absolute;
   top: 50%;
@@ -248,12 +345,17 @@ body {
   filter: blur(1px);
 }
 @keyframes spin-corona {
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 @keyframes spin-corona-reverse {
-  100% { transform: translate(-50%, -50%) rotate(-360deg); }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
 }
 
+/* ---------- ACCRETION RING ---------- */
 .accretion-ring {
   position: absolute;
   top: 50%;
@@ -282,9 +384,12 @@ body {
   pointer-events: none;
 }
 @keyframes spin-accretion {
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
+/* ---------- ORBIT PATHS ---------- */
 .orbit-path {
   position: absolute;
   top: 50%;
@@ -314,10 +419,17 @@ body {
   box-shadow: 0 0 20px rgba(251, 191, 36, 0.015);
 }
 @keyframes path-pulse {
-  0% { border-color: rgba(251, 191, 36, 0.05); opacity: 0.4; }
-  100% { border-color: rgba(251, 191, 36, 0.15); opacity: 1; }
+  0% {
+    border-color: rgba(251, 191, 36, 0.05);
+    opacity: 0.4;
+  }
+  100% {
+    border-color: rgba(251, 191, 36, 0.15);
+    opacity: 1;
+  }
 }
 
+/* ---------- ORBIT RINGS ---------- */
 .orbit-ring {
   position: absolute;
   top: 50%;
@@ -331,10 +443,12 @@ body {
   pointer-events: none;
 }
 @keyframes spin-orbit {
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .orbit-ring::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -356,6 +470,7 @@ body {
   border-width: 1px;
 }
 
+/* ---------- PLANETS ---------- */
 .planet {
   position: absolute;
   top: 50%;
@@ -368,8 +483,11 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1.5px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 0 30px rgba(251, 191, 36, 0.03);
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease, background 0.4s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1),
+              0 0 30px rgba(251, 191, 36, 0.03);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.5s ease,
+              background 0.4s ease;
   pointer-events: auto;
   will-change: transform;
   z-index: 15;
@@ -394,25 +512,33 @@ body {
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.08));
 }
 .planet::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: -6px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(251, 191, 36, 0.15), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.15),
+    transparent 70%
+  );
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
   z-index: -1;
 }
-.planet:hover::after { opacity: 1; }
+.planet:hover::after {
+  opacity: 1;
+}
 .planet:hover {
   transform: rotate(var(--planet-angle)) translateX(var(--orbit-radius)) scale(1.35) !important;
-  box-shadow: 0 0 60px rgba(251, 191, 36, 0.4), 0 8px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 60px rgba(251, 191, 36, 0.4),
+              0 8px 30px rgba(0, 0, 0, 0.15);
   background: #ffffff;
   z-index: 50;
   border-color: rgba(251, 191, 36, 0.5);
 }
 
+/* ---------- PLANET TRAIL ---------- */
 .planet-trail {
   position: absolute;
   top: 50%;
@@ -428,8 +554,11 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-.planet:hover .planet-trail { opacity: 1; }
+.planet:hover .planet-trail {
+  opacity: 1;
+}
 
+/* ---------- SPARKLES ---------- */
 .sparkle {
   position: absolute;
   border-radius: 9999px;
@@ -438,7 +567,7 @@ body {
   animation: sparkle-float var(--duration, 3s) ease-in-out infinite alternate;
 }
 .sparkle::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -50%;
   border-radius: 9999px;
@@ -446,23 +575,126 @@ body {
   filter: blur(4px);
   opacity: 0.3;
 }
-.sparkle-1 { top: 4%; left: 10%; width: 6px; height: 6px; background: rgba(251, 191, 36, 0.8); --duration: 2.8s; animation-delay: 0s; }
-.sparkle-2 { top: 8%; right: 5%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.7); --duration: 3.5s; animation-delay: 0.6s; }
-.sparkle-3 { bottom: 5%; left: 7%; width: 5px; height: 5px; background: rgba(251, 191, 36, 0.75); --duration: 3.2s; animation-delay: 1.2s; }
-.sparkle-4 { bottom: 10%; right: 8%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.6); --duration: 4s; animation-delay: 0.3s; }
-.sparkle-5 { top: 40%; left: 2%; width: 5px; height: 5px; background: rgba(251, 191, 36, 0.8); --duration: 2.5s; animation-delay: 0.9s; }
-.sparkle-6 { top: 35%; right: 2%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.7); --duration: 3.8s; animation-delay: 1.5s; }
-.sparkle-7 { top: 20%; left: 45%; width: 3px; height: 3px; background: rgba(251, 191, 36, 0.6); --duration: 2.2s; animation-delay: 0.4s; }
-.sparkle-8 { bottom: 20%; left: 45%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.7); --duration: 3.3s; animation-delay: 1.1s; }
-.sparkle-9 { top: 28%; left: 8%; width: 3px; height: 3px; background: rgba(251, 191, 36, 0.5); --duration: 2.6s; animation-delay: 1.8s; }
-.sparkle-10 { top: 28%; right: 8%; width: 3px; height: 3px; background: rgba(251, 191, 36, 0.5); --duration: 2.9s; animation-delay: 0.7s; }
-.sparkle-11 { top: 50%; left: 5%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.6); --duration: 3.6s; animation-delay: 1.3s; }
-.sparkle-12 { top: 50%; right: 5%; width: 4px; height: 4px; background: rgba(251, 191, 36, 0.6); --duration: 3.1s; animation-delay: 0.5s; }
+.sparkle-1 {
+  top: 4%;
+  left: 10%;
+  width: 6px;
+  height: 6px;
+  background: rgba(251, 191, 36, 0.8);
+  --duration: 2.8s;
+  animation-delay: 0s;
+}
+.sparkle-2 {
+  top: 8%;
+  right: 5%;
+  width: 4px;
+  height: 4px;
+  background: rgba(251, 191, 36, 0.7);
+  --duration: 3.5s;
+  animation-delay: 0.6s;
+}
+.sparkle-3 {
+  bottom: 5%;
+  left: 7%;
+  width: 5px;
+  height: 5px;
+  background: rgba(251, 191, 36, 0.75);
+  --duration: 3.2s;
+  animation-delay: 1.2s;
+}
+.sparkle-4 {
+  bottom: 10%;
+  right: 8%;
+  width: 4px;
+  height: 4px;
+  background: rgba(251, 191, 36, 0.6);
+  --duration: 4s;
+  animation-delay: 0.3s;
+}
+.sparkle-5 {
+  top: 40%;
+  left: 2%;
+  width: 5px;
+  height: 5px;
+  background: rgba(251, 191, 36, 0.8);
+  --duration: 2.5s;
+  animation-delay: 0.9s;
+}
+.sparkle-6 {
+  top: 35%;
+  right: 2%;
+  width: 4px;
+  height: 4px;
+  background: rgba(251, 191, 36, 0.7);
+  --duration: 3.8s;
+  animation-delay: 1.5s;
+}
+.sparkle-7 {
+  top: 20%;
+  left: 45%;
+  width: 3px;
+  height: 3px;
+  background: rgba(251, 191, 36, 0.6);
+  --duration: 2.2s;
+  animation-delay: 0.4s;
+}
+.sparkle-8 {
+  bottom: 20%;
+  left: 45%;
+  width: 4px;
+  height: 4px;
+  background: rgba(251, 191, 36, 0.7);
+  --duration: 3.3s;
+  animation-delay: 1.1s;
+}
+.sparkle-9 {
+  top: 28%;
+  left: 8%;
+  width: 3px;
+  height: 3px;
+  background: rgba(251, 191, 36, 0.5);
+  --duration: 2.6s;
+  animation-delay: 1.8s;
+}
+.sparkle-10 {
+  top: 28%;
+  right: 8%;
+  width: 3px;
+  height: 3px;
+  background: rgba(251, 191, 36, 0.5);
+  --duration: 2.9s;
+  animation-delay: 0.7s;
+}
+.sparkle-11 {
+  top: 50%;
+  left: 5%;
+  width: 4px;
+  height: 4px;
+  background: rgba(251, 191, 36, 0.6);
+  --duration: 3.6s;
+  animation-delay: 1.3s;
+}
+.sparkle-12 {
+  top: 50%;
+  right: 5%;
+  width: 4px;
+  height: 4px;
+  background: rgba(251, 191, 36, 0.6);
+  --duration: 3.1s;
+  animation-delay: 0.5s;
+}
 @keyframes sparkle-float {
-  0% { transform: translate(0, 0) scale(0.2); opacity: 0.1; }
-  100% { transform: translate(calc(20px * (1 - 2 * random())), calc(-25px * (1 - 2 * random()))) scale(1); opacity: 0.85; }
+  0% {
+    transform: translate(0, 0) scale(0.2);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translate(calc(10px * (1 - 2 * round(random()))), calc(-15px * (1 - 2 * round(random())))) scale(1);
+    opacity: 0.85;
+  }
 }
 
+/* ---------- ORBIT DOTS ---------- */
 .orbit-dot {
   position: absolute;
   border-radius: 9999px;
@@ -471,43 +703,134 @@ body {
   background: rgba(251, 191, 36, 0.35);
   animation: dot-pulse 2s ease-in-out infinite alternate;
 }
-.orbit-dot-top { top: 5%; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; animation-delay: 0s; }
-.orbit-dot-bottom { bottom: 5%; left: 50%; transform: translateX(-50%); width: 3px; height: 3px; animation-delay: 0.8s; }
-.orbit-dot-left { top: 50%; left: 5%; transform: translateY(-50%); width: 3px; height: 3px; animation-delay: 1.6s; }
-.orbit-dot-right { top: 50%; right: 5%; transform: translateY(-50%); width: 4px; height: 4px; animation-delay: 0.4s; }
-@keyframes dot-pulse {
-  0% { transform: translateX(-50%) scale(0.5); opacity: 0.2; }
-  100% { transform: translateX(-50%) scale(1.2); opacity: 0.7; }
+.orbit-dot-top {
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  animation-delay: 0s;
 }
-.orbit-dot-left { animation-name: dot-pulse-left; }
-.orbit-dot-right { animation-name: dot-pulse-right; }
+.orbit-dot-bottom {
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  animation-delay: 0.8s;
+}
+.orbit-dot-left {
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 3px;
+  animation-delay: 1.6s;
+}
+.orbit-dot-right {
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  animation-delay: 0.4s;
+}
+@keyframes dot-pulse {
+  0% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 0.7;
+  }
+}
+.orbit-dot-left {
+  animation-name: dot-pulse-left;
+}
+.orbit-dot-right {
+  animation-name: dot-pulse-right;
+}
 @keyframes dot-pulse-left {
-  0% { transform: translateY(-50%) scale(0.5); opacity: 0.2; }
-  100% { transform: translateY(-50%) scale(1.2); opacity: 0.7; }
+  0% {
+    transform: translateY(-50%) scale(0.5);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 0.7;
+  }
 }
 @keyframes dot-pulse-right {
-  0% { transform: translateY(-50%) scale(0.5); opacity: 0.2; }
-  100% { transform: translateY(-50%) scale(1.2); opacity: 0.7; }
+  0% {
+    transform: translateY(-50%) scale(0.5);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 0.7;
+  }
 }
 
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 640px) {
-  .orbit-path-outer { --radius: 140px !important; }
-  .orbit-path-inner { --radius: 100px !important; }
-  .orbit-ring-outer { --orbit-radius: 140px !important; }
-  .orbit-ring-inner { --orbit-radius: 100px !important; }
-  .planet-outer { width: 40px; height: 40px; margin-top: -20px; margin-left: -20px; }
-  .planet-inner { width: 34px; height: 34px; margin-top: -17px; margin-left: -17px; }
-  .corona-ring-outer { width: 115%; height: 115%; }
-  .corona-ring-middle { width: 125%; height: 125%; }
-  .corona-ring-inner { width: 110%; height: 110%; }
+  .orbit-path-outer {
+    --radius: 140px !important;
+  }
+  .orbit-path-inner {
+    --radius: 100px !important;
+  }
+  .orbit-ring-outer {
+    --orbit-radius: 140px !important;
+  }
+  .orbit-ring-inner {
+    --orbit-radius: 100px !important;
+  }
+  .planet-outer {
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+  .planet-inner {
+    width: 34px;
+    height: 34px;
+    margin-top: -17px;
+    margin-left: -17px;
+  }
+  .corona-ring-outer {
+    width: 115%;
+    height: 115%;
+  }
+  .corona-ring-middle {
+    width: 125%;
+    height: 125%;
+  }
+  .corona-ring-inner {
+    width: 110%;
+    height: 110%;
+  }
 }
 @media (min-width: 641px) and (max-width: 1023px) {
-  .orbit-path-outer { --radius: 170px !important; }
-  .orbit-path-inner { --radius: 120px !important; }
-  .orbit-ring-outer { --orbit-radius: 170px !important; }
-  .orbit-ring-inner { --orbit-radius: 120px !important; }
+  .orbit-path-outer {
+    --radius: 170px !important;
+  }
+  .orbit-path-inner {
+    --radius: 120px !important;
+  }
+  .orbit-ring-outer {
+    --orbit-radius: 170px !important;
+  }
+  .orbit-ring-inner {
+    --orbit-radius: 120px !important;
+  }
 }
 
+/* ============================================================
+   REDUCE MOTION (Accessibility)
+   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   .orbit-ring,
   .corona-ring-outer,
@@ -527,5 +850,7 @@ body {
   .sun-glow {
     animation: none !important;
   }
-  .planet:hover { transform: scale(1.1) !important; }
+  .planet:hover {
+    transform: scale(1.1) !important;
+  }
 }
