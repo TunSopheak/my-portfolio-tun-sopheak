@@ -47,7 +47,9 @@ astro.config.mjs
 package.json
 tsconfig.json
 
-##🧞 Commands
+---
+
+## 🧞 Commands
 All commands are run from the root of the project, from a terminal:
 
 Command	Action
@@ -56,14 +58,18 @@ npm run dev	Starts local dev server at localhost:4321
 npm run build	Builds the production site to ./dist/
 npm run preview	Previews the build locally
 
-##📬 Connect with Me
+---
+
+## 📬 Connect with Me
 Email: sopheaktun.tsp@gmail.com
 GitHub: github.com/TunSopheak
 LinkedIn: linkedin.com/in/tun-sopheak
 Telegram: t.me/TUN_SOPHEAK
 Facebook: facebook.com/Mr.TunSopheak
 
-##📝 License
+---
+
+## 📝 License
 This project is open source and available under the MIT License.
 
 Designed & Developed with ❤️ by Tun Sopheak.
