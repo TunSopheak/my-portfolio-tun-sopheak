@@ -35,7 +35,7 @@ export const projects = [
     image: "/assets/images/projects/portfolio.png",
     tags: ["Astro", "Tailwind CSS", "EmailJS", "Vercel"],
     github: "https://github.com/TunSopheak/my-portfolio-tun-sopheak",
-    liveDemo: "https://my-portfolio-tun-sopheak.vercel.app/",
+    liveDemo: "https://tun-sopheak-portfolio.vercel.app/",
     overview:
       "This is the very website you are looking at. It was designed and developed to showcase my skills as a full-stack developer using modern static site generation, dynamic content delivery, and a clean, modern user experience.",
     features: [
