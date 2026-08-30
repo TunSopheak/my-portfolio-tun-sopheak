@@ -1,31 +1,36 @@
 # build output
 dist/
-# generated types
 .astro/
+.vercel/
 
 # dependencies
 node_modules/
 
 # logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
 .env.production
+.env.local
 
-# macOS-specific files
+# OS-specific files
 .DS_Store
+Thumbs.db
 
-# jetbrains setting folder
+# IDE settings
 .idea/
+.vscode/
 
-# Large files (hosted on Google Drive)
-public/assets/files/
-*.pdf
-*.mp4
-*.mov
-*.avi
+# Large files (hosted on Google Drive) — only in this specific folder
+public/assets/files/*.pdf
+public/assets/files/*.mp4
+public/assets/files/*.mov
+public/assets/files/*.avi
+
+# TypeScript
+*.tsbuildinfo
