@@ -12,9 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^5.0.0",
+    "astro": "^7.2.9",
     "resend": "^6.20.0",
     "tailwindcss": "^4.3.3"
   }

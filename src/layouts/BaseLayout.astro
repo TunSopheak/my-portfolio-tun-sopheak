@@ -9,31 +9,168 @@ import BackToTop from "../components/BackToTop.astro";
 // ============================================================
 // PROPS
 // ============================================================
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: "website" | "article" | "profile" | "portfolio";
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  tags?: string[];
+  noIndex?: boolean;
+}
+
 const {
-  title = "Tun Sopheak — Personal Developer Portfolio",
-  description = "Personal developer portfolio of Tun Sopheak, an aspiring full-stack developer and Computer Science student.",
+  title = "Tun Sopheak — Backend Developer Portfolio",
+  description = "Personal developer portfolio of mine (Tun Sopheak), an aspiring Backend Developer and Computer Science student at RUPP, Cambodia.",
+  image = "/assets/images/tun-sopheak-profile.jpg",
+  url = Astro.url.href,
+  type = "website",
+  publishedTime,
+  modifiedTime,
+  author = "Tun Sopheak",
+  tags = [],
+  noIndex = false,
 } = Astro.props;
+
+// ============================================================
+// FORMATTING
+// ============================================================
+const siteTitle = "Tun Sopheak";
+const fullTitle = title.includes(siteTitle) ? title : `${title} | ${siteTitle}`;
+const canonicalURL = url;
+const ogImage = image.startsWith("http") ? image : `https://tun-sopheak-portfolio.vercel.app${image}`;
+const currentYear = new Date().getFullYear();
+
+// ============================================================
+// SOCIAL LINKS
+// ============================================================
+const socialLinks = [
+  "https://www.facebook.com/Mr.TunSopheak",
+  "https://www.linkedin.com/in/tun-sopheak/",
+  "https://t.me/TUN_SOPHEAK",
+  "https://www.youtube.com/@Sopheak-TUN-Channel",
+  "https://www.instagram.com/tunsopheak.cs",
+  "https://x.com/sopheak_tun",
+];
+
+// ============================================================
+// STRUCTURED DATA (JSON-LD)
+// ============================================================
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": type === "article" ? "Article" : "WebPage",
+  headline: title,
+  description: description,
+  author: {
+    "@type": "Person",
+    name: author,
+    sameAs: socialLinks,
+  },
+  datePublished: publishedTime,
+  dateModified: modifiedTime || publishedTime,
+  image: ogImage,
+  url: canonicalURL,
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- ============================================================
+    BASIC META
+    ============================================================ -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#c0392b" />
+
+    <!-- ============================================================
+    TITLE & DESCRIPTION
+    ============================================================ -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
 
     <!-- ============================================================
-         FAVICON
+    ROBOTS
     ============================================================ -->
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" /> -->
+    {noIndex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- ============================================================
+    CANONICAL URL
+    ============================================================ -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- ============================================================
+    OPEN GRAPH (Facebook, LinkedIn, etc.)
+    ============================================================ -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ============================================================
+    TWITTER CARDS
+    ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:site" content="@sopheak_tun" />
+    <meta name="twitter:creator" content="@sopheak_tun" />
+
+    <!-- ============================================================
+    KEYWORDS
+    ============================================================ -->
+    <meta
+      name="keywords"
+      content={[
+        "Tun Sopheak",
+        "backend developer",
+        "Java developer",
+        "Spring Boot",
+        "Python",
+        "PostgreSQL",
+        "RUPP",
+        "Cambodia",
+        "portfolio",
+        "software engineer",
+        ...tags,
+      ].join(", ")}
+    />
+
+    <!-- ============================================================
+    AUTHOR
+    ============================================================ -->
+    <meta name="author" content={author} />
+
+    <!-- ============================================================
+    FAVICON
+    ============================================================ -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logoo.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logoo.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logoo.png" />
 
-    <title>{title}</title>
+    <!-- ============================================================
+    STRUCTURED DATA (JSON-LD)
+    ============================================================ -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
 
   <body>
