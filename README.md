@@ -9,11 +9,12 @@ A fast, bilingual (**English / ខ្មែរ**) portfolio built with **Astro**
 ## Key Features
 
 - **English / ខ្មែរ switch** – every visible text has both languages; the choice is remembered, and `?lang=km` in a URL opens the Khmer version.
-- **Clean, Khmer-inspired design** – a photo of Angkor in the hero, an Angkor Wat mark under section titles and the Cambodian flag, with generous white space.
+- **Clean, Khmer-inspired design** – a photo of Angkor in the hero, Angkor Wat and the Cambodian flag in the footer, with generous white space.
 - **Data-driven content** – projects, activities, achievements, skills and education live in `src/data/`; pages are generated from them.
 - **Contact form** – EmailJS (no backend), with a honeypot against spam and safe toast messages.
+- **Smooth motion** – eased in-page scrolling, scroll progress bar, staggered reveal and hero entrance; all off with `prefers-reduced-motion`.
 - **Dark / light mode** – saved in localStorage, follows the OS by default, no flash on load.
-- **Fast on phones** – small WebP images, self-hosted icons, lazy hero video that is skipped on mobile / data-saver / reduced-motion, and animations that only use `transform` and `opacity`.
+- **Fast on phones** – small WebP images, self-hosted icons, a still hero image (no video), and animations that only use `transform` and `opacity`.
 - **Responsive & accessible** – mobile-first, 44px touch targets, keyboard-friendly menu, skip link, `prefers-reduced-motion` support.
 
 ---
@@ -51,8 +52,6 @@ scripts/optimize-images.mjs
 
 **Images:** put the original in `public/assets/images/…`, run `node scripts/optimize-images.mjs`, and point the data file to the generated `.webp`. Originals are never touched.
 
-**Hero video:** `public/assets/videos/khmer-tech-bg.mp4` is ~18 MB. Compress it (e.g. H.264, 1280px wide, ~1.5 MB) for faster desktop loads; it already never loads on mobile.
-
 ### Environment variables
 
 Create `.env` (never commit it):
@@ -89,7 +88,6 @@ Khmer typography rules (taller line-height, no uppercase / letter-spacing) are a
 ## To-do / known items
 
 - [ ] Add `public/assets/images/projects/julnow.jpg` (the card currently shows a placeholder).
-- [ ] Compress the hero video (~18 MB).
 - [ ] Have a native speaker review the Khmer translations, and confirm the Khmer spelling of the name.
 - [ ] Re-take the "Portfolio" project screenshot to show the new design.
 - [ ] Decide what the "Mr. Sterling" badge in the About section should say.

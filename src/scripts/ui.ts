@@ -5,8 +5,11 @@
 // The *initial* theme and language are applied earlier by the inline script in
 // BaseLayout's <head>, so there is no flash on load.
 
+import "./network";
+
 type Lang = "en" | "km";
 const root = document.documentElement;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const store = {
   get(key: string): string | null {
@@ -51,6 +54,11 @@ document.addEventListener("click", (event) => {
 // ---------------------------------------------------------------
 document.addEventListener("click", (event) => {
   if (!(event.target as Element).closest("[data-theme-toggle]")) return;
+  // fade colours for a moment instead of snapping (skipped for reduced motion)
+  if (!reduceMotion) {
+    root.classList.add("theme-anim");
+    window.setTimeout(() => root.classList.remove("theme-anim"), 400);
+  }
   const dark = root.classList.toggle("dark");
   store.set("theme", dark ? "dark" : "light");
 });
@@ -76,25 +84,83 @@ if ("IntersectionObserver" in window) {
 }
 
 // ---------------------------------------------------------------
-// Back to top
+// Smooth scrolling: eased, scaled to the distance, cancelled when the user scrolls
 // ---------------------------------------------------------------
-const backToTop = document.getElementById("back-to-top");
-if (backToTop) {
-  let ticking = false;
-  const update = () => {
-    backToTop.dataset.show = String(window.scrollY > 500);
-    ticking = false;
+let scrollRaf = 0;
+const cancelScroll = () => cancelAnimationFrame(scrollRaf);
+["wheel", "touchstart", "keydown"].forEach((type) => window.addEventListener(type, cancelScroll, { passive: true }));
+
+function smoothScrollTo(targetY: number): void {
+  cancelScroll();
+  const startY = window.scrollY;
+  const maxY = document.documentElement.scrollHeight - window.innerHeight;
+  const endY = Math.max(0, Math.min(targetY, maxY));
+  const distance = endY - startY;
+  if (reduceMotion || Math.abs(distance) < 2) {
+    window.scrollTo(0, endY);
+    return;
+  }
+  const duration = Math.min(1100, Math.max(450, Math.abs(distance) * 0.45));
+  const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2); // easeInOutCubic
+  const t0 = performance.now();
+  const step = (now: number) => {
+    const p = Math.min((now - t0) / duration, 1);
+    window.scrollTo(0, startY + distance * ease(p));
+    if (p < 1) scrollRaf = requestAnimationFrame(step);
   };
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-    },
-    { passive: true },
-  );
-  backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  update();
+  scrollRaf = requestAnimationFrame(step);
+}
+
+document.addEventListener("click", (event) => {
+  const link = (event.target as Element).closest<HTMLAnchorElement>("a[href*='#']");
+  if (!link || event.defaultPrevented || link.target === "_blank") return;
+  if ((event as MouseEvent).metaKey || (event as MouseEvent).ctrlKey || (event as MouseEvent).shiftKey) return;
+  const url = new URL(link.href, location.href);
+  if (url.pathname !== location.pathname || url.origin !== location.origin) return; // other page: let the browser navigate
+  const target = url.hash.length > 1 ? document.getElementById(decodeURIComponent(url.hash.slice(1))) : null;
+  if (!target) return;
+  event.preventDefault();
+  const offset = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+  smoothScrollTo(target.getBoundingClientRect().top + window.scrollY - offset);
+  history.pushState(null, "", url.hash);
+  target.focus({ preventScroll: true });
+});
+
+// ---------------------------------------------------------------
+// Scroll-linked UI: progress bar, header shadow, back-to-top (one throttled handler)
+// ---------------------------------------------------------------
+const progress = document.getElementById("scroll-progress");
+const header = document.getElementById("site-header");
+const backToTop = document.getElementById("back-to-top");
+let ticking = false;
+
+function onScroll(): void {
+  const y = window.scrollY;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress?.style.setProperty("--p", String(max > 0 ? Math.min(y / max, 1) : 0));
+  if (header) header.dataset.scrolled = String(y > 8);
+  if (backToTop) backToTop.dataset.show = String(y > 500);
+  ticking = false;
+}
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(onScroll);
+    }
+  },
+  { passive: true },
+);
+window.addEventListener("resize", onScroll, { passive: true });
+backToTop?.addEventListener("click", () => smoothScrollTo(0));
+onScroll();
+
+// The Angkor watermark is hidden while the hero is on screen (home page only)
+const watermark = document.getElementById("angkor-watermark");
+const hero = document.getElementById("hero");
+if (watermark && hero && "IntersectionObserver" in window) {
+  new IntersectionObserver(([entry]) => {
+    watermark.dataset.hide = String(entry.intersectionRatio > 0.35);
+  }, { threshold: [0, 0.35, 1] }).observe(hero);
 }
