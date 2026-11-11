@@ -46,7 +46,7 @@ export const projects = [
     id: "portfolio",
     title: "Personal Developer Portfolio",
     description:
-      "A modern, fully responsive bilingual (English / Khmer) portfolio built with Astro and Tailwind CSS. Features dynamic project routing, an EmailJS contact form, dark/light mode, and a Khmer-inspired design.",
+      "A modern, fully responsive bilingual (English / Khmer) portfolio built with Astro and Tailwind CSS. Features dynamic project routing, an EmailJS contact form, dark/light mode, and a clean, modern design.",
     year: "2026",
     type: "Portfolio Project",
     image: "/assets/images/projects/portfolio.webp",
@@ -56,7 +56,7 @@ export const projects = [
     overview:
       "This is the very website you are looking at. It was designed and developed to showcase my skills as a full-stack developer using modern static site generation, dynamic content delivery, and a clean, modern user experience.",
     features: [
-      "Khmer-inspired UI & Responsive Layout",
+      "Clean, modern UI & Responsive Layout",
       "English / Khmer language switch",
       "Dynamic Data-Driven Project Pages",
       "Functional EmailJS Contact Form",
@@ -66,12 +66,12 @@ export const projects = [
     km: {
       title: "វេបសាយ Portfolio អ្នកអភិវឌ្ឍផ្ទាល់ខ្លួន",
       description:
-        "វេបសាយ portfolio ទំនើប ឆ្លើយតបគ្រប់ឧបករណ៍ ពីរភាសា (អង់គ្លេស / ខ្មែរ) សាងសង់ដោយ Astro និង Tailwind CSS។ មានទំព័រគម្រោងថាមវន្ត ទម្រង់ទំនាក់ទំនង EmailJS ម៉ូដងងឹត/ភ្លឺ និងការរចនាបែបក្បាច់ខ្មែរ។",
+        "វេបសាយ portfolio ទំនើប ឆ្លើយតបគ្រប់ឧបករណ៍ ពីរភាសា (អង់គ្លេស / ខ្មែរ) សាងសង់ដោយ Astro និង Tailwind CSS។ មានទំព័រគម្រោងថាមវន្ត ទម្រង់ទំនាក់ទំនង EmailJS ម៉ូដងងឹត/ភ្លឺ និងការរចនាស្អាត ទំនើប។",
       type: "គម្រោង Portfolio",
       overview:
         "នេះគឺជាវេបសាយដែលអ្នកកំពុងមើលនេះឯង។ វាត្រូវបានរចនា និងអភិវឌ្ឍដើម្បីបង្ហាញជំនាញរបស់ខ្ញុំជាអ្នកអភិវឌ្ឍ full-stack ដោយប្រើ static site generation ទំនើប មាតិកាថាមវន្ត និងបទពិសោធន៍អ្នកប្រើដែលស្អាត ទំនើប។",
       features: [
-        "UI បែបក្បាច់ខ្មែរ និងប្លង់ឆ្លើយតបគ្រប់ឧបករណ៍",
+        "UI ស្អាត ទំនើប និងប្លង់ឆ្លើយតបគ្រប់ឧបករណ៍",
         "ប៊ូតុងប្តូរភាសា អង់គ្លេស / ខ្មែរ",
         "ទំព័រគម្រោងថាមវន្តដែលផ្អែកលើទិន្នន័យ",
         "ទម្រង់ទំនាក់ទំនង EmailJS ដែលដំណើរការពិតប្រាកដ",

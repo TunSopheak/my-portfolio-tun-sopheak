@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import T from "../components/T.astro";
 import Icon from "../components/Icon.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import KhmerDivider from "../components/KhmerDivider.astro";
 import SkillCard from "../components/SkillCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ActivityCard from "../components/ActivityCard.astro";
@@ -43,7 +42,7 @@ const heroSocials = socials.filter((s) => s.featured);
   <!-- ============================================ -->
   <!-- HERO                                         -->
   <!-- ============================================ -->
-  <section id="hero" class="kbach-bg relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden py-12 md:py-16">
+  <section id="hero" class="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden py-12 md:py-16">
     <!-- Background video: only fetched on desktop (see script below); a still image everywhere else -->
     <div class="pointer-events-none absolute inset-0 -z-20 overflow-hidden" aria-hidden="true">
       <video
@@ -121,7 +120,6 @@ const heroSocials = socials.filter((s) => s.featured);
           <div class="solar" aria-hidden="true">
             <div class="sun-glow"></div>
             <div class="sun-core"></div>
-            <div class="corona"></div>
 
             {rings.map((planets, ring) => (
               <div class:list={["orbit-ring", ring === 0 ? "orbit-ring--outer" : "orbit-ring--inner"]}>
@@ -160,8 +158,6 @@ const heroSocials = socials.filter((s) => s.featured);
   <!-- ============================================ -->
   <section id="about" class="section bg-soft-bg">
     <div class="container-x">
-      <KhmerDivider />
-      <div class="h-10"></div>
       <SectionHeading en="About Me" km="អំពីខ្ញុំ" />
 
       <div class="flex flex-col items-center gap-10 md:flex-row md:gap-12">
@@ -187,7 +183,7 @@ const heroSocials = socials.filter((s) => s.featured);
             </p>
           </div>
 
-          <dl class="mt-6 grid grid-cols-3 divide-x divide-border border-t border-border pt-5 text-center">
+          <dl class="mt-6 grid grid-cols-3 divide-x divide-border pt-2 text-center">
             <!-- <dt> (label) comes first in the HTML, as required; flex-col-reverse shows the number on top -->
             <div class="flex flex-col-reverse px-2">
               <dt class="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-text-muted"><T en="CS Student" km="និស្សិត CS" /></dt>
@@ -316,7 +312,7 @@ const heroSocials = socials.filter((s) => s.featured);
                 </div>
 
                 {item.description && (
-                  <p class="mt-4 border-t border-border pt-3 text-sm leading-relaxed text-text-secondary">
+                  <p class="mt-4 text-sm leading-relaxed text-text-secondary">
                     <T en={item.description} km={km?.description} />
                   </p>
                 )}
