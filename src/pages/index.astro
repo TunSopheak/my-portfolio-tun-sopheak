@@ -23,7 +23,7 @@ const rings = [0, 1].map((ring) => {
   return items.map((s, i) => ({ ...s, angle: (360 / items.length) * i }));
 });
 
-const sparkles = [
+const sparkles: Record<string, string>[] = [
   { top: "6%", left: "12%", t: "2.8s", dl: "0s" },
   { top: "10%", right: "6%", t: "3.5s", dl: "0.6s" },
   { bottom: "8%", left: "8%", t: "3.2s", dl: "1.2s" },
@@ -188,17 +188,18 @@ const heroSocials = socials.filter((s) => s.featured);
           </div>
 
           <dl class="mt-6 grid grid-cols-3 divide-x divide-border border-t border-border pt-5 text-center">
-            <div class="px-2">
-              <dd class="text-xl font-bold text-primary md:text-3xl"><T en="4th Year" km="ឆ្នាំទី ៤" /></dd>
+            <!-- <dt> (label) comes first in the HTML, as required; flex-col-reverse shows the number on top -->
+            <div class="flex flex-col-reverse px-2">
               <dt class="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-text-muted"><T en="CS Student" km="និស្សិត CS" /></dt>
+              <dd class="text-xl font-bold text-primary md:text-3xl"><T en="4th Year" km="ឆ្នាំទី ៤" /></dd>
             </div>
-            <div class="px-2">
-              <dd class="text-xl font-bold text-primary md:text-3xl"><span id="project-count" data-target={projects.length}>{projects.length}</span></dd>
+            <div class="flex flex-col-reverse px-2">
               <dt class="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-text-muted"><T en="Projects" km="គម្រោង" /></dt>
+              <dd class="text-xl font-bold text-primary md:text-3xl"><span id="project-count" data-target={projects.length}>{projects.length}</span></dd>
             </div>
-            <div class="px-2">
-              <dd class="text-xl font-bold text-primary md:text-3xl">Java</dd>
+            <div class="flex flex-col-reverse px-2">
               <dt class="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-text-muted"><T en="Backend Focus" km="ផ្តោត Backend" /></dt>
+              <dd class="text-xl font-bold text-primary md:text-3xl">Java</dd>
             </div>
           </dl>
         </div>
@@ -268,10 +269,11 @@ const heroSocials = socials.filter((s) => s.featured);
     <div class="container-x max-w-5xl">
       <SectionHeading en="My Education Journey" km="ដំណើរសិក្សារបស់ខ្ញុំ" />
 
-      <ol class="relative">
-        <!-- the line: left on mobile, centred on desktop -->
+      <div class="relative">
+        <!-- the line: left on mobile, centred on desktop (a sibling of the list, since <ol> may only contain <li>) -->
         <span class="absolute bottom-0 left-4 top-0 w-px -translate-x-1/2 bg-border md:left-1/2" aria-hidden="true"></span>
 
+      <ol class="relative">
         {education.map((item, i) => {
           const km = item.km;
           const right = i % 2 === 1;
@@ -323,11 +325,12 @@ const heroSocials = socials.filter((s) => s.featured);
           );
         })}
       </ol>
+      </div>
     </div>
   </section>
 
   <!-- ============================================ -->
-  <!-- ACTIVITIES                                   -->
+  <!-- ACTIVITIES                                  -->
   <!-- ============================================ -->
   <section id="activities" class="section bg-soft-bg">
     <div class="container-x">
