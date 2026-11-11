@@ -16,7 +16,7 @@ const fields = [
       <T en="Send a" km="ផ្ញើ" /> <span class="text-primary"><T en="Message" km="សារមួយ" /></span>
     </h3>
     <p class="mt-1 text-sm text-text-muted">
-      <T en="Fill out the form below and I'll respond as soon as possible." km="សូមបំពេញទម្រង់ខាងក្រោម ខ្ញុំនឹងឆ្លើយតបឱ្យបានលឿនបំផុត។" />
+      <T en="Fill out the form below and I'll respond as soon as possible." km="សូមបំពេញទម្រង់ខាងក្រោម ខ្ញុំនឹងឆ្លើយតបជូនឱ្យបានឆាប់បំផុត។" />
     </p>
   </div>
 
@@ -77,11 +77,11 @@ const fields = [
   const MESSAGES = {
     sending: { en: "Sending…", km: "កំពុងផ្ញើ…" },
     okTitle: { en: "Message sent!", km: "បានផ្ញើសារហើយ!" },
-    okBody: { en: "Thank you for reaching out. I'll get back to you soon.", km: "អរគុណដែលទាក់ទងមក។ ខ្ញុំនឹងឆ្លើយតបឱ្យបានឆាប់។" },
+    okBody: { en: "Thank you for reaching out. I'll get back to you soon.", km: "អរគុណដែលបានទាក់ទងមក។ ខ្ញុំនឹងឆ្លើយតបទៅអ្នកវិញក្នុងពេលឆាប់ៗនេះ។" },
     failTitle: { en: "Couldn't send", km: "មិនអាចផ្ញើបានទេ" },
-    failBody: { en: "Please check your connection and try again.", km: "សូមពិនិត្យអ៊ីនធឺណិតរបស់អ្នក ហើយព្យាយាមម្តងទៀត។" },
-    invalid: { en: "Please fill in every field with a valid email.", km: "សូមបំពេញគ្រប់ប្រអប់ និងប្រើអ៊ីមែលដែលត្រឹមត្រូវ។" },
-    notConfigured: { en: "The contact form isn't set up yet. Please email me directly.", km: "ទម្រង់ទំនាក់ទំនងមិនទាន់រួចរាល់ទេ។ សូមផ្ញើអ៊ីមែលមកខ្ញុំដោយផ្ទាល់។" },
+    failBody: { en: "Please check your connection and try again.", km: "សូមពិនិត្យការតភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក រួចព្យាយាមម្តងទៀត។" },
+    invalid: { en: "Please fill in every field with a valid email.", km: "សូមបំពេញគ្រប់ប្រអប់ ហើយប្រើអាសយដ្ឋានអ៊ីមែលដែលត្រឹមត្រូវ។" },
+    notConfigured: { en: "The contact form isn't set up yet. Please email me directly.", km: "ទម្រង់ទំនាក់ទំនងមិនទាន់អាចប្រើបានទេ។ សូមផ្ញើអ៊ីមែលមកខ្ញុំដោយផ្ទាល់។" },
   } as const;
   const t = (key: keyof typeof MESSAGES): string => MESSAGES[key][getLang()];
 

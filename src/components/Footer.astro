@@ -15,18 +15,18 @@ const link = "inline-flex items-center gap-2.5 py-0.5 transition-colors hover:te
     <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <!-- Brand -->
       <div class="flex flex-col gap-4">
-        <span class="text-xl font-bold text-text-primary">Tun Sopheak</span>
+        <span class="text-xl font-bold text-text-primary"><T en="Tun Sopheak" km="ទុន សុភ័ក្ខ" /></span>
         <p class="max-w-xs text-sm leading-relaxed text-text-secondary">
           <T
             en="Passionate about building scalable backend systems with Java, Spring Boot, and Python, turning ideas into reliable software with clean code and modern tools."
-            km="ស្រឡាញ់ការសាងសង់ប្រព័ន្ធ backend ដែលអាចពង្រីកបាន ដោយប្រើ Java, Spring Boot និង Python បំប្លែងគំនិតទៅជាកម្មវិធីដែលអាចទុកចិត្តបាន ជាមួយកូដស្អាត និងឧបករណ៍ទំនើប។"
+            km="ខ្ញុំស្រឡាញ់ការសាងសង់ប្រព័ន្ធ Backend ដែលអាចពង្រីកបាន ដោយប្រើ Java, Spring Boot និង Python ដើម្បីបំប្លែងគំនិតទៅជាកម្មវិធីដែលអាចទុកចិត្តបាន ជាមួយកូដស្អាត និងឧបករណ៍ទំនើប។"
           />
         </p>
       </div>
 
       <!-- Quick links -->
       <nav aria-label="Footer">
-        <h3 class={heading}><T en="Quick Links" km="តំណរហ័ស" /></h3>
+        <h3 class={heading}><T en="Quick Links" km="តំណភ្ជាប់រហ័ស" /></h3>
         <ul class="space-y-2 text-sm text-text-secondary">
           {navItems.map((item) => (
             <li><a href={`/#${item.id}`} class={link}><T en={item.en} km={item.km} /></a></li>
@@ -36,7 +36,7 @@ const link = "inline-flex items-center gap-2.5 py-0.5 transition-colors hover:te
 
       <!-- Tech stack -->
       <div>
-        <h3 class={heading}><T en="Tech Stack" km="បច្ចេកវិទ្យា" /></h3>
+        <h3 class={heading}><T en="Tech Stack" km="បច្ចេកវិទ្យាដែលប្រើ" /></h3>
         <ul class="space-y-2 text-sm text-text-secondary">
           {footerTech.map((tech) => <li>{tech}</li>)}
         </ul>
@@ -65,9 +65,9 @@ const link = "inline-flex items-center gap-2.5 py-0.5 transition-colors hover:te
         <div class="mt-12 flex flex-col items-center gap-2 pt-4 text-center">
       <p class="inline-flex items-center gap-2 text-sm font-medium text-text-secondary">
         <img src="/assets/images/khmer/flag-of-cambodia.svg" alt="" width="24" height="15" loading="lazy" class="flag-kh" />
-        <T en="Made in Cambodia" km="ផលិតនៅកម្ពុជា" />
+        <T en="Made in Cambodia" km="ផលិតក្នុងប្រទេសកម្ពុជា" />
       </p>
-      <p class="text-sm text-text-muted">&copy; {year} Tun Sopheak. <T en="All rights reserved." km="រក្សាសិទ្ធិគ្រប់យ៉ាង។" /></p>
+      <p class="text-sm text-text-muted">&copy; {year} <T en="Tun Sopheak" km="ទុន សុភ័ក្ខ" />. <T en="All rights reserved." km="រក្សាសិទ្ធិគ្រប់យ៉ាង។" /></p>
     </div>
   </div>
 

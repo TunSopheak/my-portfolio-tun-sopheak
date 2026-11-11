@@ -12,14 +12,14 @@ export const education = [
     location: "Phnom Penh, Cambodia",
     tags: ["GPA: 3.70 / 4.00", "Backend Engineering Track"],
     description:
-      "Studied software development with a strong focus on backend systems, databases, APIs, and system architecture.",
+      "Studying software development with a strong focus on backend systems, databases, APIs, and system architecture.",
     km: {
       title: "បរិញ្ញាបត្រវិទ្យាសាស្ត្រ ផ្នែកវិទ្យាសាស្ត្រកុំព្យូទ័រ",
       school: "សាកលវិទ្យាល័យភូមិន្ទភ្នំពេញ (RUPP)",
-      location: "ភ្នំពេញ កម្ពុជា",
-      tags: ["ពិន្ទុមធ្យម (GPA): ៣.៧០ / ៤.០០", "ជំនាញ Backend Engineering"],
+      location: "ភ្នំពេញ ប្រទេសកម្ពុជា",
+      tags: ["ពិន្ទុមធ្យមភាគ (GPA): ៣.៧០ / ៤.០០", "ឯកទេសវិស្វកម្ម Backend"],
       description:
-        "សិក្សាអភិវឌ្ឍកម្មវិធី ដោយផ្តោតយ៉ាងខ្លាំងលើប្រព័ន្ធ backend មូលដ្ឋានទិន្នន័យ API និងស្ថាបត្យកម្មប្រព័ន្ធ។",
+        "សិក្សាផ្នែកអភិវឌ្ឍកម្មវិធី ដោយផ្តោតយ៉ាងខ្លាំងលើប្រព័ន្ធ Backend មូលដ្ឋានទិន្នន័យ API និងស្ថាបត្យកម្មប្រព័ន្ធ។",
     },
   },
   {
@@ -33,8 +33,8 @@ export const education = [
     km: {
       title: "មធ្យមសិក្សា",
       school: "វិទ្យាល័យស្វាយលើ",
-      location: "សៀមរាប កម្ពុជា",
-      tags: ["សញ្ញាបត្រមធ្យមសិក្សា"],
+      location: "ខេត្តសៀមរាប ប្រទេសកម្ពុជា",
+      tags: ["សញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ"],
     },
   },
   {
@@ -48,7 +48,7 @@ export const education = [
     km: {
       title: "បឋមសិក្សា",
       school: "សាលាបឋមសិក្សាហ៊ុន សែន ស្វាយលើ",
-      location: "សៀមរាប កម្ពុជា",
+      location: "ខេត្តសៀមរាប ប្រទេសកម្ពុជា",
       tags: ["បឋមសិក្សា"],
     },
   },
