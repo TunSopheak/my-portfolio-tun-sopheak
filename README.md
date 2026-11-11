@@ -106,7 +106,8 @@ When real kbach artwork is added, use only artwork with a clear licence (a commi
 
 | Artwork | Source / author | Licence |
 |---------|-----------------|---------|
-| _none yet_ | | |
+| `images/khmer/angkor-wat.svg` (+ `-outline` variant) – section-heading mark, footer background | Provided by the site owner (Inkscape drawing, author not stated) | **Unknown – confirm before wider reuse** |
+| `images/khmer/flag-of-cambodia.svg` – hero location, footer | sovichet.tep, [Openclipart #188638](https://openclipart.org/detail/188638) | Public domain |
 
 Reference reading on genuine motifs (chan flower, lotus petal, spiral, etc.): *KBACH: A Study of Khmer Ornament* by Chan Vitharin, and the Wikipedia article on [Kbach](https://en.wikipedia.org/wiki/Kbach). Please have a Khmer designer review any motif before it is published.
 
