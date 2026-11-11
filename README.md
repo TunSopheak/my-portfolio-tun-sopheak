@@ -66,6 +66,37 @@ PUBLIC_EMAILJS_PUBLIC_KEY=...
 
 ---
 
+## How the language switch works
+
+1. Every text is written as `<T en="…" km="…" />`. The component renders **both** languages as two `<span>`s.
+2. CSS hides the one that does not match `<html lang>` (`global.css`, section 3), so there is no layout jump and it works even before JavaScript loads.
+3. A tiny inline script in `BaseLayout.astro` sets `lang` (and the theme) **before first paint** from `localStorage`, or from `?lang=km` / `?lang=en` in the URL.
+4. `src/scripts/ui.ts` handles the EN / ខ្មែរ buttons and swaps attributes that cannot hold two spans (placeholders, `aria-label`) via `data-ph-en/km` and `data-aria-en/km`.
+5. Content in `src/data/*.js` has an optional `km` block; anything missing falls back to English.
+
+Khmer typography rules (taller line-height, no uppercase / letter-spacing) are applied automatically when `lang="km"`.
+
+---
+
+## Deployment (Vercel)
+
+- Push to GitHub; Vercel builds with `npm run build` and serves `dist/`.
+- Add the three `PUBLIC_EMAILJS_*` variables in **Vercel → Project → Settings → Environment Variables**. Without them the contact form shows a friendly "not set up" message instead of failing.
+- Pull requests get a preview URL, so a branch can be checked before merging into `main`.
+- The sitemap is generated at build time from `site` in `astro.config.mjs`.
+
+---
+
+## To-do / known items
+
+- [ ] Add `public/assets/images/projects/julnow.jpg` (the card currently shows a placeholder).
+- [ ] Compress the hero video (~18 MB).
+- [ ] Have a native speaker review the Khmer translations, and confirm the Khmer spelling of the name.
+- [ ] Re-take the "Portfolio" project screenshot to show the new design.
+- [ ] Decide what the "Mr. Sterling" badge in the About section should say.
+
+---
+
 ## Khmer ornament
 
 All ornament artwork is **original**, drawn for this site — nothing is copied or traced from stock images:
