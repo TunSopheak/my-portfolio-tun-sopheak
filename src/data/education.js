@@ -5,7 +5,6 @@ export const education = [
   {
     id: "rupp",
     icon: "cap",
-    gradient: "from-cyan-400 to-blue-600",
     years: "2023 – 2027",
     active: true,
     title: "B.S. Computer Science",
@@ -26,7 +25,6 @@ export const education = [
   {
     id: "svay-leu-high",
     icon: "school",
-    gradient: "from-purple-400 to-pink-500",
     years: "2017 – 2023",
     title: "Secondary Education",
     school: "Svay Leu High School",
@@ -42,7 +40,6 @@ export const education = [
   {
     id: "svay-leu-primary",
     icon: "book",
-    gradient: "from-orange-400 to-pink-500",
     years: "2011 – 2017",
     title: "Primary Education",
     school: "Hun Sen Svay Leu Primary School",
