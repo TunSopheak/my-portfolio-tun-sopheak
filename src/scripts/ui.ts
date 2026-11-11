@@ -5,6 +5,8 @@
 // The *initial* theme and language are applied earlier by the inline script in
 // BaseLayout's <head>, so there is no flash on load.
 
+import "./network";
+
 type Lang = "en" | "km";
 const root = document.documentElement;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

@@ -43,7 +43,8 @@ const heroSocials = socials.filter((s) => s.featured);
   <!-- HERO                                         -->
   <!-- ============================================ -->
   <section id="hero" class="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden py-12 md:py-16">
-    <!-- Background: still Angkor image with a very slow zoom (transform only, so it stays smooth on phones).
+    <!-- Background: the Angkor photo (slow zoom, transform only) from tablet size up; on phones the same
+         animated dot-and-line network as the header is shown instead (scripts/network.ts).
          The old looping video (khmer-tech-bg.mp4) is no longer used here. -->
     <div class="pointer-events-none absolute inset-0 -z-20 overflow-hidden" aria-hidden="true">
       <img
@@ -52,9 +53,10 @@ const heroSocials = socials.filter((s) => s.featured);
         width="1920"
         height="1080"
         decoding="async"
-        fetchpriority="low"
-        class="hero-bg h-full w-full object-cover object-center opacity-30 dark:opacity-45"
+        loading="lazy"
+        class="hero-bg hidden h-full w-full object-cover object-center opacity-30 md:block dark:opacity-45"
       />
+      <canvas data-network data-density="9000" class="absolute inset-0 h-full w-full md:hidden"></canvas>
       <div class="absolute inset-0 bg-gradient-to-b from-bg/40 via-bg/60 to-bg lg:bg-gradient-to-r lg:from-bg lg:via-bg/70 lg:to-bg/20"></div>
     </div>
 
