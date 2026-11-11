@@ -310,6 +310,36 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
 }
 
 /* ============================================================
+   7b. KHMER ARTWORK — owner-provided SVGs in /assets/images/khmer/
+   The Angkor drawing is used as a CSS mask, so it takes the colour
+   of `currentColor` and follows the light/dark theme automatically.
+   ============================================================ */
+.angkor-mark,
+.angkor-line {
+  display: block;
+  background-color: currentColor;
+  mask: var(--angkor) center / contain no-repeat;
+  -webkit-mask: var(--angkor) center / contain no-repeat;
+}
+.angkor-mark { --angkor: url("/assets/images/khmer/angkor-wat.svg"); aspect-ratio: 1000 / 616.5; }
+/* line drawing: white strokes = visible, black fill = hidden (hides overlapping lines) */
+.angkor-line {
+  --angkor: url("/assets/images/khmer/angkor-wat-outline.svg");
+  aspect-ratio: 1000 / 616.5;
+  mask-mode: luminance;
+  -webkit-mask-source-type: luminance;
+}
+
+.flag-kh {
+  display: inline-block;
+  width: 1.5em;
+  aspect-ratio: 800 / 512;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08);
+  vertical-align: -0.15em;
+}
+
+/* ============================================================
    8. ACCESSIBILITY — respect "reduce motion"
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {

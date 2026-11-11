@@ -9,8 +9,10 @@ const heading = "mb-4 text-sm font-semibold uppercase tracking-wider text-text-p
 const link = "inline-flex items-center gap-2.5 py-0.5 transition-colors hover:text-primary";
 ---
 
-<footer class="border-t border-border bg-soft-bg pb-8 pt-12">
-  <div class="container-x">
+<footer class="relative overflow-hidden border-t border-border bg-soft-bg pb-8 pt-12">
+  <!-- faint Angkor Wat line drawing behind the footer -->
+  <span class="angkor-line pointer-events-none absolute -bottom-6 right-0 w-[28rem] max-w-[80%] text-primary opacity-[0.07] dark:opacity-[0.12]" aria-hidden="true"></span>
+  <div class="container-x relative">
 
     <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <!-- Brand -->
@@ -64,7 +66,10 @@ const link = "inline-flex items-center gap-2.5 py-0.5 transition-colors hover:te
 
     <div class="mt-10 flex flex-col justify-between gap-3 border-t border-border pt-6 text-sm text-text-muted md:flex-row">
       <p>&copy; {year} Tun Sopheak. <T en="All rights reserved." km="រក្សាសិទ្ធិគ្រប់យ៉ាង។" /></p>
-      <a href="/#contact" class="transition-colors hover:text-primary"><T en="Contact" km="ទំនាក់ទំនង" /></a>
+      <p class="inline-flex items-center gap-2">
+        <img src="/assets/images/khmer/flag-of-cambodia.svg" alt="" width="24" height="15" loading="lazy" class="flag-kh" />
+        <T en="Made in Cambodia" km="ផលិតនៅកម្ពុជា" />
+      </p>
     </div>
   </div>
 </footer>

@@ -83,6 +83,7 @@ const heroSocials = socials.filter((s) => s.featured);
             />
           </p>
           <p class="mt-3 text-sm text-text-muted">
+            <img src="/assets/images/khmer/flag-of-cambodia.svg" alt="" width="24" height="15" class="flag-kh mr-1.5" />
             <T
               en="Computer Science Student at RUPP · Phnom Penh, Cambodia"
               km="និស្សិតវិទ្យាសាស្ត្រកុំព្យូទ័រ នៅ RUPP · ភ្នំពេញ កម្ពុជា"
@@ -262,66 +263,66 @@ const heroSocials = socials.filter((s) => s.featured);
   <!-- EDUCATION (data/education.js)                -->
   <!-- ============================================ -->
   <section id="education" class="section">
-    <div class="container-x max-w-5xl">
+    <div class="container-x max-w-3xl">
       <SectionHeading en="My Education Journey" km="ដំណើរសិក្សារបស់ខ្ញុំ" />
 
-      <div class="relative">
-        <!-- the line: left on mobile, centred on desktop (a sibling of the list, since <ol> may only contain <li>) -->
-        <span class="absolute bottom-0 left-4 top-0 w-px -translate-x-1/2 bg-border md:left-1/2" aria-hidden="true"></span>
-
-      <ol class="relative">
+      <!-- One column on every screen: same card shape, same icon style, no zig-zag gaps. -->
+      <ol class="space-y-6">
         {education.map((item, i) => {
           const km = item.km;
-          const right = i % 2 === 1;
+          const last = i === education.length - 1;
           return (
-            <li class:list={["reveal relative pb-8 pl-12 last:pb-0 md:w-1/2 md:pb-12", right ? "md:ml-auto md:pl-12" : "md:pr-12 md:pl-0"]}>
+            <li class="reveal relative pl-10 md:pl-14">
+              <!-- line segment down to the next item, and the dot (centred on the icon) -->
+              {!last && (
+                <span class="absolute left-3 top-12 -bottom-6 w-px -translate-x-1/2 bg-border md:left-5" aria-hidden="true"></span>
+              )}
               <span
                 class:list={[
-                  "absolute left-4 top-7 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 border-primary bg-bg md:left-auto",
-                  right ? "md:left-0" : "md:right-0 md:translate-x-1/2",
-                  item.active && "ring-4 ring-primary/20",
+                  "absolute left-3 top-[2.625rem] h-3 md:top-[2.875rem] w-3 -translate-x-1/2 -translate-y-1/2 rounded-full md:left-5",
+                  item.active ? "bg-primary ring-4 ring-primary/20" : "border-2 border-primary bg-bg",
                 ]}
                 aria-hidden="true"
               ></span>
 
-              <div class:list={["card p-5 md:p-6", item.active && "!border-primary/50"]}>
-                <div class="mb-4 flex items-start justify-between gap-3">
-                  <span class={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br ${item.gradient} p-2.5 shadow-lg`}>
-                    <img src={`/assets/icons/education/${item.icon}.svg`} alt="" width="28" height="28" loading="lazy" class="h-full w-full object-contain" />
-                  </span>
-                  <div class="flex flex-wrap items-center justify-end gap-2">
+              <article class:list={["card flex gap-4 p-5 md:gap-5 md:p-6", item.active && "!border-primary/40"]}>
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary p-2.5">
+                  <img src={`/assets/icons/education/${item.icon}.svg`} alt="" width="24" height="24" loading="lazy" class="h-full w-full object-contain" />
+                </span>
+
+                <div class="min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
                     <span class="text-sm font-semibold text-primary">{item.years}</span>
                     {item.active && (
-                      <span class="inline-flex items-center gap-1.5 rounded-full bg-green-500/15 px-2.5 py-1 text-[11px] font-bold text-green-700 dark:text-green-400">
-                        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500"></span>
+                      <span class="inline-flex items-center gap-1.5 rounded-full bg-green-500/15 px-2.5 py-0.5 text-[11px] font-bold text-green-700 dark:text-green-400">
+                        <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
                         <T en="Active" km="កំពុងសិក្សា" />
                       </span>
                     )}
                   </div>
-                </div>
 
-                <h3 class="text-lg font-bold text-text-primary md:text-xl"><T en={item.title} km={km?.title} /></h3>
-                <p class="mt-1 text-sm font-medium text-text-secondary md:text-base"><T en={item.school} km={km?.school} /></p>
-                <p class="mt-2 flex items-center gap-1.5 text-xs text-text-muted">
-                  <Icon name="map-pin" class="h-3.5 w-3.5 text-primary" />
-                  <T en={item.location} km={km?.location} />
-                </p>
-
-                <div class="mt-3 flex flex-wrap gap-2">
-                  {item.tags.map((tag, t) => <span class="chip"><T en={tag} km={km?.tags?.[t]} /></span>)}
-                </div>
-
-                {item.description && (
-                  <p class="mt-4 text-sm leading-relaxed text-text-secondary">
-                    <T en={item.description} km={km?.description} />
+                  <h3 class="mt-1 text-lg font-bold text-text-primary md:text-xl"><T en={item.title} km={km?.title} /></h3>
+                  <p class="mt-0.5 text-sm font-medium text-text-secondary md:text-base"><T en={item.school} km={km?.school} /></p>
+                  <p class="mt-1.5 flex items-center gap-1.5 text-xs text-text-muted">
+                    <Icon name="map-pin" class="h-3.5 w-3.5 text-primary" />
+                    <T en={item.location} km={km?.location} />
                   </p>
-                )}
-              </div>
+
+                  {item.description && (
+                    <p class="mt-3 text-sm leading-relaxed text-text-secondary">
+                      <T en={item.description} km={km?.description} />
+                    </p>
+                  )}
+
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    {item.tags.map((tag, t) => <span class="chip"><T en={tag} km={km?.tags?.[t]} /></span>)}
+                  </div>
+                </div>
+              </article>
             </li>
           );
         })}
       </ol>
-      </div>
     </div>
   </section>
 

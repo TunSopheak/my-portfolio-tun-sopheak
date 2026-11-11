@@ -9,7 +9,7 @@ A fast, bilingual (**English / ខ្មែរ**) portfolio built with **Astro**
 ## Key Features
 
 - **English / ខ្មែរ switch** – every visible text has both languages; the choice is remembered, and `?lang=km` in a URL opens the Khmer version.
-- **Clean, photo-led design** – a real photograph of Angkor in the hero, generous white space and few lines; decorative Khmer ornament is intentionally left out until properly sourced artwork is available (see [Khmer ornament](#khmer-ornament)).
+- **Clean, Khmer-inspired design** – a photo of Angkor in the hero, an Angkor Wat mark under section titles and the Cambodian flag, with generous white space.
 - **Data-driven content** – projects, activities, achievements, skills and education live in `src/data/`; pages are generated from them.
 - **Contact form** – EmailJS (no backend), with a honeypot against spam and safe toast messages.
 - **Dark / light mode** – saved in localStorage, follows the OS by default, no flash on load.
@@ -93,22 +93,6 @@ Khmer typography rules (taller line-height, no uppercase / letter-spacing) are a
 - [ ] Have a native speaker review the Khmer translations, and confirm the Khmer spelling of the name.
 - [ ] Re-take the "Portfolio" project screenshot to show the new design.
 - [ ] Decide what the "Mr. Sterling" badge in the About section should say.
-
----
-
-## Khmer ornament
-
-There is **no decorative kbach artwork** on the site right now, on purpose. An earlier version used self-drawn lotus-lattice and Angkor-silhouette ornaments; they were removed because they had no authentic source and looked cluttered.
-
-Government sites such as mptc.gov.kh, tourism.gov.kh and mcfa.gov.kh were reviewed as references: they use clean, photo-led layouts and Khmer fonts (e.g. Kantumruy Pro, Noto Sans Khmer, Nokora) rather than ornament files. Those sites' logos and images are *not* reused here.
-
-When real kbach artwork is added, use only artwork with a clear licence (a commissioned design, a licensed stock purchase, or a public-domain book) and record the source here:
-
-| Artwork | Source / author | Licence |
-|---------|-----------------|---------|
-| _none yet_ | | |
-
-Reference reading on genuine motifs (chan flower, lotus petal, spiral, etc.): *KBACH: A Study of Khmer Ornament* by Chan Vitharin, and the Wikipedia article on [Kbach](https://en.wikipedia.org/wiki/Kbach). Please have a Khmer designer review any motif before it is published.
 
 ---
 
