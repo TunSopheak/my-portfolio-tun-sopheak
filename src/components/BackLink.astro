@@ -1,0 +1,14 @@
+---
+import T from "./T.astro";
+interface Props {
+  href: string;
+  en: string;
+  km: string;
+}
+const { href, en, km } = Astro.props;
+---
+
+<a href={href} class="group mb-8 inline-flex min-h-11 items-center gap-1.5 text-sm text-text-muted transition hover:text-primary">
+  <span class="text-xl transition-transform duration-200 group-hover:-translate-x-1" aria-hidden="true">←</span>
+  <T en={en} km={km} />
+</a>

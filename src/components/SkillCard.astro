@@ -1,0 +1,44 @@
+---
+import T from "./T.astro";
+
+interface Props {
+  group: {
+    id: string;
+    en: string;
+    km: string;
+    accent?: "primary" | "gold";
+    items: { name: string; icon: string; mono?: boolean }[];
+  };
+  index?: number;
+}
+const { group, index = 0 } = Astro.props;
+const gold = group.accent === "gold";
+---
+
+<div class="card reveal p-5" style={`--d:${(index % 3) * 90}ms`}>
+  <div class="mb-4 flex items-center justify-between border-b border-border pb-3">
+    <h3 class:list={["text-lg font-semibold", gold ? "text-yellow-600 dark:text-yellow-400" : "text-primary"]}>
+      <T en={group.en} km={group.km} />
+    </h3>
+    <span class:list={["rounded-full px-2 py-0.5 text-xs font-bold", gold ? "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400" : "bg-primary/10 text-primary"]}>
+      {group.items.length}
+    </span>
+  </div>
+
+  <ul class="grid grid-cols-3 gap-3">
+    {group.items.map((skill) => (
+      <li class="flex flex-col items-center gap-2 rounded-xl border border-border bg-soft-bg p-3 text-center transition duration-300 hover:-translate-y-1 hover:border-primary/50">
+        <img
+          src={`/assets/icons/tech/${skill.icon}.svg`}
+          alt=""
+          width="36"
+          height="36"
+          loading="lazy"
+          decoding="async"
+          class:list={["h-9 w-9", skill.mono && "dark:invert"]}
+        />
+        <span class="text-[11px] font-medium leading-tight text-text-secondary">{skill.name}</span>
+      </li>
+    ))}
+  </ul>
+</div>

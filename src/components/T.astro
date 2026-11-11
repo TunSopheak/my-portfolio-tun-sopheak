@@ -1,0 +1,13 @@
+---
+// Bilingual text. Renders both languages; CSS (global.css §3) shows the one that
+// matches <html lang>. Works without JS and without any layout flash.
+//   <T en="About Me" km="អំពីខ្ញុំ" />
+// If `km` is missing the English text is shown in both modes.
+interface Props {
+  en: string;
+  km?: string;
+}
+const { en, km } = Astro.props;
+---
+
+<span data-l="en">{en}</span><span data-l="km">{km ?? en}</span>

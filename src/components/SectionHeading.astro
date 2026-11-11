@@ -1,0 +1,30 @@
+---
+import T from "./T.astro";
+import KhmerRosette from "./KhmerRosette.astro";
+
+interface Props {
+  id?: string;
+  en: string;
+  km: string;
+  subEn?: string;
+  subKm?: string;
+  as?: "h1" | "h2";
+}
+const { id, en, km, subEn, subKm, as: Tag = "h2" } = Astro.props;
+---
+
+<div class="mb-12 text-center reveal">
+  <Tag id={id} class="inline-block text-3xl font-bold text-text-primary md:text-4xl">
+    <T en={en} km={km} />
+  </Tag>
+  <div class="ornament-line" aria-hidden="true">
+    <span></span>
+    <KhmerRosette />
+    <span></span>
+  </div>
+  {subEn && (
+    <p class="mx-auto mt-4 max-w-2xl text-base text-text-secondary">
+      <T en={subEn} km={subKm} />
+    </p>
+  )}
+</div>

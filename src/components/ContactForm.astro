@@ -1,0 +1,171 @@
+---
+import T from "./T.astro";
+import Icon from "./Icon.astro";
+
+// Field list drives the markup, so adding a field is a one-line change.
+const fields = [
+  { id: "name", type: "text", icon: "user", en: "Your Name", km: "ឈ្មោះរបស់អ្នក", autocomplete: "name" },
+  { id: "email", type: "email", icon: "mail", en: "Email Address", km: "អាសយដ្ឋានអ៊ីមែល", autocomplete: "email" },
+  { id: "subject", type: "text", icon: "subject", en: "Subject", km: "ប្រធានបទ", autocomplete: "off" },
+] as const;
+---
+
+<form id="contact-form" class="card space-y-4 p-6 md:p-8" novalidate>
+  <div class="mb-2">
+    <h3 class="text-2xl font-bold text-text-primary md:text-3xl">
+      <T en="Send a" km="ផ្ញើ" /> <span class="text-primary"><T en="Message" km="សារមួយ" /></span>
+    </h3>
+    <p class="mt-1 text-sm text-text-muted">
+      <T en="Fill out the form below and I'll respond as soon as possible." km="សូមបំពេញទម្រង់ខាងក្រោម ខ្ញុំនឹងឆ្លើយតបឱ្យបានលឿនបំផុត។" />
+    </p>
+  </div>
+
+  {fields.map((f) => (
+    <div class="relative">
+      <label for={f.id} class="sr-only"><T en={f.en} km={f.km} /></label>
+      <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-text-muted">
+        <Icon name={f.icon} class="h-5 w-5" />
+      </span>
+      <input
+        id={f.id}
+        name={f.id}
+        type={f.type}
+        required
+        autocomplete={f.autocomplete}
+        maxlength="120"
+        placeholder={f.en}
+        data-ph-en={f.en}
+        data-ph-km={f.km}
+        class="field"
+      />
+    </div>
+  ))}
+
+  <div class="relative">
+    <label for="message" class="sr-only"><T en="Your Message" km="សាររបស់អ្នក" /></label>
+    <span class="pointer-events-none absolute left-4 top-4 text-text-muted"><Icon name="chat" class="h-5 w-5" /></span>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      maxlength="2000"
+      placeholder="Your Message"
+      data-ph-en="Your Message"
+      data-ph-km="សាររបស់អ្នក"
+      class="field resize-none"
+    ></textarea>
+  </div>
+
+  <!-- Honeypot: invisible to people, bots fill it in. Real submissions leave it empty. -->
+  <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+    <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-full !py-3.5 text-base">
+    <Icon name="send" class="h-4 w-4" />
+    <span data-label><T en="Send Message" km="ផ្ញើសារ" /></span>
+  </button>
+</form>
+
+<div id="toast-region" class="pointer-events-none fixed right-4 top-20 z-[70] flex w-[calc(100%-2rem)] max-w-sm flex-col gap-2" role="status" aria-live="polite"></div>
+
+<script>
+  import emailjs from "@emailjs/browser";
+  import { getLang } from "../scripts/ui";
+
+  const MESSAGES = {
+    sending: { en: "Sending…", km: "កំពុងផ្ញើ…" },
+    okTitle: { en: "Message sent!", km: "បានផ្ញើសារហើយ!" },
+    okBody: { en: "Thank you for reaching out. I'll get back to you soon.", km: "អរគុណដែលទាក់ទងមក។ ខ្ញុំនឹងឆ្លើយតបឱ្យបានឆាប់។" },
+    failTitle: { en: "Couldn't send", km: "មិនអាចផ្ញើបានទេ" },
+    failBody: { en: "Please check your connection and try again.", km: "សូមពិនិត្យអ៊ីនធឺណិតរបស់អ្នក ហើយព្យាយាមម្តងទៀត។" },
+    invalid: { en: "Please fill in every field with a valid email.", km: "សូមបំពេញគ្រប់ប្រអប់ និងប្រើអ៊ីមែលដែលត្រឹមត្រូវ។" },
+    notConfigured: { en: "The contact form isn't set up yet. Please email me directly.", km: "ទម្រង់ទំនាក់ទំនងមិនទាន់រួចរាល់ទេ។ សូមផ្ញើអ៊ីមែលមកខ្ញុំដោយផ្ទាល់។" },
+  } as const;
+  const t = (key: keyof typeof MESSAGES): string => MESSAGES[key][getLang()];
+
+  /** Toast built with textContent only — user/error text can never inject HTML. */
+  function showToast(title: string, body: string, ok: boolean): void {
+    const region = document.getElementById("toast-region");
+    if (!region) return;
+    region.replaceChildren();
+
+    const toast = document.createElement("div");
+    toast.className = [
+      "pointer-events-auto rounded-xl border p-4 shadow-xl transition duration-300 translate-x-6 opacity-0",
+      ok
+        ? "border-green-300 bg-green-50 text-green-900 dark:border-green-800 dark:bg-green-950 dark:text-green-100"
+        : "border-red-300 bg-red-50 text-red-900 dark:border-red-800 dark:bg-red-950 dark:text-red-100",
+    ].join(" ");
+
+    const h = document.createElement("p");
+    h.className = "text-sm font-semibold";
+    h.textContent = title;
+    const p = document.createElement("p");
+    p.className = "mt-1 text-sm opacity-90";
+    p.textContent = body;
+    toast.append(h, p);
+    region.append(toast);
+
+    requestAnimationFrame(() => toast.classList.remove("translate-x-6", "opacity-0"));
+    setTimeout(() => {
+      toast.classList.add("translate-x-6", "opacity-0");
+      setTimeout(() => toast.remove(), 300);
+    }, 5000);
+  }
+
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+  const label = button?.querySelector<HTMLElement>("[data-label]");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!button || !label) return;
+
+    const data = new FormData(form);
+    // Honeypot filled → a bot. Pretend it worked, send nothing.
+    if (data.get("website")) {
+      form.reset();
+      return;
+    }
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      showToast(t("failTitle"), t("invalid"), false);
+      return;
+    }
+
+    const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+    if (!serviceId || !templateId || !publicKey) {
+      showToast(t("failTitle"), t("notConfigured"), false);
+      return;
+    }
+
+    const original = label.innerHTML;
+    button.disabled = true;
+    label.textContent = t("sending");
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: data.get("name"),
+          reply_to: data.get("email"),
+          subject: data.get("subject"),
+          message: data.get("message"),
+        },
+        { publicKey },
+      );
+      showToast(t("okTitle"), t("okBody"), true);
+      form.reset();
+    } catch {
+      showToast(t("failTitle"), t("failBody"), false);
+    } finally {
+      button.disabled = false;
+      label.innerHTML = original;
+    }
+  });
+</script>
