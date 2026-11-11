@@ -1,0 +1,52 @@
+---
+import T from "./T.astro";
+import Icon from "./Icon.astro";
+import CardThumb from "./CardThumb.astro";
+import type { Achievement } from "../data/types";
+
+interface Props {
+  achievement: Achievement;
+  index?: number;
+}
+const { achievement, index = 0 } = Astro.props;
+const km = achievement.km ?? {};
+---
+
+<article class="card group reveal flex flex-col overflow-hidden" style={`--d:${(index % 3) * 90}ms`}>
+  <CardThumb src={achievement.image} alt={achievement.title} badge>
+    <span slot="badge"><T en={achievement.type} km={km.type} /></span>
+  </CardThumb>
+
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <div>
+      <h3 class="text-xl font-bold leading-tight text-text-primary">
+        <T en={achievement.title} km={km.title} />
+      </h3>
+      <p class="mt-1 text-sm font-medium text-primary">{achievement.year}</p>
+    </div>
+
+    <p class="flex-1 text-sm leading-relaxed text-text-secondary">
+      <T en={achievement.description} km={km.description} />
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      {achievement.tags.slice(0, 3).map((tag, i) => (
+        <span class="chip"><T en={tag} km={km.tags?.[i]} /></span>
+      ))}
+    </div>
+
+    <div class="mt-2 border-t border-border pt-4">
+      {achievement.certificate ? (
+        <a href={achievement.certificate} target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full">
+          <Icon name="eye" class="h-4 w-4" />
+          <T en="View Certificate" km="មើលវិញ្ញាបនបត្រ" />
+        </a>
+      ) : (
+        <span class="btn w-full cursor-default border border-yellow-500/40 bg-yellow-500/10 text-yellow-700 dark:text-yellow-400">
+          <Icon name="clock" class="h-4 w-4" />
+          <T en="Certificate Pending" km="រង់ចាំវិញ្ញាបនបត្រ" />
+        </span>
+      )}
+    </div>
+  </div>
+</article>

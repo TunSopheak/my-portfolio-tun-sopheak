@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="#000" stroke-width="1.4" stroke-linejoin="round">
+  <!--
+    Phka lattice tile — original artwork for this portfolio.
+    A four-petal lotus rosette (ផ្កា) sitting inside a diamond lattice, a layout
+    commonly seen in Angkorian stone-carved panels. Used only as a CSS mask,
+    so the colour comes from the page theme.
+  -->
+  <!-- diamond frame joining the petal tips -->
+  <path d="M36 9 63 36 36 63 9 36Z" stroke-width="1"/>
+  <!-- four main petals -->
+  <g id="p">
+    <path d="M36 36C29 30 29 20 36 11C43 20 43 30 36 36Z"/>
+    <path d="M36 31C33.5 27.5 33.5 22.5 36 18.5C38.5 22.5 38.5 27.5 36 31Z" stroke-width="1"/>
+  </g>
+  <use href="#p" transform="rotate(90 36 36)"/>
+  <use href="#p" transform="rotate(180 36 36)"/>
+  <use href="#p" transform="rotate(270 36 36)"/>
+  <!-- four small diagonal petals -->
+  <g id="d">
+    <path d="M36 36C33 33.5 33 29 36 25C39 29 39 33.5 36 36Z" transform="rotate(45 36 36) translate(0 4)" stroke-width="1.1"/>
+  </g>
+  <use href="#d" transform="rotate(90 36 36)"/>
+  <use href="#d" transform="rotate(180 36 36)"/>
+  <use href="#d" transform="rotate(270 36 36)"/>
+  <circle cx="36" cy="36" r="2.6" fill="#000"/>
+  <!-- corner studs, so the tile repeats seamlessly -->
+  <circle cx="0" cy="0" r="2" fill="#000" stroke="none"/>
+  <circle cx="72" cy="0" r="2" fill="#000" stroke="none"/>
+  <circle cx="0" cy="72" r="2" fill="#000" stroke="none"/>
+  <circle cx="72" cy="72" r="2" fill="#000" stroke="none"/>
+</svg>

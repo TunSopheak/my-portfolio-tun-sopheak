@@ -1,42 +1,16 @@
-<!-- src/components/BackToTop.astro -->
+---
+import Icon from "./Icon.astro";
+---
+
+<!-- Behaviour (show after scrolling, smooth scroll) lives in scripts/ui.ts -->
 <button
   id="back-to-top"
-  class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 p-3 rounded-full bg-white/5 dark:bg-black/30 backdrop-blur-md border border-primary/50 shadow-xl transition-all duration-300 opacity-0 translate-y-4 pointer-events-none hover:scale-110 hover:shadow-primary/20 hover:border-primary focus:outline-none"
-  aria-label="Scroll back to top"
+  type="button"
+  data-show="false"
+  data-aria-en="Back to top"
+  data-aria-km="ត្រឡប់ឡើងលើ"
+  aria-label="Back to top"
+  class="fixed bottom-5 right-5 z-40 grid h-11 w-11 place-items-center rounded-full border border-primary/40 bg-surface text-primary shadow-lg transition duration-300 hover:scale-110 hover:border-primary md:bottom-8 md:right-8 pointer-events-none translate-y-3 opacity-0 data-[show=true]:pointer-events-auto data-[show=true]:translate-y-0 data-[show=true]:opacity-100"
 >
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="w-5 h-5 text-primary"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    stroke-width="2.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path d="M12 19V5" />
-    <path d="M5 12l7-7 7 7" />
-  </svg>
+  <Icon name="arrow-up" class="h-5 w-5" />
 </button>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const backToTopBtn = document.getElementById("back-to-top");
-
-    if (backToTopBtn) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 400) {
-          backToTopBtn.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
-          backToTopBtn.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
-        } else {
-          backToTopBtn.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
-          backToTopBtn.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
-        }
-      });
-
-      backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
-  });
-</script>

@@ -1,0 +1,46 @@
+---
+// Section divider: the five-tower silhouette of Angkor Wat between two
+// lattice lines. Original artwork drawn for this site (simplified outline,
+// not traced from any photo or stock vector).
+// Each tower is a stepped base with a lotus-bud top.
+const tower =
+  "M-9 0V-4H-7V-9H-6V-13H-5V-17C-7-21-3-27 0-36C3-27 7-21 5-17V-13H6V-9H7V-4H9V0Z";
+
+// x = centre position, s = scale (the centre tower is tallest)
+const towers = [
+  { x: 100, s: 0.72 },
+  { x: 220, s: 0.72 },
+  { x: 130, s: 0.95 },
+  { x: 190, s: 0.95 },
+  { x: 160, s: 1.3 },
+];
+---
+
+<svg
+  class="khmer-divider"
+  viewBox="0 0 320 64"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-linecap="round"
+  role="img"
+  aria-label="Angkor Wat silhouette"
+>
+  <!-- lattice lines either side -->
+  <path d="M6 54H78M242 54H314" stroke-width="1.2" fill="none" opacity="0.55" />
+  <path d="M0 54 6 50 12 54 6 58Z M308 54 314 50 320 54 314 58Z" stroke="none" opacity="0.7" />
+
+  <!-- central gallery -->
+  <rect x="84" y="46" width="152" height="8" stroke="none" opacity="0.5" />
+  <rect x="78" y="52" width="164" height="4" stroke="none" />
+  {Array.from({ length: 14 }, (_, i) => (
+    <rect x={92 + i * 10.5} y="48" width="3.2" height="4.5" stroke="none" opacity="0.9" />
+  ))}
+
+  <!-- five towers -->
+  {towers.map(({ x, s }) => (
+    <path d={tower} transform={`translate(${x} 52) scale(${s})`} stroke="none" />
+  ))}
+  {towers.map(({ x, s }) => (
+    <path d={`M${x} ${52 - 36 * s}V${52 - 36 * s - 4}`} stroke-width="1.4" fill="none" />
+  ))}
+</svg>

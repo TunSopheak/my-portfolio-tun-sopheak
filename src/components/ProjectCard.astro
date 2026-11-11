@@ -1,0 +1,61 @@
+---
+import T from "./T.astro";
+import Icon from "./Icon.astro";
+import CardThumb from "./CardThumb.astro";
+import type { Project } from "../data/types";
+
+interface Props {
+  project: Project;
+  /** Home page shows 3 tags; the full list page shows them all. */
+  allTags?: boolean;
+  /** Show the project type as a badge on the thumbnail. */
+  showType?: boolean;
+  index?: number;
+}
+const { project, allTags = false, showType = false, index = 0 } = Astro.props;
+const km = project.km ?? {};
+const comingSoon = project.status === "coming-soon";
+const tags = allTags ? project.tags : project.tags.slice(0, 3);
+---
+
+<article class="card group reveal flex flex-col overflow-hidden" style={`--d:${(index % 3) * 90}ms`}>
+  <CardThumb src={project.image} alt={project.title} badge={showType}>
+    <span slot="badge"><T en={project.type} km={km.type} /></span>
+  </CardThumb>
+
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <div>
+      <h3 class="text-xl font-bold leading-tight text-text-primary">
+        <T en={project.title} km={km.title} />
+      </h3>
+      <p class="mt-1 text-sm font-medium text-primary">{project.year}</p>
+    </div>
+
+    <p class="flex-1 text-sm leading-relaxed text-text-secondary">
+      <T en={project.description} km={km.description} />
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      {tags.map((tag) => <span class="chip">{tag}</span>)}
+    </div>
+
+    <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border pt-4">
+      {comingSoon ? (
+        <span class="btn btn-muted"><T en="Coming Soon" km="ឆាប់ៗនេះ" /></span>
+      ) : (
+        <a href={`/projects/${project.id}`} class="btn btn-primary group/btn">
+          <T en="View Details" km="មើលលម្អិត" />
+          <Icon name="arrow" class="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+        </a>
+      )}
+      {project.github && (
+        <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-sm text-text-muted transition hover:text-primary">GitHub</a>
+      )}
+      {project.liveDemo && !comingSoon && (
+        <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" class="text-sm text-text-muted transition hover:text-primary">
+          <T en="Live Demo" km="បង្ហាញផ្ទាល់" />
+        </a>
+      )}
+    </div>
+  </div>
+</article>

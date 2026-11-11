@@ -2,6 +2,10 @@
 
 import { FILE_IDS, getDrivePdfUrl } from '../config/assets';
 
+/**
+ * @typedef {import('./types').Achievement} Achievement
+ * @type {Achievement[]}
+ */
 export const achievements = [
   // {
   //   id: "childs-dream-scholarship",
@@ -32,8 +36,15 @@ export const achievements = [
       "Served as President of the Student Council at Svay Leu High School, successfully implementing the '3 Good' Movement (Good Child, Good Student, Good Friend) annual competition for children.",
     year: "2022-2023",
     type: "Leadership & Recognition",
-    image: "/assets/images/achievements/student_council.jpg",
+    image: "/assets/images/achievements/student_council.webp",
     certificate: getDrivePdfUrl(FILE_IDS.pdfs.studentCouncilCert),
     tags: ["Leadership", "Student Council", "Community"],
+    km: {
+      title: "ប្រធានក្រុមប្រឹក្សាសិស្ស – ចលនា '៣ ល្អ'",
+      description:
+        "បានបម្រើជាប្រធានក្រុមប្រឹក្សាសិស្សនៃវិទ្យាល័យស្វាយលើ ដោយអនុវត្តជោគជ័យនូវការប្រកួតប្រជែងប្រចាំឆ្នាំរបស់កុមារ គឺចលនា '៣ ល្អ' (កូនល្អ សិស្សល្អ មិត្តល្អ)។",
+      type: "ភាពជាអ្នកដឹកនាំ និងការទទួលស្គាល់",
+      tags: ["ភាពជាអ្នកដឹកនាំ", "ក្រុមប្រឹក្សាសិស្ស", "សហគមន៍"],
+    },
   },
 ];
