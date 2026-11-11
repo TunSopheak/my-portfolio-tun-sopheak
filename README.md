@@ -9,7 +9,7 @@ A fast, bilingual (**English / ខ្មែរ**) portfolio built with **Astro**
 ## Key Features
 
 - **English / ខ្មែរ switch** – every visible text has both languages; the choice is remembered, and `?lang=km` in a URL opens the Khmer version.
-- **Khmer-inspired design** – an Angkor Wat silhouette divider, a lotus-rosette lattice and rosette heading ornaments (see [Khmer ornament](#khmer-ornament)).
+- **Clean, photo-led design** – a real photograph of Angkor in the hero, generous white space and few lines; decorative Khmer ornament is intentionally left out until properly sourced artwork is available (see [Khmer ornament](#khmer-ornament)).
 - **Data-driven content** – projects, activities, achievements, skills and education live in `src/data/`; pages are generated from them.
 - **Contact form** – EmailJS (no backend), with a honeypot against spam and safe toast messages.
 - **Dark / light mode** – saved in localStorage, follows the OS by default, no flash on load.
@@ -25,10 +25,9 @@ public/assets/
 ├── images/            # photos, project screenshots (+ optimized .webp copies)
 ├── icons/tech/        # self-hosted skill logos (SVG)
 ├── icons/education/   # education timeline icons
-├── patterns/          # phka-lattice.svg (Khmer lattice tile)
 └── files/ videos/     # CV, hero video
 src/
-├── components/        # T, Icon, SectionHeading, ProjectCard, SkillCard, ContactForm, Khmer*…
+├── components/        # T, Icon, SectionHeading, ProjectCard, SkillCard, ContactForm…
 ├── data/              # projects, activities, achievements, skills, education, nav, profile, types
 ├── layouts/           # BaseLayout (SEO, fonts, theme + language init)
 ├── pages/             # index, projects/[id], activities/[id], achievements
@@ -99,12 +98,17 @@ Khmer typography rules (taller line-height, no uppercase / letter-spacing) are a
 
 ## Khmer ornament
 
-All ornament artwork is **original**, drawn for this site — nothing is copied or traced from stock images:
+There is **no decorative kbach artwork** on the site right now, on purpose. An earlier version used self-drawn lotus-lattice and Angkor-silhouette ornaments; they were removed because they had no authentic source and looked cluttered.
 
-- `src/components/KhmerDivider.astro` – a simplified silhouette of Angkor Wat's five towers (the emblem on Cambodia's flag), each with a lotus-bud top.
-- `public/assets/patterns/phka-lattice.svg` and `KhmerRosette.astro` – a four-petal lotus rosette (ផ្កា) in a diamond lattice, a layout seen in Angkorian stone panels.
+Government sites such as mptc.gov.kh, tourism.gov.kh and mcfa.gov.kh were reviewed as references: they use clean, photo-led layouts and Khmer fonts (e.g. Kantumruy Pro, Noto Sans Khmer, Nokora) rather than ornament files. Those sites' logos and images are *not* reused here.
 
-Flame-shaped "kranok" curves were deliberately avoided because they read as Thai rather than Khmer. If you later add artwork from another source (e.g. a stock site), credit it here and check its licence. Having a Khmer designer or art teacher review the motifs is recommended.
+When real kbach artwork is added, use only artwork with a clear licence (a commissioned design, a licensed stock purchase, or a public-domain book) and record the source here:
+
+| Artwork | Source / author | Licence |
+|---------|-----------------|---------|
+| _none yet_ | | |
+
+Reference reading on genuine motifs (chan flower, lotus petal, spiral, etc.): *KBACH: A Study of Khmer Ornament* by Chan Vitharin, and the Wikipedia article on [Kbach](https://en.wikipedia.org/wiki/Kbach). Please have a Khmer designer review any motif before it is published.
 
 ---
 

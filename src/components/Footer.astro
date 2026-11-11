@@ -1,7 +1,6 @@
 ---
 import T from "./T.astro";
 import Icon from "./Icon.astro";
-import KhmerDivider from "./KhmerDivider.astro";
 import { navItems } from "../data/nav";
 import { socials, location, footerTech } from "../data/profile";
 
@@ -10,11 +9,10 @@ const heading = "mb-4 text-sm font-semibold uppercase tracking-wider text-text-p
 const link = "inline-flex items-center gap-2.5 py-0.5 transition-colors hover:text-primary";
 ---
 
-<footer class="kbach-bg border-t border-border bg-soft-bg pb-8 pt-12">
+<footer class="border-t border-border bg-soft-bg pb-8 pt-12">
   <div class="container-x">
-    <KhmerDivider />
 
-    <div class="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <!-- Brand -->
       <div class="flex flex-col gap-4">
         <span class="text-xl font-bold text-text-primary">Tun Sopheak</span>

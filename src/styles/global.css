@@ -163,7 +163,7 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
   }
 
   .chip {
-    @apply inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-medium text-primary ring-1 ring-inset ring-primary/20;
+    @apply inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-medium text-primary;
   }
 
   .field {
@@ -183,67 +183,6 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
 .js .reveal.in {
   opacity: 1;
   transform: none;
-}
-
-/* ============================================================
-   6. KHMER ORNAMENT
-   Original SVGs drawn for this site (see /public/assets/patterns and
-   components/Khmer*.astro) — inspired by Angkorian lotus-rosette lattices
-   and the five-tower silhouette of Angkor Wat.
-   ============================================================ */
-
-/* Tiled lattice shown behind a section at very low opacity.
-   Uses mask so it automatically follows the light/dark primary colour. */
-.kbach-bg {
-  position: relative;
-  isolation: isolate;
-}
-.kbach-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: var(--primary);
-  opacity: 0.07;
-  /* tile the lattice, and fade it out towards the bottom so sections blend */
-  -webkit-mask-image: url("/assets/patterns/phka-lattice.svg"), linear-gradient(#000 40%, transparent);
-  mask-image: url("/assets/patterns/phka-lattice.svg"), linear-gradient(#000 40%, transparent);
-  -webkit-mask-size: 72px 72px, 100% 100%;
-  mask-size: 72px 72px, 100% 100%;
-  -webkit-mask-repeat: repeat, no-repeat;
-  mask-repeat: repeat, no-repeat;
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
-.dark .kbach-bg::before {
-  opacity: 0.09;
-}
-
-.khmer-divider {
-  color: var(--primary);
-  width: min(340px, 78%);
-  height: auto;
-  margin-inline: auto;
-  opacity: 0.85;
-}
-
-.ornament-line {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-  color: var(--primary);
-}
-.ornament-line > span {
-  height: 1px;
-  width: clamp(2.5rem, 12vw, 5rem);
-  background: linear-gradient(to right, transparent, currentColor);
-  opacity: 0.6;
-}
-.ornament-line > span:last-child {
-  transform: scaleX(-1);
 }
 
 /* ============================================================
@@ -276,8 +215,7 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
 @media (min-width: 1024px) { .solar { --size: 430px; } }
 
 .sun-glow,
-.sun-core,
-.corona {
+.sun-core {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -297,14 +235,6 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
   background: radial-gradient(circle, rgb(251 191 36 / 0.35), transparent 65%);
   animation: pulse 3s ease-in-out infinite alternate-reverse;
 }
-.corona {
-  width: 112%;
-  height: 112%;
-  border: 2px solid transparent;
-  border-top-color: rgb(251 191 36 / 0.4);
-  border-right-color: rgb(251 191 36 / 0.12);
-  animation: spin 18s linear infinite;
-}
 @keyframes pulse {
   from { scale: 0.92; opacity: 0.7; }
   to   { scale: 1.08; opacity: 1; }
@@ -319,17 +249,6 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
   animation: spin var(--dur) linear infinite;
   z-index: 10;
   pointer-events: none;
-}
-.orbit-ring::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: calc(var(--rad) * 2);
-  height: calc(var(--rad) * 2);
-  translate: -50% -50%;
-  border-radius: 50%;
-  border: 1px dashed color-mix(in srgb, var(--primary) 28%, transparent);
 }
 .orbit-ring--outer { --rad: var(--r-outer); --pl: var(--p-outer); --dur: 40s; }
 .orbit-ring--inner { --rad: var(--r-inner); --pl: var(--p-inner); --dur: 22s; }
@@ -398,7 +317,6 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .orbit-ring,
   .planet img,
-  .corona,
   .sun-glow,
   .sun-core,
   .sparkle,
