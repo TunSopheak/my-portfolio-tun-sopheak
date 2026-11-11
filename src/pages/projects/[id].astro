@@ -31,7 +31,7 @@ const label = "mb-1 text-xs font-semibold uppercase tracking-wider text-text-mut
 
         <div class="card relative aspect-video overflow-hidden bg-primary/5">
           <div class="absolute inset-0 grid place-items-center text-sm font-medium text-text-muted">
-            <T en="Project image coming soon" km="រូបភាពគម្រោងនឹងមកដល់ឆាប់ៗ" />
+            <T en="Project image coming soon" km="រូបភាពគម្រោងនឹងដាក់បង្ហាញឆាប់ៗនេះ" />
           </div>
           <img src={project.image} alt={project.title} width="1200" height="750" decoding="async" class="relative h-full w-full object-cover" onerror="this.remove()" />
         </div>
@@ -79,7 +79,7 @@ const label = "mb-1 text-xs font-semibold uppercase tracking-wider text-text-mut
               </div>
 
               <div>
-                <p class={label}><T en="Live Site" km="គេហទំព័របង្ហាញផ្ទាល់" /></p>
+                <p class={label}><T en="Live Site" km="គេហទំព័រផ្ទាល់" /></p>
                 {project.liveDemo ? (
                   <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline">
                     <Icon name="external" class="h-4 w-4" />
@@ -98,7 +98,7 @@ const label = "mb-1 text-xs font-semibold uppercase tracking-wider text-text-mut
                     <T en="View on GitHub" km="មើលនៅ GitHub" />
                   </a>
                 ) : (
-                  <p class="text-sm italic text-text-muted"><T en="Private / Not available" km="ឯកជន / មិនមាន" /></p>
+                  <p class="text-sm italic text-text-muted"><T en="Private / Not available" km="ឯកជន / មិនទាន់មាន" /></p>
                 )}
               </div>
             </div>

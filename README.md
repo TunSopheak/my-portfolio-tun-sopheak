@@ -88,7 +88,7 @@ Khmer typography rules (taller line-height, no uppercase / letter-spacing) are a
 ## To-do / known items
 
 - [ ] Add `public/assets/images/projects/julnow.jpg` (the card currently shows a placeholder).
-- [ ] Have a native speaker review the Khmer translations, and confirm the Khmer spelling of the name.
+- [ ] Have a native speaker give the Khmer translations a final read.
 - [ ] Re-take the "Portfolio" project screenshot to show the new design.
 - [ ] Decide what the "Mr. Sterling" badge in the About section should say.
 

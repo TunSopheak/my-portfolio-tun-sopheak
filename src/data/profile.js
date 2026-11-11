@@ -17,7 +17,7 @@ export const socials = [
 
 export const location = {
   en: "Phnom Penh, Cambodia",
-  km: "ភ្នំពេញ កម្ពុជា",
+  km: "ភ្នំពេញ ប្រទេសកម្ពុជា",
   href: "https://www.google.com/maps/search/Phnom+Penh,+Cambodia",
 };
 
