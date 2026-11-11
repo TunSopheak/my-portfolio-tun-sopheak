@@ -16,9 +16,8 @@ const { id, en, km, subEn, subKm, as: Tag = "h2" } = Astro.props;
   <Tag id={id} class="inline-block text-3xl font-bold text-text-primary md:text-4xl">
     <T en={en} km={km} />
   </Tag>
-  <span class="angkor-mark mx-auto mt-3 w-12 text-primary" aria-hidden="true"></span>
   {subEn && (
-    <p class="mx-auto mt-4 max-w-2xl text-base text-text-secondary">
+    <p class="mx-auto mt-3 max-w-2xl text-base text-text-secondary">
       <T en={subEn} km={subKm} />
     </p>
   )}

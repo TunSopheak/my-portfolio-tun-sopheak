@@ -61,7 +61,7 @@
    2. BASE
    ============================================================ */
 html {
-  scroll-behavior: smooth;
+  /* Smooth scrolling is done in scripts/ui.ts (eased, cancellable); native smooth would fight it */
   scroll-padding-top: 5rem; /* keeps section titles clear of the sticky header */
 }
 
@@ -176,13 +176,35 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
    ============================================================ */
 .js .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.7s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--d, 0ms);
+  will-change: opacity, transform;
 }
 .js .reveal.in {
   opacity: 1;
   transform: none;
+  will-change: auto;
+}
+
+/* Scroll progress bar (driven by ui.ts through transform only) */
+#scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 70;
+  height: 3px;
+  background: var(--primary);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* Theme switch: colours fade instead of snapping (class is present for ~400ms only) */
+.theme-anim,
+.theme-anim *,
+.theme-anim *::before,
+.theme-anim *::after {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, fill 0.35s ease !important;
 }
 
 /* ============================================================
@@ -196,6 +218,24 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
 }
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+/* Hero background: slow zoom; then the two columns fade up one after the other */
+.hero-bg {
+  animation: hero-zoom 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.hero-in {
+  animation: hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 140ms + 80ms);
+}
+@keyframes hero-in {
+  from { opacity: 0; transform: translate3d(0, 28px, 0); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* ---------- Solar system: everything scales from --size ---------- */
@@ -322,13 +362,32 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
   -webkit-mask: var(--angkor) center / contain no-repeat;
 }
 .angkor-mark { --angkor: url("/assets/images/khmer/angkor-wat.svg"); aspect-ratio: 1000 / 616.5; }
-/* line drawing: white strokes = visible, black fill = hidden (hides overlapping lines) */
+
+/* line drawing: white strokes = visible, black fill = hidden */
 .angkor-line {
   --angkor: url("/assets/images/khmer/angkor-wat-outline.svg");
   aspect-ratio: 1000 / 616.5;
   mask-mode: luminance;
   -webkit-mask-source-type: luminance;
 }
+
+/* ONE Angkor Wat line drawing for the whole site: fixed at the bottom of the screen on every page,
+   very faint, above section backgrounds but never over clicks. Hidden while the hero is on screen. */
+#angkor-watermark {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  z-index: 5;
+  width: min(34rem, 92vw);
+  translate: -50% 0;
+  color: var(--primary);
+  opacity: 0.07;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.dark #angkor-watermark { opacity: 0.1; }
+#angkor-watermark[data-hide="true"] { opacity: 0; }
+@media (min-width: 1024px) { #angkor-watermark { width: min(60rem, 80vw); } }
 
 .flag-kh {
   display: inline-block;
@@ -343,7 +402,8 @@ html[lang="km"] :is(.tracking-wide, .tracking-wider) {
    8. ACCESSIBILITY — respect "reduce motion"
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  .hero-bg, .hero-in { animation: none !important; }
+  #scroll-progress { display: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .orbit-ring,
   .planet img,
